@@ -3,20 +3,39 @@
     "hero": {
       "type": "hero",
       "blocks": {
-        "b1": { "type": "badge", "settings": { "text": "Hand drawn" } },
-        "b2": { "type": "badge", "settings": { "text": "Soft cotton" } },
-        "b3": { "type": "badge", "settings": { "text": "Made to order" } }
+        "b1": {
+          "type": "badge",
+          "settings": {
+            "text": "Hand drawn"
+          }
+        },
+        "b2": {
+          "type": "badge",
+          "settings": {
+            "text": "Soft cotton"
+          }
+        },
+        "b3": {
+          "type": "badge",
+          "settings": {
+            "text": "Made to order"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
         "band": "pink",
         "eyebrow": "Custom pet bandanas",
         "heading": "A bandana drawn <em>just</em> for your pet.",
         "subheading": "Send me their name and a little about them. I draw the art by hand, print it on soft cotton, and post it to your door.",
         "cta_label": "Design yours",
-        "cta_link": "/collections/all",
+        "cta_link": "/collections/all-bandanas",
         "cta2_label": "See how it works",
-        "cta2_link": "#how",
+        "cta2_link": "/pages/how-it-works",
         "sticker": "One pet, one drawing"
       }
     },
@@ -27,22 +46,45 @@
         "heading": "Bandanas ready to be named",
         "text": "Pick a design, add your pet's name, and tell me what you'd love on it.",
         "count": 6,
-        "band": "none"
+        "band": "none",
+        "collection": "all-bandanas"
       }
     },
     "how": {
       "type": "how-it-works",
       "blocks": {
-        "s1": { "type": "step", "settings": { "heading": "Pick your bandana", "text": "Choose the size and the base design that suits your pet's whole vibe." } },
-        "s2": { "type": "step", "settings": { "heading": "Tell me about them", "text": "Their name, their Instagram, and anything you want on there — colours, a favourite toy, the way they sit." } },
-        "s3": { "type": "step", "settings": { "heading": "I draw and print it", "text": "The art is made by hand, printed on soft cotton, and posted to you in 3–5 days." } }
+        "s1": {
+          "type": "step",
+          "settings": {
+            "heading": "Pick your bandana",
+            "text": "Choose the size and the base design that suits your pet's whole vibe."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "heading": "Tell me about them",
+            "text": "Their name, their Instagram, and anything you want on there — colours, a favourite toy, the way they sit."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "heading": "I draw and print it",
+            "text": "The art is made by hand, printed on soft cotton, and posted to you in 3–5 days."
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
       "settings": {
         "eyebrow": "How it works",
         "heading": "Three steps, one very smug pet",
         "cta_label": "Start yours",
-        "cta_link": "/collections/all",
+        "cta_link": "/collections/all-bandanas",
         "band": "yellow"
       }
     },
@@ -55,24 +97,53 @@
         "heading": "Every bandana starts as a drawing",
         "text": "<p>No clip art, no templates. I sketch each design by hand, colour it in soft pink, yellow and green, and print it onto cotton that survives the park, the beach and the bath.</p><p>Your pet's name goes on properly — not slapped on as an afterthought.</p>",
         "cta_label": "See the collection",
-        "cta_link": "/collections/all",
+        "cta_link": "/collections/all-bandanas",
         "band": "green"
       }
     },
     "quotes": {
       "type": "testimonials",
       "blocks": {
-        "q1": { "type": "quote", "settings": { "stars": 5, "text": "I sent one photo and a sentence about her being dramatic. What came back was so her that I cried a bit.", "author": "Sam & Mochi" } },
-        "q2": { "type": "quote", "settings": { "stars": 5, "text": "The colours are soft but they really pop in photos. He has three now. I have a problem.", "author": "Priya & Biscuit" } },
-        "q3": { "type": "quote", "settings": { "stars": 5, "text": "Ordered on a Sunday, wearing it by Friday, and the fabric has survived four washes and one lake.", "author": "Tom & Nala" } }
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "I sent one photo and a sentence about her being dramatic. What came back was so her that I cried a bit.",
+            "author": "Sam & Mochi"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "The colours are soft but they really pop in photos. He has three now. I have a problem.",
+            "author": "Priya & Biscuit"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "Ordered on a Sunday, wearing it by Friday, and the fabric has survived four washes and one lake.",
+            "author": "Tom & Nala"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3"],
-      "settings": { "eyebrow": "Kind words", "heading": "What the humans say", "band": "none" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "eyebrow": "Kind words",
+        "heading": "What the humans say",
+        "band": "none"
+      }
     },
     "journal": {
       "type": "blog-posts",
       "settings": {
-        "blog": "news",
+        "blog": "journal",
         "eyebrow": "The journal",
         "heading": "Bandana reading",
         "count": 3,
@@ -82,13 +153,46 @@
     "faq": {
       "type": "faq",
       "blocks": {
-        "f1": { "type": "qa", "settings": { "question": "How long does a custom bandana take?", "answer": "<p>I draw and print to order, so allow 3–5 working days before it's posted. UK delivery is usually 2–3 days after that.</p>" } },
-        "f2": { "type": "qa", "settings": { "question": "What size should I choose?", "answer": "<p>Measure your pet's neck and add about 5cm. If you're between sizes, go up — the tie-on style is forgiving.</p>" } },
-        "f3": { "type": "qa", "settings": { "question": "Can I send a photo of my pet?", "answer": "<p>Please do. Order first, then email your photos with your order number and I'll match the drawing to them.</p>" } },
-        "f4": { "type": "qa", "settings": { "question": "How do I wash it?", "answer": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry and don't iron directly over the print.</p>" } }
+        "f1": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does a custom bandana take?",
+            "answer": "<p>I draw and print to order, so allow 3–5 working days before it's posted. UK delivery is usually 2–3 days after that.</p>"
+          }
+        },
+        "f2": {
+          "type": "qa",
+          "settings": {
+            "question": "What size should I choose?",
+            "answer": "<p>Measure your pet's neck and add about 5cm. If you're between sizes, go up — the tie-on style is forgiving.</p>"
+          }
+        },
+        "f3": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I send a photo of my pet?",
+            "answer": "<p>Please do. Order first, then email your photos with your order number and I'll match the drawing to them.</p>"
+          }
+        },
+        "f4": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I wash it?",
+            "answer": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry and don't iron directly over the print.</p>"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4"],
-      "settings": { "eyebrow": "Questions", "heading": "Everything you might ask", "band": "none" }
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Everything you might ask",
+        "band": "none"
+      }
     },
     "cta": {
       "type": "cta-banner",
@@ -97,10 +201,19 @@
         "heading": "Let's put their name on something soft",
         "text": "Pick a bandana, tell me about your pet, and I'll draw the rest.",
         "cta_label": "Design yours",
-        "cta_link": "/collections/all",
+        "cta_link": "/collections/all-bandanas",
         "band": "pink"
       }
     }
   },
-  "order": ["hero", "featured", "how", "story", "quotes", "journal", "faq", "cta"]
+  "order": [
+    "hero",
+    "featured",
+    "how",
+    "story",
+    "quotes",
+    "journal",
+    "faq",
+    "cta"
+  ]
 }

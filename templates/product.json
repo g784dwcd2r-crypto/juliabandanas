@@ -3,14 +3,57 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "r1": { "type": "reassurance", "settings": { "icon": "brush", "text": "Hand-drawn art, never a template" } },
-        "r2": { "type": "reassurance", "settings": { "icon": "truck", "text": "Made to order in 3–5 days, then posted" } },
-        "r3": { "type": "reassurance", "settings": { "icon": "heart", "text": "Soft cotton, machine washable" } },
-        "a1": { "type": "accordion", "settings": { "heading": "Sizing", "content": "<p>Measure your pet's neck, add about 5cm, and pick the size that covers it. Between sizes? Go up — the ties are forgiving.</p><ul><li><strong>XS</strong> — 20–28cm neck</li><li><strong>S</strong> — 28–36cm</li><li><strong>M</strong> — 36–46cm</li><li><strong>L</strong> — 46–58cm</li></ul>" } },
-        "a2": { "type": "accordion", "settings": { "heading": "Care", "content": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry, and if you iron it, avoid going directly over the print.</p>" } },
-        "a3": { "type": "accordion", "settings": { "heading": "Shipping & returns", "content": "<p>UK delivery 2–3 days after your bandana is made. Because each one is personalised it can't be returned unless there's a fault — but if something's wrong, message me and I'll fix it.</p>" } }
+        "r1": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "brush",
+            "text": "Hand-drawn art, never a template"
+          }
+        },
+        "r2": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "truck",
+            "text": "Made to order in 3–5 days, then posted"
+          }
+        },
+        "r3": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "heart",
+            "text": "Soft cotton, machine washable"
+          }
+        },
+        "a1": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Sizing",
+            "content": "<p>Measure your pet's neck, add about 5cm, and pick the size that covers it. Between sizes? Go up — the ties are forgiving.</p><ul><li><strong>XS</strong> — 20–28cm neck</li><li><strong>S</strong> — 28–36cm</li><li><strong>M</strong> — 36–46cm</li><li><strong>L</strong> — 46–58cm</li></ul>"
+          }
+        },
+        "a2": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Care",
+            "content": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry, and if you iron it, avoid going directly over the print.</p>"
+          }
+        },
+        "a3": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping & returns",
+            "content": "<p>UK delivery 2–3 days after your bandana is made. Because each one is personalised it can't be returned unless there's a fault — but if something's wrong, message me and I'll fix it.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "a1", "a2", "a3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "a1",
+        "a2",
+        "a3"
+      ],
       "settings": {
         "show_vendor": false,
         "personalise_heading": "Make it theirs",
@@ -23,9 +66,13 @@
         "eyebrow": "More to love",
         "heading": "Others have their eye on these",
         "count": 4,
-        "band": "cream"
+        "band": "cream",
+        "collection": "all-bandanas"
       }
     }
   },
-  "order": ["main", "related"]
+  "order": [
+    "main",
+    "related"
+  ]
 }
