@@ -6,19 +6,19 @@
         "b1": {
           "type": "badge",
           "settings": {
-            "text": "Hand drawn"
+            "text": "Free UK shipping over £35"
           }
         },
         "b2": {
           "type": "badge",
           "settings": {
-            "text": "Small batch"
+            "text": "Fast dispatch"
           }
         },
         "b3": {
           "type": "badge",
           "settings": {
-            "text": "Posted in 2 days"
+            "text": "30-day returns"
           }
         }
       },
@@ -29,14 +29,14 @@
       ],
       "settings": {
         "band": "pink",
-        "eyebrow": "Hand-drawn cute things",
+        "eyebrow": "Ducks, and friends to come",
         "heading": "Ducks, mushrooms and other <em>small</em> joys.",
-        "subheading": "I draw silly little creatures and put them on stickers, prints, bandanas and bits for your bag. Pick a category and go from there.",
+        "subheading": "Hats, tees, prints, socks and little bits — all covered in creatures worth having on your head. Pick a category and go from there.",
         "cta_label": "Shop everything",
         "cta_link": "/collections/everything",
         "cta2_label": "Browse categories",
         "cta2_link": "#categories",
-        "sticker": "Drawn, not generated"
+        "sticker": "Very silly. Very good."
       }
     },
     "categories": {
@@ -138,7 +138,7 @@
       "settings": {
         "eyebrow": "Shop by category",
         "heading": "Pick your little obsession",
-        "text": "Ten small worlds, all drawn by hand and turned into things you can actually own.",
+        "text": "Ten small worlds. Ducks are stocked first, and the rest are arriving as fast as I can find them.",
         "show_counts": false,
         "link_label": "Shop everything",
         "link_url": "/collections/everything",
@@ -162,22 +162,22 @@
         "s1": {
           "type": "step",
           "settings": {
-            "heading": "Drawn by hand",
-            "text": "Every duck, frog and mushroom starts as a drawing. No stock art, no templates, nothing generated."
+            "heading": "Picked one by one",
+            "text": "Everything here is chosen by hand. If it isn't something I'd actually wear or put on my own wall, it doesn't go in the shop."
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "heading": "Printed properly",
-            "text": "Thick matte vinyl for stickers, heavy uncoated card for prints, soft cotton for anything you wear."
+            "heading": "Checked before it ships",
+            "text": "Sizes, materials and photos are checked against the real thing, so what turns up is what you thought you were buying."
           }
         },
         "s3": {
           "type": "step",
           "settings": {
             "heading": "Posted quickly",
-            "text": "Packed in a recycled mailer and posted within two working days. Free UK shipping over £35."
+            "text": "Packed and sent as fast as I can manage. Free UK shipping over £35, and 30 days to change your mind."
           }
         }
       },
@@ -199,9 +199,9 @@
       "settings": {
         "ratio": "tall",
         "flip": true,
-        "eyebrow": "Made by hand",
-        "heading": "It starts with one silly drawing",
-        "text": "<p>A duck in a bucket hat. A mushroom having a lie-down. A snail who is, frankly, going through something. Whatever it is, it gets drawn first and justified later.</p><p>The ones that make me laugh become a sticker. Then a print. Then a keyring. Then, occasionally, a whole category.</p>",
+        "eyebrow": "How it started",
+        "heading": "It started with one very silly duck",
+        "text": "<p>A duck in a bucket hat. A duck holding a glass of wine. A duck making a gesture that is frankly uncalled for. Once you notice how many ridiculous ducks exist in the world, it is difficult to stop collecting them.</p><p>So the shop starts with ducks, and grows one category at a time — mushrooms, frogs, snails and whatever else turns out to be worth it.</p>",
         "cta_label": "See everything",
         "cta_link": "/collections/everything",
         "band": "green"
@@ -262,36 +262,36 @@
         "f1": {
           "type": "qa",
           "settings": {
-            "question": "What are the stickers actually made of?",
-            "answer": "<p>Thick matte vinyl. They're waterproof, dishwasher-safe on a bottle, and they peel off cleanly if you change your mind about where you put them.</p>"
+            "question": "How quickly do you post?",
+            "answer": "<p>Orders are packed and sent as quickly as I can manage. Free UK shipping over £35, and international shipping is calculated at checkout.</p>"
           }
         },
         "f2": {
           "type": "qa",
           "settings": {
-            "question": "How quickly do you post?",
-            "answer": "<p>Within two working days, first class. UK delivery is usually 1–2 days after that. Free UK shipping over £35, and yes, I post worldwide.</p>"
+            "question": "What sizes do the hats come in?",
+            "answer": "<p>Most bucket hats are a 56–58cm one-size fit. Where a product has several sizes, they're listed on its own page — measure around your head just above the ears and go by that.</p>"
           }
         },
         "f3": {
           "type": "qa",
           "settings": {
-            "question": "Can I request a creature?",
-            "answer": "<p>Please do. Several of the categories exist because somebody messaged me asking for a snail. Tell me what you want to see.</p>"
+            "question": "Can I return something?",
+            "answer": "<p>Yes — within 30 days, unworn and in its original packaging. Message me first and I'll sort it out.</p>"
           }
         },
         "f4": {
           "type": "qa",
           "settings": {
-            "question": "Can I return something?",
-            "answer": "<p>Yes — within 30 days, unused, with sticker sheets unopened. Message me first and I'll sort it out.</p>"
+            "question": "When are the other categories coming?",
+            "answer": "<p>Ducks are stocked now. Mushrooms, frogs and the rest are being added as I find things worth stocking — the newsletter is the fastest way to hear when one lands.</p>"
           }
         },
         "f5": {
           "type": "qa",
           "settings": {
-            "question": "Is any of this AI?",
-            "answer": "<p>No. Every drawing is made by hand on an iPad, by me, badly at first and then less badly.</p>"
+            "question": "Can I request a creature?",
+            "answer": "<p>Please do. If there's something you want to see in the shop, tell me and I'll go looking.</p>"
           }
         }
       },
@@ -312,8 +312,8 @@
       "type": "cta-banner",
       "settings": {
         "eyebrow": "Go on then",
-        "heading": "Your bag needs a frog on it",
-        "text": "Ten categories, all drawn by hand, all posted within two working days.",
+        "heading": "Your head needs a duck on it",
+        "text": "Ten categories, ducks stocked first, free UK shipping over £35.",
         "cta_label": "Shop everything",
         "cta_link": "/collections/everything",
         "band": "pink"

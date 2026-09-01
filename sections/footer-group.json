@@ -16,7 +16,7 @@
           "type": "newsletter",
           "settings": {
             "heading": "Get the good post",
-            "text": "New drawings, restocks and the occasional very smug frog."
+            "text": "New categories, restocks and the occasional extremely smug duck."
           }
         }
       },
@@ -25,8 +25,8 @@
         "news"
       ],
       "settings": {
-        "blurb": "Hand-drawn stickers, prints and bits and bobs, made in small batches. Ducks, mushrooms, frogs and whatever else turns up.",
-        "credit": "Drawn by hand in the UK"
+        "blurb": "A small shop of very silly creatures on things you can actually wear and use. Ducks first, everything else to follow.",
+        "credit": "Run from a kitchen table in the UK"
       }
     }
   },

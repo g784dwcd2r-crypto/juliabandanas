@@ -8,7 +8,7 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Hand-drawn, never generated"
+            "text": "Ducks in stock now"
           }
         },
         "m2": {
@@ -20,13 +20,13 @@
         "m3": {
           "type": "message",
           "settings": {
-            "text": "Posted within two working days"
+            "text": "30 days to change your mind"
           }
         },
         "m4": {
           "type": "message",
           "settings": {
-            "text": "New drops every month"
+            "text": "New categories landing soon"
           }
         }
       },

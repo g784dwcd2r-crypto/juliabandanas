@@ -178,7 +178,7 @@
         "type": "richtext",
         "id": "cart_note",
         "label": "Cart note",
-        "default": "<p>Everything is drawn by hand and packed in a recycled mailer. Posted within two working days.</p>"
+        "default": "<p>Packed and posted as quickly as I can manage. Free UK shipping over £35.</p>"
       }
     ]
   }

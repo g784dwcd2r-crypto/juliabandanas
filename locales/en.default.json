@@ -53,8 +53,8 @@
       "new": "New",
       "quantity": "Quantity",
       "from_price": "From {{ price }}",
-      "card_meta": "Hand drawn",
-      "price_note": "Free UK shipping over £35. Posted within two working days.",
+      "card_meta": "Free UK shipping over £35",
+      "price_note": "Free UK shipping over £35. 30 days to change your mind.",
       "go_to_image": "Go to image {{ index }}"
     }
   },

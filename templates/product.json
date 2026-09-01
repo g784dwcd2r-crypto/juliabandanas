@@ -6,43 +6,43 @@
         "r1": {
           "type": "reassurance",
           "settings": {
-            "icon": "brush",
-            "text": "Drawn by hand, never generated"
+            "icon": "heart",
+            "text": "Picked by hand, not by algorithm"
           }
         },
         "r2": {
           "type": "reassurance",
           "settings": {
             "icon": "truck",
-            "text": "Posted within two working days"
+            "text": "Free UK shipping over £35"
           }
         },
         "r3": {
           "type": "reassurance",
           "settings": {
-            "icon": "heart",
-            "text": "Made in small batches in the UK"
+            "icon": "check",
+            "text": "30 days to change your mind"
           }
         },
         "a1": {
           "type": "accordion",
           "settings": {
-            "heading": "What it's made of",
-            "content": "<p>It depends what you're looking at:</p><ul><li><strong>Stickers</strong> — thick matte vinyl, waterproof, dishwasher-safe on a bottle.</li><li><strong>Prints</strong> — 300gsm uncoated card, printed with pigment inks.</li><li><strong>Bandanas &amp; totes</strong> — soft 100% cotton.</li><li><strong>Keyrings &amp; pins</strong> — acrylic and enamel, with a proper metal fitting.</li></ul>"
+            "heading": "Sizing",
+            "content": "<p>Most bucket hats are a 56–58cm one-size fit. Where several sizes are listed, measure around your head just above the ears and go by that number.</p><p>Clothing runs to the size chart on the product images — if you're between sizes, go up.</p>"
           }
         },
         "a2": {
           "type": "accordion",
           "settings": {
             "heading": "Looking after it",
-            "content": "<p>Stickers survive rain, bottles and dishwashers, but not a scouring pad. Prints prefer to stay out of direct sunlight. Anything cotton takes a cold wash, inside out, hung to dry — never a tumble dryer.</p>"
+            "content": "<p>Anything cotton takes a cold wash, inside out, hung to dry rather than tumbled. Prints prefer to stay out of direct sunlight. Don't iron directly over a print.</p>"
           }
         },
         "a3": {
           "type": "accordion",
           "settings": {
             "heading": "Shipping &amp; returns",
-            "content": "<p>Posted within two working days in a recycled mailer. UK delivery 1–2 days after that; free over £35. Worldwide shipping is calculated at checkout.</p><p>Returns within 30 days, unused, with sticker sheets unopened. Message me and I'll sort it.</p>"
+            "content": "<p>Packed and posted as quickly as I can manage. Free UK shipping over £35; international is calculated at checkout.</p><p>Returns within 30 days, unworn and in original packaging. Message me and I'll sort it.</p>"
           }
         }
       },
