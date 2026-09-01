@@ -252,7 +252,6 @@ h4, .h4 { font-size: clamp(1.1rem, 4.4vw, 1.4rem);  line-height: 1.2; }
   text-transform: uppercase;
 }
 .field__hint { font-size: .78rem; font-weight: 600; color: var(--ink-60); text-transform: none; letter-spacing: 0; }
-.field__req { color: var(--pink-deep); }
 
 .input, .textarea, .select {
   width: 100%;
@@ -281,19 +280,6 @@ h4, .h4 { font-size: clamp(1.1rem, 4.4vw, 1.4rem);  line-height: 1.2; }
   background-position: right 16px center;
   padding-right: 42px;
 }
-.field--error .input,
-.field--error .textarea { border-color: var(--pink-deep); box-shadow: 0 4px 0 var(--pink-deep); }
-.field__error {
-  display: none;
-  margin-top: 6px;
-  font-size: .82rem;
-  font-weight: 700;
-  color: #C2185B;
-}
-.field--error .field__error { display: block; }
-.char-count { font-variant-numeric: tabular-nums; }
-.char-count.is-over { color: #C2185B; }
-
 /* ---------- Media ---------- */
 .media {
   position: relative;

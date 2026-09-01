@@ -1,6 +1,6 @@
 {
   "current": {
-    "logo_text": "julia bandanas",
+    "logo_text": "julia mind",
     "logo_style": "cycle",
     "logo_size": 24,
     "color_bg": "#FFFCF5",
@@ -14,21 +14,10 @@
     "color_cream": "#FFF7E8",
     "type_base_size": 17,
     "type_heading_weight": 700,
-    "pers_name_label": "Name on the bandana",
-    "pers_name_placeholder": "e.g. Mochi",
-    "pers_name_required": true,
-    "pers_name_max": 18,
-    "pers_ig_label": "Pet's Instagram",
-    "pers_ig_placeholder": "@yourpet",
-    "pers_ig_required": false,
-    "pers_notes_label": "Tell me what you want",
-    "pers_notes_placeholder": "Colours, breed, little details, a vibe, a photo you'll email me — anything at all.",
-    "pers_notes_required": false,
-    "pers_notes_max": 500,
     "social_instagram": "",
     "social_tiktok": "",
     "social_email": "",
     "cart_drawer": true,
-    "cart_note": "<p>Every bandana is drawn by hand. Made-to-order in 3–5 days.</p>"
+    "cart_note": "<p>Everything is drawn by hand and packed in a recycled mailer. Posted within two working days.</p>"
   }
 }

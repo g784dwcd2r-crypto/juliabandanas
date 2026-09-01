@@ -16,7 +16,7 @@
           "type": "newsletter",
           "settings": {
             "heading": "Get the good post",
-            "text": "New designs, restocks and the occasional very good dog."
+            "text": "New drawings, restocks and the occasional very smug frog."
           }
         }
       },
@@ -25,8 +25,8 @@
         "news"
       ],
       "settings": {
-        "blurb": "Custom pet bandanas, drawn by hand and printed on soft cotton. One pet, one drawing, one bandana.",
-        "credit": "Drawn with love in the UK"
+        "blurb": "Hand-drawn stickers, prints and bits and bobs, made in small batches. Ducks, mushrooms, frogs and whatever else turns up.",
+        "credit": "Drawn by hand in the UK"
       }
     }
   },

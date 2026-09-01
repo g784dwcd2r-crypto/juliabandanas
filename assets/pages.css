@@ -119,56 +119,6 @@
   cursor: not-allowed;
 }
 
-/* --- Personalisation block: the heart of the shop --- */
-.personalise {
-  margin-top: 30px;
-  padding: 22px 20px 24px;
-  background: var(--pink-soft);
-  border: var(--line);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-}
-@media (min-width: 750px) { .personalise { padding: 28px 26px 30px; } }
-.personalise__head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-.personalise__title { font-size: 1.2rem; font-weight: 800; letter-spacing: -.01em; }
-.personalise__intro { font-size: .92rem; font-weight: 600; color: var(--ink-60); margin-bottom: 20px; }
-.personalise__fields { display: flex; flex-direction: column; gap: 20px; }
-
-/* Live preview of the name as it will be embroidered/printed */
-.name-preview {
-  display: grid;
-  place-items: center;
-  min-height: 92px;
-  margin-top: 14px;
-  padding: 16px 20px;
-  background:
-    repeating-linear-gradient(45deg, var(--yellow) 0 10px, var(--yellow-deep) 10px 20px);
-  border: var(--line);
-  border-radius: var(--r-md);
-  text-align: center;
-  overflow: hidden;
-}
-.name-preview__inner {
-  max-width: 100%;
-  padding: 10px 22px;
-  background: var(--bg);
-  border: var(--line);
-  border-radius: var(--r-pill);
-}
-.name-preview__text {
-  display: block;
-  font-size: clamp(1.3rem, 7vw, 2rem);
-  font-weight: 800;
-  letter-spacing: .01em;
-  line-height: 1.1;
-  word-break: break-word;
-}
-.name-preview__text:empty::before {
-  content: attr(data-empty);
-  color: var(--ink-40);
-  font-weight: 600;
-}
-
 /* Quantity */
 .qty {
   display: inline-flex;

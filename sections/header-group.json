@@ -5,18 +5,50 @@
     "announcement": {
       "type": "announcement-bar",
       "blocks": {
-        "m1": { "type": "message", "settings": { "text": "Hand-drawn just for your pet" } },
-        "m2": { "type": "message", "settings": { "text": "Free UK shipping over £35" } },
-        "m3": { "type": "message", "settings": { "text": "Made to order in 3–5 days" } },
-        "m4": { "type": "message", "settings": { "text": "Tag us to be featured" } }
+        "m1": {
+          "type": "message",
+          "settings": {
+            "text": "Hand-drawn, never generated"
+          }
+        },
+        "m2": {
+          "type": "message",
+          "settings": {
+            "text": "Free UK shipping over £35"
+          }
+        },
+        "m3": {
+          "type": "message",
+          "settings": {
+            "text": "Posted within two working days"
+          }
+        },
+        "m4": {
+          "type": "message",
+          "settings": {
+            "text": "New drops every month"
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3", "m4"],
-      "settings": { "speed": 26 }
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "speed": 26
+      }
     },
     "header": {
       "type": "header",
-      "settings": { "menu": "main-menu" }
+      "settings": {
+        "menu": "main-menu"
+      }
     }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }

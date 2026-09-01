@@ -7,42 +7,42 @@
           "type": "reassurance",
           "settings": {
             "icon": "brush",
-            "text": "Hand-drawn art, never a template"
+            "text": "Drawn by hand, never generated"
           }
         },
         "r2": {
           "type": "reassurance",
           "settings": {
             "icon": "truck",
-            "text": "Made to order in 3–5 days, then posted"
+            "text": "Posted within two working days"
           }
         },
         "r3": {
           "type": "reassurance",
           "settings": {
             "icon": "heart",
-            "text": "Soft cotton, machine washable"
+            "text": "Made in small batches in the UK"
           }
         },
         "a1": {
           "type": "accordion",
           "settings": {
-            "heading": "Sizing",
-            "content": "<p>Measure your pet's neck, add about 5cm, and pick the size that covers it. Between sizes? Go up — the ties are forgiving.</p><ul><li><strong>XS</strong> — 20–28cm neck</li><li><strong>S</strong> — 28–36cm</li><li><strong>M</strong> — 36–46cm</li><li><strong>L</strong> — 46–58cm</li></ul>"
+            "heading": "What it's made of",
+            "content": "<p>It depends what you're looking at:</p><ul><li><strong>Stickers</strong> — thick matte vinyl, waterproof, dishwasher-safe on a bottle.</li><li><strong>Prints</strong> — 300gsm uncoated card, printed with pigment inks.</li><li><strong>Bandanas &amp; totes</strong> — soft 100% cotton.</li><li><strong>Keyrings &amp; pins</strong> — acrylic and enamel, with a proper metal fitting.</li></ul>"
           }
         },
         "a2": {
           "type": "accordion",
           "settings": {
-            "heading": "Care",
-            "content": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry, and if you iron it, avoid going directly over the print.</p>"
+            "heading": "Looking after it",
+            "content": "<p>Stickers survive rain, bottles and dishwashers, but not a scouring pad. Prints prefer to stay out of direct sunlight. Anything cotton takes a cold wash, inside out, hung to dry — never a tumble dryer.</p>"
           }
         },
         "a3": {
           "type": "accordion",
           "settings": {
-            "heading": "Shipping & returns",
-            "content": "<p>UK delivery 2–3 days after your bandana is made. Because each one is personalised it can't be returned unless there's a fault — but if something's wrong, message me and I'll fix it.</p>"
+            "heading": "Shipping &amp; returns",
+            "content": "<p>Posted within two working days in a recycled mailer. UK delivery 1–2 days after that; free over £35. Worldwide shipping is calculated at checkout.</p><p>Returns within 30 days, unused, with sticker sheets unopened. Message me and I'll sort it.</p>"
           }
         }
       },
@@ -55,19 +55,17 @@
         "a3"
       ],
       "settings": {
-        "show_vendor": false,
-        "personalise_heading": "Make it theirs",
-        "personalise_intro": "I draw every bandana from scratch. Tell me who it's for and I'll take it from there."
+        "show_vendor": false
       }
     },
     "related": {
       "type": "featured-collection",
       "settings": {
         "eyebrow": "More to love",
-        "heading": "Others have their eye on these",
+        "heading": "People also fell for these",
         "count": 4,
         "band": "cream",
-        "collection": "all-bandanas"
+        "collection": "everything"
       }
     }
   },

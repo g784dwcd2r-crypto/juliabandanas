@@ -22,7 +22,7 @@
     },
     "search": {
       "title": "Search",
-      "placeholder": "Search bandanas and posts",
+      "placeholder": "Search stickers, prints and posts",
       "submit": "Search",
       "results_count": {
         "one": "{{ count }} result for \"{{ terms }}\"",
@@ -41,38 +41,29 @@
       "link": "Back to the shop"
     }
   },
-
   "onboarding": {
-    "product_title": "Custom pet bandana"
+    "product_title": "Sticker sheet"
   },
-
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
       "sold_out": "Sold out",
       "unavailable": "Unavailable",
-      "added": "Added",
       "on_sale": "Sale",
       "new": "New",
       "quantity": "Quantity",
       "from_price": "From {{ price }}",
-      "card_meta": "Personalised free",
-      "price_note": "Personalisation included. UK shipping calculated at checkout.",
-      "personalise_tag": "Personalise",
-      "optional": "Optional",
-      "field_required": "Please fill this in",
-      "name_hint": "This is exactly how the name will be printed, spelling and all.",
-      "ig_hint": "So I can see them, and tag you when I share the finished bandana.",
+      "card_meta": "Hand drawn",
+      "price_note": "Free UK shipping over £35. Posted within two working days.",
       "go_to_image": "Go to image {{ index }}"
     }
   },
-
   "sections": {
     "cart": {
       "title": "Cart",
       "empty": "Your cart is empty",
-      "empty_note": "Pick a bandana and let's get their name on it.",
-      "continue_shopping": "Shop bandanas",
+      "empty_note": "Go and find a duck. Or a mushroom. Or both.",
+      "continue_shopping": "Shop everything",
       "subtotal": "Subtotal",
       "total": "Total",
       "tax_note": "Taxes and shipping calculated at checkout.",
@@ -101,7 +92,6 @@
       "rating": "{{ rating }} out of 5 stars"
     }
   },
-
   "blogs": {
     "article": {
       "eyebrow": "The journal",
@@ -112,16 +102,14 @@
       "more": "Keep reading"
     }
   },
-
   "contact": {
     "success": "Thanks — that's landed in my inbox. I'll reply soon.",
     "name": "Your name",
     "email": "Email",
-    "pet_ig": "Your pet's Instagram",
     "message": "Message",
-    "send": "Send message"
+    "send": "Send message",
+    "instagram": "Your Instagram"
   },
-
   "customer": {
     "login": {
       "title": "Log in",
@@ -163,7 +151,6 @@
       "decline": "Decline invitation"
     }
   },
-
   "gift_card": {
     "title": "Gift card",
     "shop": "Start shopping"

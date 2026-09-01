@@ -1,14 +1,4 @@
-{%- liquid
-  assign v = product.selected_or_first_available_variant
-
-  assign name_label = settings.pers_name_label | default: 'Name on the bandana'
-  assign ig_label   = settings.pers_ig_label   | default: "Pet's Instagram"
-  assign notes_label = settings.pers_notes_label | default: 'Tell me what you want'
-
-  assign name_required = settings.pers_name_required
-  assign ig_required = settings.pers_ig_required
-  assign notes_required = settings.pers_notes_required
--%}
+{%- assign v = product.selected_or_first_available_variant -%}
 
 <div class="wrap">
   <nav class="crumbs" aria-label="{{ 'general.breadcrumbs' | t }}">
@@ -81,7 +71,7 @@
         {%- endif -%}
 
         <form method="post" action="{{ routes.cart_add_url }}" id="product-form" accept-charset="UTF-8"
-              enctype="multipart/form-data" data-product-form novalidate>
+              data-product-form>
           <input type="hidden" name="form_type" value="product">
           <input type="hidden" name="utf8" value="✓">
           <input type="hidden" name="id" value="{{ v.id }}" data-variant-id>
@@ -124,85 +114,6 @@
               </script>
             </div>
           {%- endunless -%}
-
-          {%- comment -%}
-            ---------- Personalisation ----------
-            Three line item properties. They travel with the order so every
-            item on the packing slip says exactly whose bandana it is.
-          {%- endcomment -%}
-          <div class="personalise">
-            <div class="personalise__head">
-              <span class="pill pill--yellow">{% render 'icon', name: 'paw' %} {{ 'products.product.personalise_tag' | t }}</span>
-            </div>
-            <h2 class="personalise__title">{{ section.settings.personalise_heading }}</h2>
-            <p class="personalise__intro">{{ section.settings.personalise_intro }}</p>
-
-            <div class="personalise__fields">
-
-              {%- comment -%} 1. Name on the bandana {%- endcomment -%}
-              <div class="field">
-                <label class="field__label" for="pers-name">
-                  <span>
-                    {{ name_label }}
-                    {%- if name_required %} <span class="field__req" aria-hidden="true">*</span>{% endif -%}
-                  </span>
-                  <span class="field__hint char-count" data-count-for="pers-name"></span>
-                </label>
-                <input class="input" id="pers-name" type="text"
-                       name="properties[{{ name_label | escape }}]"
-                       maxlength="{{ settings.pers_name_max | default: 18 }}"
-                       placeholder="{{ settings.pers_name_placeholder | escape }}"
-                       autocomplete="off"
-                       {% if name_required %}required data-required-field{% endif %}>
-                <p class="field__error">{{ 'products.product.field_required' | t }}</p>
-
-                <div class="name-preview" aria-hidden="true">
-                  <span class="name-preview__inner">
-                    <span class="name-preview__text"
-                          data-name-preview="pers-name"
-                          data-empty="{{ settings.pers_name_placeholder | escape }}"></span>
-                  </span>
-                </div>
-                <p class="field__hint" style="margin-top:8px">{{ 'products.product.name_hint' | t }}</p>
-              </div>
-
-              {%- comment -%} 2. Pet's Instagram {%- endcomment -%}
-              <div class="field">
-                <label class="field__label" for="pers-ig">
-                  <span>
-                    {{ ig_label }}
-                    {%- if ig_required %} <span class="field__req" aria-hidden="true">*</span>{% endif -%}
-                  </span>
-                  {%- unless ig_required -%}<span class="field__hint">{{ 'products.product.optional' | t }}</span>{%- endunless -%}
-                </label>
-                <input class="input" id="pers-ig" type="text"
-                       name="properties[{{ ig_label | escape }}]"
-                       placeholder="{{ settings.pers_ig_placeholder | escape }}"
-                       autocapitalize="none" autocorrect="off" spellcheck="false" autocomplete="off"
-                       data-ig-field
-                       {% if ig_required %}required data-required-field{% endif %}>
-                <p class="field__error">{{ 'products.product.field_required' | t }}</p>
-                <p class="field__hint" style="margin-top:8px">{{ 'products.product.ig_hint' | t }}</p>
-              </div>
-
-              {%- comment -%} 3. Free-text brief {%- endcomment -%}
-              <div class="field">
-                <label class="field__label" for="pers-notes">
-                  <span>
-                    {{ notes_label }}
-                    {%- if notes_required %} <span class="field__req" aria-hidden="true">*</span>{% endif -%}
-                  </span>
-                  <span class="field__hint char-count" data-count-for="pers-notes"></span>
-                </label>
-                <textarea class="textarea" id="pers-notes"
-                          name="properties[{{ notes_label | escape }}]"
-                          maxlength="{{ settings.pers_notes_max | default: 500 }}"
-                          placeholder="{{ settings.pers_notes_placeholder | escape }}"
-                          {% if notes_required %}required data-required-field{% endif %}></textarea>
-                <p class="field__error">{{ 'products.product.field_required' | t }}</p>
-              </div>
-            </div>
-          </div>
 
           {%- comment -%} ---------- Buy ---------- {%- endcomment -%}
           <div class="product__buy" data-buybar-anchor>
@@ -290,15 +201,7 @@
 {
   "name": "Product",
   "settings": [
-    { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false },
-    {
-      "type": "text", "id": "personalise_heading", "label": "Personalisation heading",
-      "default": "Make it theirs"
-    },
-    {
-      "type": "textarea", "id": "personalise_intro", "label": "Personalisation intro",
-      "default": "I draw every bandana from scratch. Tell me who it's for and I'll take it from there."
-    }
+    { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false }
   ],
   "blocks": [
     {

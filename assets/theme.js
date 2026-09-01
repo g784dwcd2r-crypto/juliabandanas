@@ -210,51 +210,7 @@
     });
   }
 
-  /* ======================================================================
-     Character counters + live name preview
-     ====================================================================== */
-  function initCounters() {
-    $$('[data-count-for]').forEach(function (counter) {
-      var input = document.getElementById(counter.getAttribute('data-count-for'));
-      if (!input) return;
-      var max = parseInt(input.getAttribute('maxlength') || '0', 10);
-      function tick() {
-        counter.textContent = input.value.length + '/' + max;
-        counter.classList.toggle('is-over', max && input.value.length >= max);
-      }
-      input.addEventListener('input', tick);
-      tick();
-    });
-
-    $$('[data-name-preview]').forEach(function (preview) {
-      var input = document.getElementById(preview.getAttribute('data-name-preview'));
-      if (!input) return;
-      function tick() { preview.textContent = input.value.trim(); }
-      input.addEventListener('input', tick);
-      tick();
-    });
-  }
-
-  /* ======================================================================
-     Personalisation validation — checked before the form is allowed to post
-     ====================================================================== */
-  function validatePersonalisation(form) {
-    var ok = true;
-    var firstBad = null;
-    $$('[data-required-field]', form).forEach(function (input) {
-      var field = input.closest('.field');
-      var valid = input.value.trim().length > 0;
-      if (field) field.classList.toggle('field--error', !valid);
-      if (!valid) { ok = false; if (!firstBad) firstBad = input; }
-    });
-    if (firstBad) {
-      firstBad.focus();
-      firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    return ok;
-  }
-
-  /* Normalise the Instagram handle so orders read consistently */
+  /* Normalise a typed Instagram handle on the contact form */
   function initIgField() {
     $$('[data-ig-field]').forEach(function (input) {
       input.addEventListener('blur', function () {
@@ -302,7 +258,6 @@
       var errorEl = $('[data-form-error]', form);
 
       form.addEventListener('submit', function (e) {
-        if (!validatePersonalisation(form)) { e.preventDefault(); return; }
         if (!window.fetch || !JB.cartDrawer) return; // let it post normally
 
         e.preventDefault();
@@ -517,7 +472,6 @@
     initReveal();
     initGallery();
     initQty();
-    initCounters();
     initIgField();
     initProductForms();
     initCartActions();

@@ -12,13 +12,13 @@
         "b2": {
           "type": "badge",
           "settings": {
-            "text": "Soft cotton"
+            "text": "Small batch"
           }
         },
         "b3": {
           "type": "badge",
           "settings": {
-            "text": "Made to order"
+            "text": "Posted in 2 days"
           }
         }
       },
@@ -29,25 +29,131 @@
       ],
       "settings": {
         "band": "pink",
-        "eyebrow": "Custom pet bandanas",
-        "heading": "A bandana drawn <em>just</em> for your pet.",
-        "subheading": "Send me their name and a little about them. I draw the art by hand, print it on soft cotton, and post it to your door.",
-        "cta_label": "Design yours",
-        "cta_link": "/collections/all-bandanas",
-        "cta2_label": "See how it works",
-        "cta2_link": "/pages/how-it-works",
-        "sticker": "One pet, one drawing"
+        "eyebrow": "Hand-drawn cute things",
+        "heading": "Ducks, mushrooms and other <em>small</em> joys.",
+        "subheading": "I draw silly little creatures and put them on stickers, prints, bandanas and bits for your bag. Pick a category and go from there.",
+        "cta_label": "Shop everything",
+        "cta_link": "/collections/everything",
+        "cta2_label": "Browse categories",
+        "cta2_link": "#categories",
+        "sticker": "Drawn, not generated"
+      }
+    },
+    "categories": {
+      "type": "category-grid",
+      "blocks": {
+        "c1": {
+          "type": "category",
+          "settings": {
+            "collection": "ducks",
+            "label": "Ducks",
+            "art": "duck"
+          }
+        },
+        "c2": {
+          "type": "category",
+          "settings": {
+            "collection": "mushrooms",
+            "label": "Mushrooms",
+            "art": "mushroom"
+          }
+        },
+        "c3": {
+          "type": "category",
+          "settings": {
+            "collection": "frogs",
+            "label": "Frogs",
+            "art": "frog"
+          }
+        },
+        "c4": {
+          "type": "category",
+          "settings": {
+            "collection": "snails",
+            "label": "Snails",
+            "art": "snail"
+          }
+        },
+        "c5": {
+          "type": "category",
+          "settings": {
+            "collection": "bees",
+            "label": "Bees",
+            "art": "bee"
+          }
+        },
+        "c6": {
+          "type": "category",
+          "settings": {
+            "collection": "cats",
+            "label": "Cats",
+            "art": "cat"
+          }
+        },
+        "c7": {
+          "type": "category",
+          "settings": {
+            "collection": "bears",
+            "label": "Bears",
+            "art": "bear"
+          }
+        },
+        "c8": {
+          "type": "category",
+          "settings": {
+            "collection": "strawberries",
+            "label": "Strawberries",
+            "art": "strawberry"
+          }
+        },
+        "c9": {
+          "type": "category",
+          "settings": {
+            "collection": "moons-and-stars",
+            "label": "Moons & stars",
+            "art": "moon"
+          }
+        },
+        "c10": {
+          "type": "category",
+          "settings": {
+            "collection": "tiny-snacks",
+            "label": "Tiny snacks",
+            "art": "snack"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "c10"
+      ],
+      "settings": {
+        "eyebrow": "Shop by category",
+        "heading": "Pick your little obsession",
+        "text": "Ten small worlds, all drawn by hand and turned into things you can actually own.",
+        "show_counts": false,
+        "link_label": "Shop everything",
+        "link_url": "/collections/everything",
+        "band": "none"
       }
     },
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "The shop",
-        "heading": "Bandanas ready to be named",
-        "text": "Pick a design, add your pet's name, and tell me what you'd love on it.",
+        "collection": "new-in",
+        "eyebrow": "New in",
+        "heading": "Fresh off the drawing board",
+        "text": "The newest little things, usually before they sell out.",
         "count": 6,
-        "band": "none",
-        "collection": "all-bandanas"
+        "band": "cream"
       }
     },
     "how": {
@@ -56,22 +162,22 @@
         "s1": {
           "type": "step",
           "settings": {
-            "heading": "Pick your bandana",
-            "text": "Choose the size and the base design that suits your pet's whole vibe."
+            "heading": "Drawn by hand",
+            "text": "Every duck, frog and mushroom starts as a drawing. No stock art, no templates, nothing generated."
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "heading": "Tell me about them",
-            "text": "Their name, their Instagram, and anything you want on there — colours, a favourite toy, the way they sit."
+            "heading": "Printed properly",
+            "text": "Thick matte vinyl for stickers, heavy uncoated card for prints, soft cotton for anything you wear."
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "heading": "I draw and print it",
-            "text": "The art is made by hand, printed on soft cotton, and posted to you in 3–5 days."
+            "heading": "Posted quickly",
+            "text": "Packed in a recycled mailer and posted within two working days. Free UK shipping over £35."
           }
         }
       },
@@ -81,10 +187,10 @@
         "s3"
       ],
       "settings": {
-        "eyebrow": "How it works",
-        "heading": "Three steps, one very smug pet",
-        "cta_label": "Start yours",
-        "cta_link": "/collections/all-bandanas",
+        "eyebrow": "The good bits",
+        "heading": "Small shop, high standards",
+        "cta_label": "Shop everything",
+        "cta_link": "/collections/everything",
         "band": "yellow"
       }
     },
@@ -94,10 +200,10 @@
         "ratio": "tall",
         "flip": true,
         "eyebrow": "Made by hand",
-        "heading": "Every bandana starts as a drawing",
-        "text": "<p>No clip art, no templates. I sketch each design by hand, colour it in soft pink, yellow and green, and print it onto cotton that survives the park, the beach and the bath.</p><p>Your pet's name goes on properly — not slapped on as an afterthought.</p>",
-        "cta_label": "See the collection",
-        "cta_link": "/collections/all-bandanas",
+        "heading": "It starts with one silly drawing",
+        "text": "<p>A duck in a bucket hat. A mushroom having a lie-down. A snail who is, frankly, going through something. Whatever it is, it gets drawn first and justified later.</p><p>The ones that make me laugh become a sticker. Then a print. Then a keyring. Then, occasionally, a whole category.</p>",
+        "cta_label": "See everything",
+        "cta_link": "/collections/everything",
         "band": "green"
       }
     },
@@ -108,24 +214,24 @@
           "type": "quote",
           "settings": {
             "stars": 5,
-            "text": "I sent one photo and a sentence about her being dramatic. What came back was so her that I cried a bit.",
-            "author": "Sam & Mochi"
+            "text": "The sticker quality is genuinely absurd. Mine has been through the dishwasher on a water bottle and has not budged.",
+            "author": "Rosie"
           }
         },
         "q2": {
           "type": "quote",
           "settings": {
             "stars": 5,
-            "text": "The colours are soft but they really pop in photos. He has three now. I have a problem.",
-            "author": "Priya & Biscuit"
+            "text": "Bought the duck print as a gift and immediately had to order a second one for myself. Entirely predictable.",
+            "author": "Alex"
           }
         },
         "q3": {
           "type": "quote",
           "settings": {
             "stars": 5,
-            "text": "Ordered on a Sunday, wearing it by Friday, and the fabric has survived four washes and one lake.",
-            "author": "Tom & Nala"
+            "text": "Arrived in three days wrapped like a little present. The frog keyring lives on my keys now and I check on it.",
+            "author": "Mina"
           }
         }
       },
@@ -136,7 +242,7 @@
       ],
       "settings": {
         "eyebrow": "Kind words",
-        "heading": "What the humans say",
+        "heading": "What people say",
         "band": "none"
       }
     },
@@ -145,7 +251,7 @@
       "settings": {
         "blog": "journal",
         "eyebrow": "The journal",
-        "heading": "Bandana reading",
+        "heading": "Bits of reading",
         "count": 3,
         "band": "cream"
       }
@@ -156,29 +262,36 @@
         "f1": {
           "type": "qa",
           "settings": {
-            "question": "How long does a custom bandana take?",
-            "answer": "<p>I draw and print to order, so allow 3–5 working days before it's posted. UK delivery is usually 2–3 days after that.</p>"
+            "question": "What are the stickers actually made of?",
+            "answer": "<p>Thick matte vinyl. They're waterproof, dishwasher-safe on a bottle, and they peel off cleanly if you change your mind about where you put them.</p>"
           }
         },
         "f2": {
           "type": "qa",
           "settings": {
-            "question": "What size should I choose?",
-            "answer": "<p>Measure your pet's neck and add about 5cm. If you're between sizes, go up — the tie-on style is forgiving.</p>"
+            "question": "How quickly do you post?",
+            "answer": "<p>Within two working days, first class. UK delivery is usually 1–2 days after that. Free UK shipping over £35, and yes, I post worldwide.</p>"
           }
         },
         "f3": {
           "type": "qa",
           "settings": {
-            "question": "Can I send a photo of my pet?",
-            "answer": "<p>Please do. Order first, then email your photos with your order number and I'll match the drawing to them.</p>"
+            "question": "Can I request a creature?",
+            "answer": "<p>Please do. Several of the categories exist because somebody messaged me asking for a snail. Tell me what you want to see.</p>"
           }
         },
         "f4": {
           "type": "qa",
           "settings": {
-            "question": "How do I wash it?",
-            "answer": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry and don't iron directly over the print.</p>"
+            "question": "Can I return something?",
+            "answer": "<p>Yes — within 30 days, unused, with sticker sheets unopened. Message me first and I'll sort it out.</p>"
+          }
+        },
+        "f5": {
+          "type": "qa",
+          "settings": {
+            "question": "Is any of this AI?",
+            "answer": "<p>No. Every drawing is made by hand on an iPad, by me, badly at first and then less badly.</p>"
           }
         }
       },
@@ -186,7 +299,8 @@
         "f1",
         "f2",
         "f3",
-        "f4"
+        "f4",
+        "f5"
       ],
       "settings": {
         "eyebrow": "Questions",
@@ -197,17 +311,18 @@
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "eyebrow": "Ready?",
-        "heading": "Let's put their name on something soft",
-        "text": "Pick a bandana, tell me about your pet, and I'll draw the rest.",
-        "cta_label": "Design yours",
-        "cta_link": "/collections/all-bandanas",
+        "eyebrow": "Go on then",
+        "heading": "Your bag needs a frog on it",
+        "text": "Ten categories, all drawn by hand, all posted within two working days.",
+        "cta_label": "Shop everything",
+        "cta_link": "/collections/everything",
         "band": "pink"
       }
     }
   },
   "order": [
     "hero",
+    "categories",
     "featured",
     "how",
     "story",

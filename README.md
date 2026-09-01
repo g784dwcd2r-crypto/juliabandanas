@@ -1,7 +1,9 @@
-# julia bandanas — Shopify theme
+# Julia Mind — Shopify theme
 
-A custom Shopify Online Store 2.0 theme for hand-drawn, personalised pet bandanas.
-Built mobile-first: every layout starts at 390px wide and grows from there.
+A custom Shopify Online Store 2.0 theme for a small shop of hand-drawn cute
+things — stickers, prints, keyrings, pins, totes and bandanas — organised into
+ten illustrated categories. Built mobile-first: every layout starts at 390px
+wide and grows from there.
 
 ---
 
@@ -15,10 +17,10 @@ Built mobile-first: every layout starts at 390px wide and grows from there.
 | **Green** | `#BCE7CB` pastel · `#7FD8A4` accent |
 | **Ink / page** | `#101010` on `#FFFCF5` |
 
-Colour blocks do the shouting; the type stays quiet and black. Sections alternate
-between pastel bands, cards get chunky black outlines and a hard drop shadow, and
-product cards cycle through the three pastels so a grid stays colourful even with
-plain photography.
+Colour blocks do the shouting; the type stays quiet and black. Sections
+alternate between pastel bands, cards get chunky black outlines and a hard drop
+shadow, and product, category and article tiles cycle through the three pastels
+so a grid stays colourful even with plain photography.
 
 Every colour is a theme setting, so all of this is editable in **Customise →
 Colours** without touching code.
@@ -27,8 +29,8 @@ Colours** without touching code.
 
 Text only — no image file. `snippets/logo.liquid` splits the wordmark into
 characters and colours them pink → yellow → green → black on a loop, so it stays
-sharp at any size, recolours with the theme, and remains real selectable text for
-SEO and screen readers.
+sharp at any size, recolours with the theme, and remains real selectable text
+for SEO and screen readers.
 
 Change the words in **Customise → Brand → Logo text**. Three colour patterns are
 available: cycle by letter, colour by word, or all black.
@@ -36,30 +38,34 @@ available: cycle by letter, colour by word, or all black.
 `assets/logo.svg` is the same wordmark as a standalone file for socials,
 packaging and email signatures.
 
-## Product personalisation
+## The categories
 
-Every product page carries three fields that travel with the order as line item
-properties, so they appear on the order, the packing slip and in the cart:
+Ten categories, each with its own hand-drawn illustration built as inline SVG in
+`snippets/category-art.liquid`:
 
-1. **Name on the bandana** — required, 18 characters, with a live preview showing
-   exactly how it will be printed.
-2. **Pet's Instagram** — optional. Pasted profile URLs are normalised to `@handle`
-   automatically.
-3. **Tell me what you want** — a 500-character brief.
+> ducks · mushrooms · frogs · snails · bees · cats · bears · strawberries ·
+> moons & stars · tiny snacks
 
-Labels, placeholders, character limits and which fields are required are all
-editable in **Customise → Product personalisation**.
+They are drawn on a shared 100 × 100 grid with the same 4px black outline and
+the same palette, so the ten of them read as one set. The **Category grid**
+section places them on the home page; each tile falls back to its drawing when
+the collection has no image of its own, so the grid never looks empty.
+
+To add an eleventh category: draw it into `category-art.liquid` as a new
+`when` branch, add it to the `art` select in `sections/category-grid.liquid`,
+then add a block in the theme editor.
 
 ## Structure
 
 ```
 assets/       base.css (tokens + primitives), components.css, pages.css, theme.js
-              logo.svg, bandana-*.svg (placeholder artwork)
+              logo.svg, bandana-*.svg (placeholder product artwork)
 config/       settings_schema.json, settings_data.json
 layout/       theme.liquid
 locales/      en.default.json
 sections/     header/footer groups, home sections, main-* page sections
-snippets/     logo, icon, product-card, article-card, cart drawer, pagination
+snippets/     logo, icon, category-art, category-tile, product-card,
+              article-card, cart drawer, pagination
 templates/    JSON templates for every page type + customer account templates
 blog-source/  the six launch articles as HTML, with posts.json metadata
 ```
@@ -71,6 +77,7 @@ without it: forms still post, links still navigate, the cart still works.
 
 - The header hides on scroll down and returns on scroll up.
 - Product rows are swipeable snap rails on phones and grids on desktop.
+- The category grid is 2 columns on phones, 3 at 560px, 4 at 750px, 5 at 990px.
 - The product gallery is a swipe rail with dots; on desktop it stacks.
 - A sticky add-to-cart bar appears once the real button scrolls out of view.
 - Drawers trap focus, lock background scroll, and respect the iPhone safe area.
@@ -92,11 +99,11 @@ npx @shopify/cli theme dev --store cwvsqu-nk.myshopify.com
 npx @shopify/cli theme push --store cwvsqu-nk.myshopify.com
 ```
 
-`.theme-check.yml` disables only `RemoteAsset`, and says why: Dosis is loaded from
-Google Fonts because the full 400–800 weight range is needed.
+`.theme-check.yml` disables only `RemoteAsset`, and says why: Dosis is loaded
+from Google Fonts because the full 400–800 weight range is needed.
 
 ## Blog
 
-The six launch articles live in `blog-source/` as HTML plus `posts.json`. They are
-the source of truth — if you edit one in the Shopify admin, paste the change back
-here so the two do not drift apart.
+The six launch articles live in `blog-source/` as HTML plus `posts.json`. They
+are the source of truth — if you edit one in the Shopify admin, paste the change
+back here so the two do not drift apart.

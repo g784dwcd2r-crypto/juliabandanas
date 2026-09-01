@@ -1,0 +1,85 @@
+<section class="section band--{{ section.settings.band }}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}
+          <p class="muted" style="margin-top:10px;max-width:48ch">{{ section.settings.text }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a class="btn btn--sm btn--ghost sec-head__link" href="{{ section.settings.link_url }}">
+          {{ section.settings.link_label }} {% render 'icon', name: 'arrow' %}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="cats">
+      {%- for block in section.blocks -%}
+        <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 5 | times: 60 }}" {{ block.shopify_attributes }}>
+          {% render 'category-tile',
+              cat_collection: block.settings.collection,
+              art: block.settings.art,
+              label: block.settings.label,
+              show_count: section.settings.show_counts %}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop by category" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pick your little obsession" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "checkbox", "id": "show_counts", "label": "Show how many products are in each", "default": false },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop everything" },
+    { "type": "url", "id": "link_url", "label": "Link" },
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "none", "label": "Page background" },
+        { "value": "pink", "label": "Pink" },
+        { "value": "yellow", "label": "Yellow" },
+        { "value": "green", "label": "Green" },
+        { "value": "cream", "label": "Cream" }
+      ],
+      "default": "none"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "label", "label": "Label", "info": "Leave blank to use the collection name." },
+        {
+          "type": "select", "id": "art", "label": "Drawing",
+          "info": "Used when the collection has no image of its own.",
+          "options": [
+            { "value": "duck", "label": "Duck" },
+            { "value": "mushroom", "label": "Mushroom" },
+            { "value": "frog", "label": "Frog" },
+            { "value": "snail", "label": "Snail" },
+            { "value": "bee", "label": "Bee" },
+            { "value": "cat", "label": "Cat" },
+            { "value": "bear", "label": "Bear" },
+            { "value": "strawberry", "label": "Strawberry" },
+            { "value": "moon", "label": "Moon" },
+            { "value": "snack", "label": "Snack" }
+          ],
+          "default": "duck"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Category grid" }]
+}
+{% endschema %}
