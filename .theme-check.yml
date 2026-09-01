@@ -1,0 +1,8 @@
+extends: theme-check:recommended
+
+RemoteAsset:
+  # Dosis is the entire typographic identity of this brand and every weight
+  # from 400–800 is needed. It is loaded from Google Fonts, non-render-blocking
+  # (media="print" swap), because Shopify's hosted font library does not cover
+  # the full Dosis weight range. Swap to a font_picker setting if that changes.
+  enabled: false

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Green pet bandana with a hand-drawn pattern">
+  <rect width="800" height="1000" fill="#EAF8EF"/>
+  <g transform="translate(400 470)">
+    <path d="M-250 -230 L250 -230 L0 250 Z" fill="#BCE7CB" stroke="#101010" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M-250 -230 L250 -230 L250 -186 L-250 -186 Z" fill="#7FD8A4" stroke="#101010" stroke-width="7" stroke-linejoin="round"/>
+    <g fill="#FFF7E8" stroke="#101010" stroke-width="5">
+      <path d="M-150 -120c-14 0-25 11-25 25 0 9 5 17 12 21-7 4-12 12-12 21 0 14 11 25 25 25h10v-92Z"/>
+      <rect x="-150" y="-96" width="150" height="44" rx="8"/>
+      <path d="M0 -120c14 0 25 11 25 25 0 9-5 17-12 21 7 4 12 12 12 21 0 14-11 25-25 25h-10v-92Z"/>
+    </g>
+    <g fill="#FFC9DE" stroke="#101010" stroke-width="5">
+      <circle cx="90" cy="-130" r="26"/><circle cx="140" cy="-90" r="20"/><circle cx="60" cy="-70" r="16"/>
+    </g>
+    <g fill="#FFEAA3" stroke="#101010" stroke-width="5">
+      <ellipse cx="-90" cy="60" rx="18" ry="24"/><ellipse cx="-45" cy="30" rx="18" ry="24"/><ellipse cx="5" cy="60" rx="18" ry="24"/>
+      <path d="M-42 92c25 0 45 19 45 39 0 15-13 26-29 26-7 0-12-3-16-3s-9 3-16 3c-16 0-29-11-29-26 0-20 20-39 45-39Z"/>
+    </g>
+  </g>
+</svg>

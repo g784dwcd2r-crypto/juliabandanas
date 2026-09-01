@@ -1,0 +1,18 @@
+<div class="wrap wrap--narrow" style="padding-block:48px 80px">
+  <h1 class="center">{{ 'customer.login.title' | t }}</h1>
+  {%- form 'customer_login' -%}
+    {{ form.errors | default_errors }}
+    <div class="stack-lg" style="margin-top:28px">
+      <div class="field">
+        <label class="field__label" for="cl-email">{{ 'customer.login.email' | t }}</label>
+        <input class="input" id="cl-email" type="email" name="customer[email]" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="cl-pass">{{ 'customer.login.password' | t }}</label>
+        <input class="input" id="cl-pass" type="password" name="customer[password]" autocomplete="current-password">
+      </div>
+      <button class="btn btn--ink btn--full" type="submit">{{ 'customer.login.submit' | t }}</button>
+      <p class="center small"><a class="link" href="{{ routes.account_register_url }}">{{ 'customer.login.create' | t }}</a></p>
+    </div>
+  {%- endform -%}
+</div>

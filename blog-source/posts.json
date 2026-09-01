@@ -1,0 +1,50 @@
+[
+  {
+    "file": "01-how-to-choose-a-bandana.html",
+    "title": "How to choose the right bandana for your pet",
+    "handle": "how-to-choose-the-right-bandana-for-your-pet",
+    "tags": ["Guides", "Sizing", "Buying"],
+    "excerpt": "Neck measurement, shape, fastening, fabric and colour — the seven decisions that make a bandana sit like it belongs there.",
+    "seo_description": "A practical guide to choosing a pet bandana: how to measure the neck, which shape suits which breed, tie-on vs slip-on, the right fabric, and how to pick a colour that flatters your pet's coat."
+  },
+  {
+    "file": "02-six-bandana-styles.html",
+    "title": "Six bandana styles, and who each one suits",
+    "handle": "six-bandana-styles-and-who-each-one-suits",
+    "tags": ["Styles", "Guides"],
+    "excerpt": "Tie-on, slip-on, snap-on, reversible, oversized and cat bandanas — what each is genuinely good at, and who should avoid it.",
+    "seo_description": "The six main pet bandana styles compared honestly: tie-on, slip-on, snap-on, reversible, oversized and cat bandanas, with who each one suits and who should avoid it."
+  },
+  {
+    "file": "03-sizing-guide.html",
+    "title": "Getting the size right, first time",
+    "handle": "getting-the-size-right-first-time",
+    "tags": ["Sizing", "Guides"],
+    "excerpt": "A tape measure, five centimetres and thirty seconds. Plus the three sizing mistakes almost everyone makes.",
+    "seo_description": "How to measure your pet for a bandana: the exact method, a breed-by-breed size guide from XS to XL, the three most common sizing mistakes, and how it should look once it's on."
+  },
+  {
+    "file": "04-how-to-wash-a-bandana.html",
+    "title": "How to wash a bandana without wrecking the print",
+    "handle": "how-to-wash-a-bandana-without-wrecking-the-print",
+    "tags": ["Care", "Guides"],
+    "excerpt": "Cold water, inside out, and never the tumble dryer. Everything that keeps printed colour bright for years.",
+    "seo_description": "How to wash a printed pet bandana so the colours last: the right temperature, why fabric softener and tumble drying ruin prints, and how to handle mud, grass and drool stains."
+  },
+  {
+    "file": "05-photographing-your-pet.html",
+    "title": "Taking photos your pet will actually sit still for",
+    "handle": "taking-photos-your-pet-will-actually-sit-still-for",
+    "tags": ["Photos", "Guides"],
+    "excerpt": "Light, angle, background and thirty seconds of attention. How to get the shot before they lie down and give up.",
+    "seo_description": "How to photograph your pet in their bandana: the best light, getting down to eye level, background and phone settings, plus the tricks that actually get a dog or cat to look at the camera."
+  },
+  {
+    "file": "06-what-makes-it-personal.html",
+    "title": "What makes a personalised bandana actually personal",
+    "handle": "what-makes-a-personalised-bandana-actually-personal",
+    "tags": ["Custom", "Guides"],
+    "excerpt": "The difference between a name printed on fabric and a small portrait of an animal you love — and how to write the brief that gets you the second one.",
+    "seo_description": "How to brief a custom pet bandana: the details that make a personalised design land, how to write a short brief, which photos to send, and what to decide before you order."
+  }
+]

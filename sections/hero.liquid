@@ -1,0 +1,119 @@
+<section class="hero band--{{ section.settings.band }}">
+  <span class="blob blob--1" aria-hidden="true"></span>
+  <span class="blob blob--2" aria-hidden="true"></span>
+  <span class="blob blob--3" aria-hidden="true"></span>
+
+  <div class="wrap hero__inner">
+    <div class="hero__grid">
+      <div class="reveal is-in">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="eyebrow" style="margin-bottom:16px">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        <h1 class="hero__title">{{ section.settings.heading }}</h1>
+
+        {%- if section.settings.subheading != blank -%}
+          <p class="lead hero__sub">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+
+        <div class="hero__cta">
+          {%- if section.settings.cta_label != blank -%}
+            <a class="btn btn--pink" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta2_label != blank -%}
+            <a class="btn btn--ghost" href="{{ section.settings.cta2_link }}">{{ section.settings.cta2_label }}</a>
+          {%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="hero__badges">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign tone = 'pill--pink'
+                assign mod = forloop.index0 | modulo: 3
+                if mod == 1
+                  assign tone = 'pill--yellow'
+                elsif mod == 2
+                  assign tone = 'pill--green'
+                endif
+              -%}
+              <span class="pill {{ tone }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="hero__media reveal" data-reveal-delay="120">
+        <div class="hero__stack">
+          <div class="media media--tall">
+            {%- if section.settings.image -%}
+              <img src="{{ section.settings.image | image_url: width: 1000 }}"
+                   srcset="{{ section.settings.image | image_url: width: 500 }} 500w, {{ section.settings.image | image_url: width: 1000 }} 1000w"
+                   sizes="(min-width: 750px) 46vw, 90vw"
+                   alt="{{ section.settings.image.alt | escape }}"
+                   width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+                   fetchpriority="high">
+            {%- else -%}
+              {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          {%- if section.settings.sticker != blank -%}
+            <span class="hero__sticker">{{ section.settings.sticker }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "none", "label": "Page background" },
+        { "value": "pink", "label": "Pink" },
+        { "value": "yellow", "label": "Yellow" },
+        { "value": "green", "label": "Green" },
+        { "value": "cream", "label": "Cream" }
+      ],
+      "default": "pink"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Custom pet bandanas" },
+    {
+      "type": "html", "id": "heading", "label": "Heading",
+      "info": "Wrap a word in <em> to give it a hand-drawn yellow highlight.",
+      "default": "A bandana drawn <em>just</em> for your pet."
+    },
+    {
+      "type": "textarea", "id": "subheading", "label": "Subheading",
+      "default": "Send me their name and a little about them. I draw the art by hand, print it on soft cotton, and post it to your door."
+    },
+    { "type": "text", "id": "cta_label", "label": "Button 1 label", "default": "Design yours" },
+    { "type": "url", "id": "cta_link", "label": "Button 1 link" },
+    { "type": "text", "id": "cta2_label", "label": "Button 2 label", "default": "See how it works" },
+    { "type": "url", "id": "cta2_link", "label": "Button 2 link" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "sticker", "label": "Round sticker text", "default": "One pet, one drawing" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Hand drawn" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        { "type": "badge", "settings": { "text": "Hand drawn" } },
+        { "type": "badge", "settings": { "text": "Soft cotton" } },
+        { "type": "badge", "settings": { "text": "Made to order" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

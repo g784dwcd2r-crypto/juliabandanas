@@ -1,0 +1,102 @@
+<header class="header">
+  <div class="header__inner">
+    <button class="icon-btn burger header__burger" type="button"
+            data-drawer-open="menu-drawer"
+            aria-expanded="false"
+            aria-controls="menu-drawer"
+            aria-label="{{ 'general.accessibility.menu' | t }}">
+      <span class="burger__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <div class="header__brand">
+      {% render 'logo' %}
+    </div>
+
+    {%- if section.settings.menu != blank -%}
+      <nav class="header__nav" aria-label="{{ 'general.accessibility.primary_nav' | t }}">
+        {%- for link in section.settings.menu.links -%}
+          <a class="nav-link" href="{{ link.url }}"
+             {% if link.active %}aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="header__actions">
+      <a class="icon-btn hide-sm" href="{{ routes.search_url }}" aria-label="{{ 'general.search.title' | t }}">
+        {% render 'icon', name: 'search' %}
+      </a>
+      <a class="icon-btn cart-btn" href="{{ routes.cart_url }}"
+         data-count="{{ cart.item_count }}"
+         {% if settings.cart_drawer %}data-drawer-open="cart-drawer" aria-controls="cart-drawer" aria-expanded="false"{% endif %}
+         aria-label="{{ 'sections.cart.title' | t }}">
+        {% render 'icon', name: 'cart' %}
+        <span class="icon-btn__count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{%- comment -%} Mobile navigation drawer {%- endcomment -%}
+<div class="drawer drawer--left" id="menu-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}">
+  <div class="drawer__scrim"></div>
+  <div class="drawer__panel">
+    <div class="drawer__head">
+      {% render 'logo', tag: 'div', size: 22 %}
+      <button class="icon-btn" type="button" data-drawer-close data-drawer-focus aria-label="{{ 'general.accessibility.close' | t }}">
+        {% render 'icon', name: 'close' %}
+      </button>
+    </div>
+    <div class="drawer__body">
+      {%- if section.settings.menu != blank -%}
+        <ul class="menu-list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a class="menu-list__link" href="{{ link.url }}">
+                {{ link.title }}
+                <span class="menu-list__arrow">{% render 'icon', name: 'arrow' %}</span>
+              </a>
+              {%- if link.links.size > 0 -%}
+                <div class="menu-sub">
+                  {%- for child in link.links -%}
+                    <a href="{{ child.url }}">{{ child.title }}</a>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <form class="nl" action="{{ routes.search_url }}" method="get" role="search" style="margin-top:24px">
+        <label class="visually-hidden" for="drawer-search">{{ 'general.search.title' | t }}</label>
+        <input class="input" id="drawer-search" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}">
+        <button class="btn btn--sm" type="submit" aria-label="{{ 'general.search.submit' | t }}">
+          {% render 'icon', name: 'search' %}
+        </button>
+      </form>
+    </div>
+
+    <div class="drawer__foot">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        {%- if settings.social_instagram != blank -%}
+          <a class="pill pill--pink" href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <a class="pill pill--yellow" href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a>
+        {%- endif -%}
+        {%- if settings.social_email != blank -%}
+          <a class="pill pill--green" href="mailto:{{ settings.social_email }}">Email</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

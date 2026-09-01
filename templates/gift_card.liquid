@@ -1,0 +1,8 @@
+<div class="wrap wrap--narrow center" style="padding-block:60px 90px">
+  <h1>{{ 'gift_card.title' | t }}</h1>
+  <p class="lead" style="margin-top:14px">{{ gift_card.balance | money }}</p>
+  <div class="card" style="padding:26px;margin-top:26px;display:inline-block">
+    <p style="font-size:1.3rem;font-weight:800;letter-spacing:.06em">{{ gift_card.code | format_code }}</p>
+  </div>
+  <p style="margin-top:26px"><a class="btn btn--pink" href="{{ shop.url }}">{{ 'gift_card.shop' | t }}</a></p>
+</div>

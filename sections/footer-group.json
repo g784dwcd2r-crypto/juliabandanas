@@ -1,0 +1,19 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "links1": { "type": "links", "settings": { "heading": "Shop", "menu": "main-menu" } },
+        "news": { "type": "newsletter", "settings": { "heading": "Get the good post", "text": "New designs, restocks and the occasional very good dog." } }
+      },
+      "block_order": ["links1", "news"],
+      "settings": {
+        "blurb": "Custom pet bandanas, drawn by hand and printed on soft cotton. One pet, one drawing, one bandana.",
+        "credit": "Drawn with love in the UK"
+      }
+    }
+  },
+  "order": ["footer"]
+}

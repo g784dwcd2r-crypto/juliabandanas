@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": { "type": "main-page" },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "eyebrow": "Say hi",
+        "heading": "Got a question or a big idea?",
+        "text": "Custom orders, bulk orders, or a photo you're desperate to send me — this reaches my inbox.",
+        "band": "cream"
+      }
+    }
+  },
+  "order": ["main", "form"]
+}

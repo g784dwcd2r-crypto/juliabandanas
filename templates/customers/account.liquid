@@ -1,0 +1,29 @@
+<div class="wrap" style="padding-block:48px 80px">
+  <h1>{{ 'customer.account.title' | t }}</h1>
+  <p class="muted" style="margin-top:8px">{{ customer.email }}</p>
+  <p style="margin-top:14px"><a class="link" href="{{ routes.account_logout_url }}">{{ 'customer.account.logout' | t }}</a></p>
+
+  <h2 class="h3" style="margin-top:40px">{{ 'customer.account.orders' | t }}</h2>
+  {%- if customer.orders.size > 0 -%}
+    <div class="rte" style="margin-top:16px">
+      <table>
+        <thead><tr>
+          <th>{{ 'customer.account.order' | t }}</th>
+          <th>{{ 'customer.account.date' | t }}</th>
+          <th>{{ 'customer.account.total' | t }}</th>
+        </tr></thead>
+        <tbody>
+          {%- for order in customer.orders -%}
+            <tr>
+              <td><a class="link" href="{{ order.customer_url }}">{{ order.name }}</a></td>
+              <td>{{ order.created_at | date: format: 'date' }}</td>
+              <td>{{ order.total_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  {%- else -%}
+    <p class="muted" style="margin-top:10px">{{ 'customer.account.no_orders' | t }}</p>
+  {%- endif -%}
+</div>

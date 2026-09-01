@@ -1,0 +1,28 @@
+<div class="wrap">
+  <header class="coll-head">
+    <h1>{{ 'sections.collections.title' | t }}</h1>
+  </header>
+  <div class="pgrid">
+    {%- for coll in collections -%}
+      <a class="reveal" href="{{ coll.url }}" data-reveal-delay="{{ forloop.index0 | times: 60 }}">
+        <div class="pcard">
+          <div class="pcard__media">
+            {%- if coll.featured_image -%}
+              <img src="{{ coll.featured_image | image_url: width: 700 }}" alt="{{ coll.title | escape }}" width="{{ coll.featured_image.width }}" height="{{ coll.featured_image.height }}" loading="lazy">
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <div class="pcard__body">
+            <h2 class="pcard__title">{{ coll.title }}</h2>
+            <p class="pcard__meta">{{ 'sections.collection.count' | t: count: coll.products_count }}</p>
+          </div>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

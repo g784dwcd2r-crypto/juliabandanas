@@ -1,0 +1,72 @@
+<div class="progress" aria-hidden="true"><div class="progress__bar" data-progress></div></div>
+
+<article class="wrap wrap--narrow" data-article-body>
+  <nav class="crumbs" aria-label="{{ 'general.breadcrumbs' | t }}">
+    <a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ blog.url }}">{{ blog.title }}</a>
+  </nav>
+
+  <header class="article__head">
+    <h1>{{ article.title }}</h1>
+    <div class="article__meta">
+      <span>{{ article.published_at | date: format: 'date' }}</span>
+      {%- if article.tags.size > 0 -%}
+        {%- for tag in article.tags limit: 2 -%}
+          <span aria-hidden="true">&middot;</span><span>{{ tag }}</span>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </header>
+
+  {%- if article.image -%}
+    <div class="article__hero">
+      <img src="{{ article.image | image_url: width: 1400 }}"
+           srcset="{{ article.image | image_url: width: 700 }} 700w, {{ article.image | image_url: width: 1400 }} 1400w"
+           sizes="(min-width: 750px) 760px, 92vw"
+           alt="{{ article.image.alt | default: article.title | escape }}"
+           width="{{ article.image.width }}" height="{{ article.image.height }}"
+           fetchpriority="high">
+    </div>
+  {%- endif -%}
+
+  <div class="rte article__body">{{ article.content }}</div>
+
+  <footer class="article__foot">
+    <a class="btn btn--ghost btn--sm" href="{{ blog.url }}">&larr; {{ 'blogs.article.back' | t }}</a>
+  </footer>
+</article>
+
+{%- if blog.articles.size > 1 -%}
+  <section class="section band--cream" style="margin-top:56px">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h3">{{ 'blogs.article.more' | t }}</h2></div>
+      <div class="blog-grid">
+        {%- assign shown = 0 -%}
+        {%- for other in blog.articles -%}
+          {%- if other.id != article.id and shown < 3 -%}
+            {%- assign shown = shown | plus: 1 -%}
+            {% render 'article-card', article: other %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title | json }},
+  "datePublished": {{ article.published_at | date: '%Y-%m-%d' | json }},
+  {% if article.image %}"image": {{ article.image | image_url: width: 1400 | prepend: "https:" | json }},{% endif %}
+  "author": { "@type": "Person", "name": {{ article.author | default: shop.name | json }} },
+  "publisher": { "@type": "Organization", "name": {{ shop.name | json }} },
+  "mainEntityOfPage": {{ request.origin | append: article.url | json }}
+}
+</script>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

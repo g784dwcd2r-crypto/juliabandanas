@@ -1,0 +1,66 @@
+<section class="section band--{{ section.settings.band }}">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:34px">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="faq reveal">
+      <div class="acc">
+        {%- for block in section.blocks -%}
+          <details class="acc__item" {{ block.shopify_attributes }}>
+            <summary class="acc__summary">
+              {{ block.settings.question }}
+              <span class="acc__icon">{% render 'icon', name: 'plus' %}</span>
+            </summary>
+            <div class="acc__body rte">{{ block.settings.answer }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you might ask" },
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "none", "label": "Page background" },
+        { "value": "pink", "label": "Pink" },
+        { "value": "yellow", "label": "Yellow" },
+        { "value": "green", "label": "Green" },
+        { "value": "cream", "label": "Cream" }
+      ],
+      "default": "none"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How long does it take?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Made to order in 3–5 days, then posted.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "How long does a custom bandana take?", "answer": "<p>I draw and print to order, so allow 3–5 working days before it's posted. UK delivery is usually 2–3 days after that.</p>" } },
+        { "type": "qa", "settings": { "question": "What size should I choose?", "answer": "<p>Measure your pet's neck and add about 5cm. If you're between sizes, go up — the tie-on style is forgiving.</p>" } },
+        { "type": "qa", "settings": { "question": "Can I send a photo of my pet?", "answer": "<p>Please do. Order first, then email your photos with your order number and I'll match the drawing to them.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I wash it?", "answer": "<p>Cold machine wash inside out, hang to dry. Don't tumble dry and don't iron directly over the print.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

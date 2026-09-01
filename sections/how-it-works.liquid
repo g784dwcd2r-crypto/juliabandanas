@@ -1,0 +1,71 @@
+<section class="section band--{{ section.settings.band }}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+    </div>
+
+    <div class="steps">
+      {%- for block in section.blocks -%}
+        <div class="step reveal" data-reveal-delay="{{ forloop.index0 | times: 90 }}" {{ block.shopify_attributes }}>
+          <span class="step__num" aria-hidden="true">{{ forloop.index }}</span>
+          <h3 class="step__title">{{ block.settings.heading }}</h3>
+          <p class="muted">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div style="margin-top:32px">
+        <a class="btn btn--green" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How it works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps, one very smug pet" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Start yours" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "none", "label": "Page background" },
+        { "value": "pink", "label": "Pink" },
+        { "value": "yellow", "label": "Yellow" },
+        { "value": "green", "label": "Green" },
+        { "value": "cream", "label": "Cream" }
+      ],
+      "default": "yellow"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Pick your bandana" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Choose a size and a base design." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [
+        { "type": "step", "settings": { "heading": "Pick your bandana", "text": "Choose the size and the base design that suits your pet's whole vibe." } },
+        { "type": "step", "settings": { "heading": "Tell me about them", "text": "Their name, their Instagram, and anything you want on there — colours, a favourite toy, the way they sit." } },
+        { "type": "step", "settings": { "heading": "I draw and print it", "text": "The art is made by hand, printed on soft cotton, and posted to you in 3–5 days." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

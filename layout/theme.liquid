@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="{{ settings.color_bg | default: '#FFFCF5' }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'meta-tags' %}
+
+    {# Dosis is the whole typographic identity — load the weights we actually use. #}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap">
+    </noscript>
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'components.css' | asset_url | stylesheet_tag }}
+    {{ 'pages.css' | asset_url | stylesheet_tag }}
+
+    <style>
+      :root {
+        --bg:          {{ settings.color_bg }};
+        --ink:         {{ settings.color_text }};
+        --ink-60:      {{ settings.color_text | color_modify: 'alpha', 0.6 }};
+        --ink-40:      {{ settings.color_text | color_modify: 'alpha', 0.38 }};
+        --ink-12:      {{ settings.color_text | color_modify: 'alpha', 0.12 }};
+        --pink:        {{ settings.color_pink }};
+        --pink-deep:   {{ settings.color_pink_deep }};
+        --pink-soft:   {{ settings.color_pink | color_mix: settings.color_bg, 32 }};
+        --yellow:      {{ settings.color_yellow }};
+        --yellow-deep: {{ settings.color_yellow_deep }};
+        --yellow-soft: {{ settings.color_yellow | color_mix: settings.color_bg, 32 }};
+        --green:       {{ settings.color_green }};
+        --green-deep:  {{ settings.color_green_deep }};
+        --green-soft:  {{ settings.color_green | color_mix: settings.color_bg, 32 }};
+        --cream:       {{ settings.color_cream }};
+        --fs-base:     {{ settings.type_base_size }}px;
+        --heading-weight: {{ settings.type_heading_weight }};
+        --logo-size:   {{ settings.logo_size }}px;
+      }
+    </style>
+
+    <script>
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+      window.JB = {
+        routes: {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          cart_url: '{{ routes.cart_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}'
+        },
+        cartDrawer: {{ settings.cart_drawer | default: true | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          added: {{ 'products.product.added' | t | json }},
+          required: {{ 'products.product.field_required' | t | json }},
+          error: {{ 'general.errors.generic' | t | json }}
+        }
+      };
+    </script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template--{{ template.name | handle }}">
+    <a class="skip-link" href="#main">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {% sections 'header-group' %}
+
+    <main id="main" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    {% render 'cart-drawer' %}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>

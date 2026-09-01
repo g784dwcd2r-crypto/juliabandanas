@@ -1,0 +1,20 @@
+{%- comment -%}
+  Renders the personalisation a customer typed, skipping Shopify's private
+  `_` properties and any field they left blank.
+  Accepts: properties, truncate_at (optional)
+{%- endcomment -%}
+{%- liquid
+  assign cut = truncate_at | default: 160
+-%}
+{%- capture prop_rows -%}
+  {%- for property in properties -%}
+    {%- assign first_char = property.first | slice: 0 -%}
+    {%- if property.last != blank and first_char != '_' -%}
+      <dt>{{ property.first | escape }}</dt>
+      <dd>{{ property.last | escape | truncate: cut }}</dd>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if prop_rows != blank -%}
+  <dl class="cart-line__props">{{ prop_rows }}</dl>
+{%- endif -%}

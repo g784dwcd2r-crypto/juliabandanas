@@ -1,0 +1,67 @@
+{%- liquid
+  assign items = section.blocks
+-%}
+{%- if items.size > 0 -%}
+  <div class="announce" style="--marquee-speed: {{ section.settings.speed }}s">
+    <div class="marquee" aria-hidden="true">
+      {%- for pass in (1..2) -%}
+        <div class="marquee__group">
+          {%- for block in items -%}
+            {%- liquid
+              assign dot = 'var(--pink-deep)'
+              assign mod = forloop.index0 | modulo: 3
+              if mod == 1
+                assign dot = 'var(--yellow-deep)'
+              elsif mod == 2
+                assign dot = 'var(--green-deep)'
+              endif
+            -%}
+            <span class="marquee__item" {{ block.shopify_attributes }}>
+              <span class="marquee__dot" style="background: {{ dot }}"></span>
+              {{ block.settings.text }}
+            </span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- comment -%} The marquee is decorative; screen readers get it once, statically. {%- endcomment -%}
+    <span class="visually-hidden">
+      {%- for block in items -%}{{ block.settings.text }}. {% endfor -%}
+    </span>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll duration",
+      "min": 12, "max": 60, "step": 2, "unit": "s",
+      "default": 26
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Hand-drawn just for your pet" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "blocks": [
+        { "type": "message", "settings": { "text": "Hand-drawn just for your pet" } },
+        { "type": "message", "settings": { "text": "Free UK shipping over £35" } },
+        { "type": "message", "settings": { "text": "Made to order in 3–5 days" } },
+        { "type": "message", "settings": { "text": "Tag @juliabandanas to be featured" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

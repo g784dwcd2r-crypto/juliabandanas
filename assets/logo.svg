@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150" role="img" aria-label="julia bandanas">
+  <title>julia bandanas</title>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&amp;display=swap');
+      .w { font-family: 'Dosis', 'Trebuchet MS', sans-serif; font-weight: 800; font-size: 96px; letter-spacing: -2px; }
+      .p { fill: #FF8FBA; }
+      .y { fill: #FFD84D; stroke: #101010; stroke-width: 1.1; }
+      .g { fill: #7FD8A4; }
+      .k { fill: #101010; }
+      .tag { font-family: 'Dosis', 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: 6.5px; fill: #101010; }
+    </style>
+  </defs>
+  <text class="w" x="24" y="92">
+    <tspan class="p">j</tspan><tspan class="y">u</tspan><tspan class="g">l</tspan><tspan class="k">i</tspan><tspan class="p">a</tspan><tspan xml:space="preserve"> </tspan><tspan class="y">b</tspan><tspan class="g">a</tspan><tspan class="k">n</tspan><tspan class="p">d</tspan><tspan class="y">a</tspan><tspan class="g">n</tspan><tspan class="k">a</tspan><tspan class="p">s</tspan>
+  </text>
+  <text class="tag" x="28" y="128">HAND-DRAWN FOR YOUR PET</text>
+</svg>

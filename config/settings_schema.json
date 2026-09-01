@@ -1,0 +1,129 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Julia Bandanas",
+    "theme_version": "1.0.0",
+    "theme_author": "Julia Bandanas",
+    "theme_documentation_url": "https://github.com/g784dwcd2r-crypto/juliabandanas",
+    "theme_support_url": "https://github.com/g784dwcd2r-crypto/juliabandanas"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_text",
+        "label": "Logo text",
+        "default": "julia bandanas",
+        "info": "Text-only logo. Each letter is coloured automatically in pink, yellow, green and black."
+      },
+      {
+        "type": "select",
+        "id": "logo_style",
+        "label": "Logo colour pattern",
+        "options": [
+          { "value": "cycle", "label": "Cycle (pink, yellow, green, black)" },
+          { "value": "words", "label": "Colour by word" },
+          { "value": "mono", "label": "All black" }
+        ],
+        "default": "cycle"
+      },
+      {
+        "type": "range",
+        "id": "logo_size",
+        "label": "Logo size",
+        "min": 16,
+        "max": 44,
+        "step": 1,
+        "unit": "px",
+        "default": 24
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Core palette"
+      },
+      { "type": "color", "id": "color_bg", "label": "Page background", "default": "#FFFCF5" },
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#101010" },
+      { "type": "color", "id": "color_pink", "label": "Pastel pink", "default": "#FFC9DE" },
+      { "type": "color", "id": "color_pink_deep", "label": "Pink accent", "default": "#FF8FBA" },
+      { "type": "color", "id": "color_yellow", "label": "Pastel yellow", "default": "#FFEAA3" },
+      { "type": "color", "id": "color_yellow_deep", "label": "Yellow accent", "default": "#FFD84D" },
+      { "type": "color", "id": "color_green", "label": "Pastel green", "default": "#BCE7CB" },
+      { "type": "color", "id": "color_green_deep", "label": "Green accent", "default": "#7FD8A4" },
+      { "type": "color", "id": "color_cream", "label": "Cream card", "default": "#FFF7E8" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The theme uses Dosis everywhere, in black, by design."
+      },
+      {
+        "type": "range",
+        "id": "type_base_size",
+        "label": "Base text size",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 17
+      },
+      {
+        "type": "range",
+        "id": "type_heading_weight",
+        "label": "Heading weight",
+        "min": 500,
+        "max": 800,
+        "step": 100,
+        "default": 700
+      }
+    ]
+  },
+  {
+    "name": "Product personalisation",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "These three fields appear on every product page and are passed to the order as line item properties."
+      },
+      { "type": "text", "id": "pers_name_label", "label": "Field 1 label", "default": "Name on the bandana" },
+      { "type": "text", "id": "pers_name_placeholder", "label": "Field 1 placeholder", "default": "e.g. Mochi" },
+      { "type": "checkbox", "id": "pers_name_required", "label": "Field 1 required", "default": true },
+      { "type": "range", "id": "pers_name_max", "label": "Field 1 max characters", "min": 8, "max": 40, "step": 1, "default": 18 },
+      { "type": "text", "id": "pers_ig_label", "label": "Field 2 label", "default": "Pet's Instagram" },
+      { "type": "text", "id": "pers_ig_placeholder", "label": "Field 2 placeholder", "default": "@yourpet" },
+      { "type": "checkbox", "id": "pers_ig_required", "label": "Field 2 required", "default": false },
+      { "type": "text", "id": "pers_notes_label", "label": "Field 3 label", "default": "Tell me what you want" },
+      { "type": "textarea", "id": "pers_notes_placeholder", "label": "Field 3 placeholder", "default": "Colours, breed, little details, a vibe, a photo you'll email me — anything at all." },
+      { "type": "checkbox", "id": "pers_notes_required", "label": "Field 3 required", "default": false },
+      { "type": "range", "id": "pers_notes_max", "label": "Field 3 max characters", "min": 100, "max": 1000, "step": 50, "default": 500 }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      { "type": "text", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok URL" },
+      { "type": "text", "id": "social_email", "label": "Contact email" }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      { "type": "checkbox", "id": "cart_drawer", "label": "Open cart in a drawer", "default": true },
+      { "type": "richtext", "id": "cart_note", "label": "Cart note", "default": "<p>Every bandana is drawn by hand. Made-to-order in 3–5 days.</p>" }
+    ]
+  }
+]
