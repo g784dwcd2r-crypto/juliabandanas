@@ -2,12 +2,14 @@
   {%- if cart.item_count == 0 -%}
     <div class="drawer__body">
       <div class="empty-state">
-        <div class="empty-state__emoji">🐾</div>
+        <span class="empty-state__mark motif">{% render 'season-motif' %}</span>
         <h3 class="h3">{{ 'sections.cart.empty' | t }}</h3>
-        <p class="muted" style="margin-top:8px">{{ 'sections.cart.empty_note' | t }}</p>
-        <a class="btn btn--pink" href="{{ routes.all_products_collection_url }}" style="margin-top:22px">
-          {{ 'sections.cart.continue_shopping' | t }}
-        </a>
+        <p class="muted" style="margin-top: 10px">{{ 'sections.cart.empty_note' | t }}</p>
+        <p style="margin-top: 24px">
+          <a class="btn btn--outline btn--sm" href="{{ routes.all_products_collection_url }}">
+            {{ 'sections.cart.continue_shopping' | t }}
+          </a>
+        </p>
       </div>
     </div>
   {%- else -%}
@@ -17,11 +19,11 @@
           <li class="mini-line" data-line-key="{{ line.key }}" data-line-qty="{{ line.quantity }}">
             <a class="mini-line__media" href="{{ line.url }}" tabindex="-1" aria-hidden="true">
               {%- if line.image -%}
-                <img src="{{ line.image | image_url: width: 160 }}" alt="" width="80" height="80" loading="lazy">
+                <img src="{{ line.image | image_url: width: 180 }}" alt="" width="90" height="112" loading="lazy">
               {%- endif -%}
             </a>
             <div>
-              <a class="mini-line__title" href="{{ line.url }}">{{ line.product.title | escape }}</a>
+              <a class="mini-line__title" href="{{ line.url }}">{{ line.product.title | escape | truncate: 62 }}</a>
               {%- unless line.variant.title contains 'Default' -%}
                 <p class="mini-line__meta">{{ line.variant.title }}</p>
               {%- endunless -%}
@@ -30,13 +32,17 @@
 
               <div class="mini-line__foot">
                 <span class="qty">
-                  <button class="qty__btn" type="button" data-cart-qty="down" aria-label="{{ 'sections.cart.decrease' | t }}">&minus;</button>
-                  <span class="qty__input" aria-live="polite">{{ line.quantity }}</span>
-                  <button class="qty__btn" type="button" data-cart-qty="up" aria-label="{{ 'sections.cart.increase' | t }}">+</button>
+                  <button class="qty__btn" type="button" data-cart-qty="down" aria-label="{{ 'sections.cart.decrease' | t }}">
+                    {% render 'icon', name: 'minus' %}
+                  </button>
+                  <span class="qty__input" aria-live="polite" style="display:grid;place-items:center">{{ line.quantity }}</span>
+                  <button class="qty__btn" type="button" data-cart-qty="up" aria-label="{{ 'sections.cart.increase' | t }}">
+                    {% render 'icon', name: 'plus' %}
+                  </button>
                 </span>
                 <span>{{ line.final_line_price | money }}</span>
               </div>
-              <button class="cart-line__remove" type="button" data-cart-remove="{{ line.key }}" style="margin-top:8px">
+              <button class="cart-line__remove" type="button" data-cart-remove="{{ line.key }}" style="margin-top: 12px">
                 {{ 'sections.cart.remove' | t }}
               </button>
             </div>
@@ -47,15 +53,15 @@
 
     <div class="drawer__foot">
       {%- if settings.cart_note != blank -%}
-        <div class="small muted" style="margin-bottom:14px">{{ settings.cart_note }}</div>
+        <div class="small muted" style="margin-bottom: 16px">{{ settings.cart_note }}</div>
       {%- endif -%}
-      <div class="cart-summary__row" style="margin-bottom:6px">
+      <div class="cart-summary__row" style="margin-bottom: 8px">
         <span>{{ 'sections.cart.subtotal' | t }}</span>
         <span>{{ cart.total_price | money }}</span>
       </div>
-      <p class="small muted" style="margin-bottom:14px">{{ 'sections.cart.tax_note' | t }}</p>
+      <p class="small muted" style="margin-bottom: 16px">{{ 'sections.cart.tax_note' | t }}</p>
       <form action="{{ routes.cart_url }}" method="post">
-        <button class="btn btn--ink btn--full" type="submit" name="checkout">
+        <button class="btn btn--full" type="submit" name="checkout">
           {{ 'sections.cart.checkout' | t }}
         </button>
       </form>

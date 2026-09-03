@@ -2,10 +2,80 @@
   {
     "name": "theme_info",
     "theme_name": "Julia Mind",
-    "theme_version": "1.0.0",
-    "theme_author": "Julia Bandanas",
+    "theme_version": "2.0.0",
+    "theme_author": "Julia Mind",
     "theme_documentation_url": "https://github.com/g784dwcd2r-crypto/juliabandanas",
     "theme_support_url": "https://github.com/g784dwcd2r-crypto/juliabandanas"
+  },
+  {
+    "name": "Season",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The shop runs on a season at a time. Everything below re-skins the whole site — header, home page, collection tiles, journal and footer — so a new quarter needs no code."
+      },
+      {
+        "type": "text",
+        "id": "season_number",
+        "label": "Season number",
+        "default": "01",
+        "info": "Shown beside the wordmark and at the top of the home page."
+      },
+      {
+        "type": "text",
+        "id": "season_name",
+        "label": "Season name",
+        "default": "Ducks"
+      },
+      {
+        "type": "text",
+        "id": "season_period",
+        "label": "Runs",
+        "default": "Autumn — Winter 2026"
+      },
+      {
+        "type": "select",
+        "id": "season_motif",
+        "label": "Motif",
+        "info": "The line drawing used as the season's ornament, and as the fallback image on tiles with no photograph.",
+        "options": [
+          { "value": "duck", "label": "Duck" },
+          { "value": "leaf", "label": "Leaf" },
+          { "value": "mushroom", "label": "Mushroom" },
+          { "value": "flower", "label": "Flower" },
+          { "value": "cherry", "label": "Cherry" },
+          { "value": "bee", "label": "Bee" },
+          { "value": "shell", "label": "Shell" },
+          { "value": "star", "label": "Star" },
+          { "value": "moon", "label": "Moon" },
+          { "value": "snowflake", "label": "Snowflake" }
+        ],
+        "default": "duck"
+      },
+      {
+        "type": "color",
+        "id": "season_accent",
+        "label": "Season accent",
+        "default": "#B8863C",
+        "info": "The only chromatic colour on the site. Everything else — the darker text version, the pale band and the colour of text placed on top of it — is worked out from this one value."
+      },
+      {
+        "type": "header",
+        "content": "Season link"
+      },
+      {
+        "type": "collection",
+        "id": "season_collection",
+        "label": "Season collection",
+        "info": "Linked from the wordmark area, the announcement bar and the footer."
+      },
+      {
+        "type": "text",
+        "id": "season_link_label",
+        "label": "Season link label",
+        "default": "Shop the season"
+      }
+    ]
   },
   {
     "name": "Brand",
@@ -13,39 +83,25 @@
       {
         "type": "text",
         "id": "logo_text",
-        "label": "Logo text",
-        "default": "julia mind",
-        "info": "Text-only logo. Each letter is coloured automatically in pink, yellow, green and black."
+        "label": "Wordmark",
+        "default": "Julia Mind",
+        "info": "Set in the display serif. Text, not an image, so it stays sharp everywhere."
       },
       {
-        "type": "select",
-        "id": "logo_style",
-        "label": "Logo colour pattern",
-        "options": [
-          {
-            "value": "cycle",
-            "label": "Cycle (pink, yellow, green, black)"
-          },
-          {
-            "value": "words",
-            "label": "Colour by word"
-          },
-          {
-            "value": "mono",
-            "label": "All black"
-          }
-        ],
-        "default": "cycle"
+        "type": "checkbox",
+        "id": "logo_show_season",
+        "label": "Show the season number beside the wordmark",
+        "default": true
       },
       {
         "type": "range",
         "id": "logo_size",
-        "label": "Logo size",
+        "label": "Wordmark size",
         "min": 16,
-        "max": 44,
+        "max": 40,
         "step": 1,
         "unit": "px",
-        "default": 24
+        "default": 23
       },
       {
         "type": "image_picker",
@@ -58,62 +114,32 @@
     "name": "Colours",
     "settings": [
       {
-        "type": "header",
-        "content": "Core palette"
+        "type": "paragraph",
+        "content": "Three warm papers and one ink. The season accent lives in the Season panel."
       },
       {
         "type": "color",
-        "id": "color_bg",
-        "label": "Page background",
-        "default": "#FFFCF5"
+        "id": "color_paper",
+        "label": "Paper",
+        "default": "#FAF8F3"
       },
       {
         "type": "color",
-        "id": "color_text",
-        "label": "Text",
-        "default": "#101010"
+        "id": "color_paper_2",
+        "label": "Paper — tinted band",
+        "default": "#F4F1EA"
       },
       {
         "type": "color",
-        "id": "color_pink",
-        "label": "Pastel pink",
-        "default": "#FFC9DE"
+        "id": "color_paper_3",
+        "label": "Paper — deep band",
+        "default": "#EDE9DF"
       },
       {
         "type": "color",
-        "id": "color_pink_deep",
-        "label": "Pink accent",
-        "default": "#FF8FBA"
-      },
-      {
-        "type": "color",
-        "id": "color_yellow",
-        "label": "Pastel yellow",
-        "default": "#FFEAA3"
-      },
-      {
-        "type": "color",
-        "id": "color_yellow_deep",
-        "label": "Yellow accent",
-        "default": "#FFD84D"
-      },
-      {
-        "type": "color",
-        "id": "color_green",
-        "label": "Pastel green",
-        "default": "#BCE7CB"
-      },
-      {
-        "type": "color",
-        "id": "color_green_deep",
-        "label": "Green accent",
-        "default": "#7FD8A4"
-      },
-      {
-        "type": "color",
-        "id": "color_cream",
-        "label": "Cream card",
-        "default": "#FFF7E8"
+        "id": "color_ink",
+        "label": "Ink",
+        "default": "#17171A"
       }
     ]
   },
@@ -122,47 +148,45 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "The theme uses Dosis everywhere, in black, by design."
+        "content": "Fraunces for headlines, Inter for everything functional."
       },
       {
         "type": "range",
         "id": "type_base_size",
         "label": "Base text size",
-        "min": 14,
-        "max": 20,
+        "min": 15,
+        "max": 19,
         "step": 1,
         "unit": "px",
         "default": 17
       },
       {
         "type": "range",
-        "id": "type_heading_weight",
-        "label": "Heading weight",
-        "min": 500,
-        "max": 800,
+        "id": "type_display_weight",
+        "label": "Headline weight",
+        "min": 300,
+        "max": 700,
         "step": 100,
-        "default": 700
+        "default": 500
+      },
+      {
+        "type": "range",
+        "id": "type_display_wonk",
+        "label": "Headline character",
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "default": 0,
+        "info": "0 keeps the serif conventional. 1 lets its more unusual letterforms through."
       }
     ]
   },
   {
     "name": "Social",
     "settings": [
-      {
-        "type": "text",
-        "id": "social_instagram",
-        "label": "Instagram URL"
-      },
-      {
-        "type": "text",
-        "id": "social_tiktok",
-        "label": "TikTok URL"
-      },
-      {
-        "type": "text",
-        "id": "social_email",
-        "label": "Contact email"
-      }
+      { "type": "text", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok URL" },
+      { "type": "text", "id": "social_email", "label": "Contact email" }
     ]
   },
   {
@@ -171,14 +195,14 @@
       {
         "type": "checkbox",
         "id": "cart_drawer",
-        "label": "Open cart in a drawer",
+        "label": "Open the cart in a drawer",
         "default": true
       },
       {
         "type": "richtext",
         "id": "cart_note",
         "label": "Cart note",
-        "default": "<p>Packed and posted as quickly as I can manage. Free UK shipping over £35.</p>"
+        "default": "<p>Shipping and any taxes are worked out at checkout. Free UK delivery over £35.</p>"
       }
     ]
   }

@@ -1,0 +1,33 @@
+{%- comment -%}
+  The one-line statement of which season the shop is in. Used at the top of the
+  home page, in the footer and on the journal. Everything in it comes from
+  Customise → Season, so it is right everywhere the moment the quarter changes.
+
+  Accepts: link (bool) — wrap it in a link to the season collection
+{%- endcomment -%}
+
+{%- liquid
+  assign no = settings.season_number
+  assign name = settings.season_name
+  assign period = settings.season_period
+-%}
+
+{%- capture season_inner -%}
+  {%- if no != blank -%}
+    <span class="season-line__num">{{ 'general.season.number' | t: number: no }}</span>
+    <span class="season-line__dot" aria-hidden="true"></span>
+  {%- endif -%}
+  {%- if name != blank -%}
+    <span class="label label--ink">{{ name }}</span>
+  {%- endif -%}
+  {%- if period != blank -%}
+    <span class="season-line__dot" aria-hidden="true"></span>
+    <span class="label">{{ period }}</span>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if link and settings.season_collection != blank -%}
+  <a class="season-line" href="{{ settings.season_collection.url }}">{{ season_inner }}</a>
+{%- else -%}
+  <p class="season-line">{{ season_inner }}</p>
+{%- endif -%}

@@ -1,10 +1,12 @@
 <section class="section band--{{ section.settings.band }}">
   <div class="wrap">
-    <div class="center reveal" style="margin-bottom:34px">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
-      <h2>{{ section.settings.heading }}</h2>
+    <div class="sec-head reveal">
+      <div class="sec-head__text">
+        {%- if section.settings.label != blank -%}
+          <p class="label">{{ section.settings.label }}</p>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
     </div>
 
     <div class="faq reveal">
@@ -27,18 +29,17 @@
 {
   "name": "FAQ",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you might ask" },
+    { "type": "text", "id": "label", "label": "Label", "default": "Questions" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The practical part" },
     {
       "type": "select", "id": "band", "label": "Background",
       "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
       ],
-      "default": "none"
+      "default": "paper"
     }
   ],
   "blocks": [
@@ -46,8 +47,8 @@
       "type": "qa",
       "name": "Question",
       "settings": [
-        { "type": "text", "id": "question", "label": "Question", "default": "How quickly do you post?" },
-        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Within two working days, first class.</p>" }
+        { "type": "text", "id": "question", "label": "Question", "default": "How quickly do orders go out?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Within two working days.</p>" }
       ]
     }
   ],
@@ -55,10 +56,11 @@
     {
       "name": "FAQ",
       "blocks": [
-        { "type": "qa", "settings": { "question": "What are the stickers actually made of?", "answer": "<p>Thick matte vinyl. Waterproof, dishwasher-safe on a bottle, and they peel off cleanly if you change your mind.</p>" } },
-        { "type": "qa", "settings": { "question": "How quickly do you post?", "answer": "<p>Within two working days, first class. Free UK shipping over £35, and yes, I post worldwide.</p>" } },
-        { "type": "qa", "settings": { "question": "Can I request a creature?", "answer": "<p>Please do. Several categories exist because somebody messaged me asking for a snail.</p>" } },
-        { "type": "qa", "settings": { "question": "Is any of this AI?", "answer": "<p>No. Every drawing is made by hand on an iPad, by me.</p>" } }
+        { "type": "qa", "settings": { "question": "What actually is a season?", "answer": "<p>A single subject that the whole shop is built around for three months. Season 01 is ducks. When it closes, the range is replaced rather than added to.</p>" } },
+        { "type": "qa", "settings": { "question": "What happens to things that sell out?", "answer": "<p>They stay sold out. Stock is bought once per season, so if something goes early it does not come back.</p>" } },
+        { "type": "qa", "settings": { "question": "How do the hats fit?", "answer": "<p>Most bucket hats are a 56–58cm one size. Where a product has several sizes they are listed on its own page — measure around your head just above the ears and go by that.</p>" } },
+        { "type": "qa", "settings": { "question": "Delivery and returns?", "answer": "<p>Free UK delivery over £35, worldwide shipping calculated at checkout, and thirty days to send something back unworn and in its packaging.</p>" } },
+        { "type": "qa", "settings": { "question": "Can I suggest the next season?", "answer": "<p>Yes, and it works — subjects get chosen partly from what people ask for. Reply to the season letter or send an email.</p>" } }
       ]
     }
   ]

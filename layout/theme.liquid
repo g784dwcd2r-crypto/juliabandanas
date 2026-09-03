@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="{{ settings.color_bg | default: '#FFFCF5' }}">
+    <meta name="theme-color" content="{{ settings.color_paper | default: '#FAF8F3' }}">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,43 +27,69 @@
 
     {% render 'meta-tags' %}
 
-    {# Dosis is the whole typographic identity — load the weights we actually use. #}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap">
-    </noscript>
+    {%- comment -%}
+      Fraunces carries the voice and Inter carries everything functional.
+      Both are variable; Fraunces is loaded with its optical-size, SOFT and
+      WONK axes because the theme sets them from the Typography settings.
+    {%- endcomment -%}
+    {%- assign font_url = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Inter:wght@400..600&display=swap' -%}
+    <link rel="stylesheet" href="{{ font_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ font_url }}"></noscript>
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'components.css' | asset_url | stylesheet_tag }}
     {{ 'pages.css' | asset_url | stylesheet_tag }}
 
+    {%- comment -%}
+      One accent is chosen in Customise → Season. The darker text version, the
+      pale band and the colour of text placed on top of it are all worked out
+      from it here, so a new season never needs a second colour picked by hand.
+    {%- endcomment -%}
+    {%- liquid
+      assign paper = settings.color_paper | default: '#FAF8F3'
+      assign ink = settings.color_ink | default: '#17171A'
+      assign accent = settings.season_accent | default: '#B8863C'
+      assign accent_b = accent | color_brightness
+
+      if accent_b > 150
+        assign accent_ink = accent | color_darken: 32
+        assign accent_on = ink
+      elsif accent_b > 90
+        assign accent_ink = accent | color_darken: 18
+        assign accent_on = '#FFFFFF'
+      else
+        assign accent_ink = accent
+        assign accent_on = '#FFFFFF'
+      endif
+
+      assign accent_soft = accent | color_mix: paper, 13
+    -%}
     <style>
       :root {
-        --bg:          {{ settings.color_bg }};
-        --ink:         {{ settings.color_text }};
-        --ink-60:      {{ settings.color_text | color_modify: 'alpha', 0.6 }};
-        --ink-40:      {{ settings.color_text | color_modify: 'alpha', 0.38 }};
-        --ink-12:      {{ settings.color_text | color_modify: 'alpha', 0.12 }};
-        --pink:        {{ settings.color_pink }};
-        --pink-deep:   {{ settings.color_pink_deep }};
-        --pink-soft:   {{ settings.color_pink | color_mix: settings.color_bg, 32 }};
-        --yellow:      {{ settings.color_yellow }};
-        --yellow-deep: {{ settings.color_yellow_deep }};
-        --yellow-soft: {{ settings.color_yellow | color_mix: settings.color_bg, 32 }};
-        --green:       {{ settings.color_green }};
-        --green-deep:  {{ settings.color_green_deep }};
-        --green-soft:  {{ settings.color_green | color_mix: settings.color_bg, 32 }};
-        --cream:       {{ settings.color_cream }};
-        --fs-base:     {{ settings.type_base_size }}px;
-        --heading-weight: {{ settings.type_heading_weight }};
-        --logo-size:   {{ settings.logo_size }}px;
+        --paper:      {{ paper }};
+        --paper-2:    {{ settings.color_paper_2 | default: '#F4F1EA' }};
+        --paper-3:    {{ settings.color_paper_3 | default: '#EDE9DF' }};
+        --ink:        {{ ink }};
+        --ink-70:     {{ ink | color_modify: 'alpha', 0.70 }};
+        --ink-55:     {{ ink | color_modify: 'alpha', 0.55 }};
+        --ink-38:     {{ ink | color_modify: 'alpha', 0.38 }};
+        --ink-14:     {{ ink | color_modify: 'alpha', 0.14 }};
+        --ink-07:     {{ ink | color_modify: 'alpha', 0.07 }};
+        --accent:      {{ accent }};
+        --accent-ink:  {{ accent_ink }};
+        --accent-soft: {{ accent_soft }};
+        --accent-on:   {{ accent_on }};
+        --fs-base:     {{ settings.type_base_size | default: 17 }}px;
+        --display-weight: {{ settings.type_display_weight | default: 500 }};
+        --display-settings: "opsz" 120, "SOFT" 0, "WONK" {{ settings.type_display_wonk | default: 0 }};
+        --logo-size:   {{ settings.logo_size | default: 23 }}px;
       }
     </style>
 
     <script>
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
-      window.JB = {
+      window.JM = {
         routes: {
           cart_add_url: '{{ routes.cart_add_url }}',
           cart_change_url: '{{ routes.cart_change_url }}',

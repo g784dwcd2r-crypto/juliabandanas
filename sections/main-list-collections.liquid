@@ -1,24 +1,17 @@
 <div class="wrap">
-  <header class="coll-head">
-    <h1>{{ 'sections.collections.title' | t }}</h1>
+  <header class="page-head page-head--split">
+    <div>
+      <p class="label page-head__label">{{ 'sections.collections.label' | t }}</p>
+      <h1>{{ 'sections.collections.title' | t }}</h1>
+    </div>
+    <p class="lead page-head__intro">{{ 'sections.collections.intro' | t }}</p>
   </header>
-  <div class="pgrid">
+
+  <div class="cats">
     {%- for coll in collections -%}
-      <a class="reveal" href="{{ coll.url }}" data-reveal-delay="{{ forloop.index0 | times: 60 }}">
-        <div class="pcard">
-          <div class="pcard__media">
-            {%- if coll.featured_image -%}
-              <img src="{{ coll.featured_image | image_url: width: 700 }}" alt="{{ coll.title | escape }}" width="{{ coll.featured_image.width }}" height="{{ coll.featured_image.height }}" loading="lazy">
-            {%- else -%}
-              {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-          <div class="pcard__body">
-            <h2 class="pcard__title">{{ coll.title }}</h2>
-            <p class="pcard__meta">{{ 'sections.collection.count' | t: count: coll.products_count }}</p>
-          </div>
-        </div>
-      </a>
+      <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 4 | times: 60 }}">
+        {% render 'collection-tile', tile_collection: coll, show_count: true %}
+      </div>
     {%- endfor -%}
   </div>
 </div>

@@ -1,9 +1,9 @@
 <section class="section band--{{ section.settings.band }}">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+      <div class="sec-head__text">
+        {%- if section.settings.label != blank -%}
+          <p class="label">{{ section.settings.label }}</p>
         {%- endif -%}
         <h2>{{ section.settings.heading }}</h2>
       </div>
@@ -13,12 +13,12 @@
       {%- for block in section.blocks -%}
         <div class="reveal" data-reveal-delay="{{ forloop.index0 | times: 80 }}" {{ block.shopify_attributes }}>
           <figure class="quote">
-            <span class="quote__stars" aria-label="{{ 'sections.testimonials.rating' | t: rating: block.settings.stars }}">
-              {%- for i in (1..block.settings.stars) -%}★{%- endfor -%}
-            </span>
-            <blockquote class="quote__text" style="border:0;background:none;padding:0;margin:0;border-radius:0">
-              {{ block.settings.text }}
-            </blockquote>
+            {%- if block.settings.stars > 0 -%}
+              <span class="quote__stars" aria-label="{{ 'sections.testimonials.rating' | t: rating: block.settings.stars }}">
+                {%- for i in (1..block.settings.stars) -%}&#9679;{%- endfor -%}
+              </span>
+            {%- endif -%}
+            <blockquote class="quote__text">{{ block.settings.text }}</blockquote>
             <figcaption class="quote__who">{{ block.settings.author }}</figcaption>
           </figure>
         </div>
@@ -29,20 +29,19 @@
 
 {% schema %}
 {
-  "name": "Testimonials",
+  "name": "Quotes",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Kind words" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "What the humans say" },
+    { "type": "text", "id": "label", "label": "Label", "default": "From the post" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What people said about it" },
     {
       "type": "select", "id": "band", "label": "Background",
       "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
       ],
-      "default": "none"
+      "default": "paper"
     }
   ],
   "blocks": [
@@ -50,19 +49,19 @@
       "type": "quote",
       "name": "Quote",
       "settings": [
-        { "type": "range", "id": "stars", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
-        { "type": "textarea", "id": "text", "label": "Quote", "default": "It looks exactly like her." },
-        { "type": "text", "id": "author", "label": "Author", "default": "Sam & Mochi" }
+        { "type": "range", "id": "stars", "label": "Rating", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "text", "label": "Quote", "default": "Better in person than in the photographs." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Rosie, Leeds" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonials",
+      "name": "Quotes",
       "blocks": [
-        { "type": "quote", "settings": { "text": "I sent one photo and a sentence about her being dramatic. What came back was so her that I cried a bit.", "author": "Sam & Mochi" } },
-        { "type": "quote", "settings": { "text": "The colours are soft but they really pop in photos. He has three now. I have a problem.", "author": "Priya & Biscuit" } },
-        { "type": "quote", "settings": { "text": "Ordered on a Sunday, wearing it by Friday, and the fabric has survived four washes and one lake.", "author": "Tom & Nala" } }
+        { "type": "quote", "settings": { "text": "I bought the bucket hat as a joke and have now worn it every day for a month. The joke is on me.", "author": "Rosie, Leeds" } },
+        { "type": "quote", "settings": { "text": "The print is genuinely lovely — properly framed it does not read as novelty at all, which I did not expect.", "author": "Alex, Bristol" } },
+        { "type": "quote", "settings": { "text": "Ordered on the Sunday, wearing the socks by the Thursday. No notes.", "author": "Mina, Glasgow" } }
       ]
     }
   ]

@@ -3,74 +3,44 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "r1": {
-          "type": "reassurance",
-          "settings": {
-            "icon": "heart",
-            "text": "Picked by hand, not by algorithm"
-          }
-        },
-        "r2": {
-          "type": "reassurance",
-          "settings": {
-            "icon": "truck",
-            "text": "Free UK shipping over £35"
-          }
-        },
-        "r3": {
-          "type": "reassurance",
-          "settings": {
-            "icon": "check",
-            "text": "30 days to change your mind"
-          }
-        },
+        "r1": { "type": "reassurance", "settings": { "icon": "season", "text": "Part of Season 01 — Ducks. Not restocked once it closes." } },
+        "r2": { "type": "reassurance", "settings": { "icon": "truck", "text": "Free UK delivery over £35, worldwide at checkout" } },
+        "r3": { "type": "reassurance", "settings": { "icon": "return", "text": "30 days to send it back, unworn" } },
         "a1": {
           "type": "accordion",
           "settings": {
             "heading": "Sizing",
-            "content": "<p>Most bucket hats are a 56–58cm one-size fit. Where several sizes are listed, measure around your head just above the ears and go by that number.</p><p>Clothing runs to the size chart on the product images — if you're between sizes, go up.</p>"
+            "content": "<p>Most bucket hats are a 56–58cm one size. Where several sizes are listed, measure around your head just above the ears and go by that number.</p><p>Clothing follows the size chart on the product images. If you are between sizes, go up.</p>"
           }
         },
         "a2": {
           "type": "accordion",
           "settings": {
             "heading": "Looking after it",
-            "content": "<p>Anything cotton takes a cold wash, inside out, hung to dry rather than tumbled. Prints prefer to stay out of direct sunlight. Don't iron directly over a print.</p>"
+            "content": "<p>Anything cotton takes a cold wash, inside out, hung to dry rather than tumbled. Keep prints out of direct sunlight, and never iron straight over one.</p>"
           }
         },
         "a3": {
           "type": "accordion",
           "settings": {
-            "heading": "Shipping &amp; returns",
-            "content": "<p>Packed and posted as quickly as I can manage. Free UK shipping over £35; international is calculated at checkout.</p><p>Returns within 30 days, unworn and in original packaging. Message me and I'll sort it.</p>"
+            "heading": "Delivery &amp; returns",
+            "content": "<p>Orders go out within two working days. Free UK delivery over £35; international delivery is calculated at checkout.</p><p>Thirty days to return anything unworn and in its original packaging.</p>"
           }
         }
       },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "a1",
-        "a2",
-        "a3"
-      ],
-      "settings": {
-        "show_vendor": false
-      }
+      "block_order": ["r1", "r2", "r3", "a1", "a2", "a3"],
+      "settings": { "show_vendor": false }
     },
     "related": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "More to love",
-        "heading": "People also fell for these",
+        "collection": "duck-mood",
+        "label": "Also this season",
+        "heading": "While you're here",
         "count": 4,
-        "band": "cream",
-        "collection": "everything"
+        "band": "tint"
       }
     }
   },
-  "order": [
-    "main",
-    "related"
-  ]
+  "order": ["main", "related"]
 }

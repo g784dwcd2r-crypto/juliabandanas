@@ -5,13 +5,13 @@
 (function () {
   'use strict';
 
-  var JB = window.JB || {};
+  var JM = window.JM || {};
   var $  = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
 
   /* ---------- Money ---------- */
   function formatMoney(cents) {
-    var fmt = JB.moneyFormat || '${{amount}}';
+    var fmt = JM.moneyFormat || '${{amount}}';
     var value = (cents / 100);
     return fmt.replace(/\{\{\s*(\w+)\s*\}\}/g, function (_, name) {
       switch (name) {
@@ -236,7 +236,7 @@
   }
 
   function refreshCartDrawer() {
-    return fetch(JB.routes.cart_url + '?section_id=cart-drawer-contents', { headers: { 'Accept': 'text/html' } })
+    return fetch(JM.routes.cart_url + '?section_id=cart-drawer-contents', { headers: { 'Accept': 'text/html' } })
       .then(function (r) { return r.text(); })
       .then(function (html) {
         var doc = new DOMParser().parseFromString(html, 'text/html');
@@ -247,7 +247,7 @@
   }
 
   function syncCart() {
-    return fetch(JB.routes.cart_url + '.js', { headers: { 'Accept': 'application/json' } })
+    return fetch(JM.routes.cart_url + '.js', { headers: { 'Accept': 'application/json' } })
       .then(function (r) { return r.json(); })
       .then(function (cart) { updateCartCount(cart.item_count); return cart; });
   }
@@ -258,7 +258,7 @@
       var errorEl = $('[data-form-error]', form);
 
       form.addEventListener('submit', function (e) {
-        if (!window.fetch || !JB.cartDrawer) return; // let it post normally
+        if (!window.fetch || !JM.cartDrawer) return; // let it post normally
 
         e.preventDefault();
         if (errorEl) { errorEl.textContent = ''; errorEl.hidden = true; }
@@ -268,18 +268,18 @@
         var body = new FormData(form);
         body.append('sections', 'cart-drawer-contents');
 
-        fetch(JB.routes.cart_add_url, {
+        fetch(JM.routes.cart_add_url, {
           method: 'POST',
           headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
           body: body
         })
           .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
           .then(function (res) {
-            if (!res.ok) throw new Error(res.data.description || res.data.message || JB.strings.error);
+            if (!res.ok) throw new Error(res.data.description || res.data.message || JM.strings.error);
             return refreshCartDrawer().then(syncCart).then(function () { openCart(btn); });
           })
           .catch(function (err) {
-            if (errorEl) { errorEl.textContent = err.message || JB.strings.error; errorEl.hidden = false; }
+            if (errorEl) { errorEl.textContent = err.message || JM.strings.error; errorEl.hidden = false; }
           })
           .then(function () {
             if (btn) { btn.removeAttribute('aria-disabled'); btn.textContent = label; }
@@ -292,7 +292,7 @@
   function changeLine(key, quantity, scope) {
     var body = { id: key, quantity: quantity, sections: 'cart-drawer-contents' };
     if (scope) scope.setAttribute('aria-busy', 'true');
-    return fetch(JB.routes.cart_change_url, {
+    return fetch(JM.routes.cart_change_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(body)
@@ -380,6 +380,9 @@
 
       function currentOptions() {
         return $$('fieldset', picker).map(function (fs) {
+          // Options with a lot of values fall back to a <select>
+          var select = $('select', fs);
+          if (select) return select.value;
           var checked = $('input:checked', fs);
           return checked ? checked.value : null;
         });
@@ -394,15 +397,15 @@
         $$('.variant__value', picker).forEach(function (el, i) { el.textContent = opts[i] || ''; });
 
         if (!match) {
-          if (btn) { btn.setAttribute('aria-disabled', 'true'); btn.textContent = JB.strings.unavailable; }
+          if (btn) { btn.setAttribute('aria-disabled', 'true'); btn.textContent = JM.strings.unavailable; }
           return;
         }
         if (idInput) idInput.value = match.id;
         if (priceEl) priceEl.innerHTML = formatMoney(match.price);
         if (barPrice) barPrice.innerHTML = formatMoney(match.price);
         if (btn) {
-          if (match.available) { btn.removeAttribute('aria-disabled'); btn.textContent = JB.strings.addToCart; }
-          else { btn.setAttribute('aria-disabled', 'true'); btn.textContent = JB.strings.soldOut; }
+          if (match.available) { btn.removeAttribute('aria-disabled'); btn.textContent = JM.strings.addToCart; }
+          else { btn.setAttribute('aria-disabled', 'true'); btn.textContent = JM.strings.soldOut; }
         }
         if (window.history.replaceState) {
           var url = new URL(window.location.href);

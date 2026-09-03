@@ -5,8 +5,8 @@
 
   <h2 class="h3" style="margin-top:40px">{{ 'customer.account.orders' | t }}</h2>
   {%- if customer.orders.size > 0 -%}
-    <div class="rte" style="margin-top:16px">
-      <table>
+    <div style="margin-top:16px;overflow-x:auto">
+      <table class="account-table">
         <thead><tr>
           <th>{{ 'customer.account.order' | t }}</th>
           <th>{{ 'customer.account.date' | t }}</th>

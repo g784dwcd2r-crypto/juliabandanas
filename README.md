@@ -1,88 +1,116 @@
 # Julia Mind — Shopify theme
 
-A custom Shopify Online Store 2.0 theme for a small shop of hand-drawn cute
-things — stickers, prints, keyrings, pins, totes and bandanas — organised into
-ten illustrated categories. Built mobile-first: every layout starts at 390px
-wide and grows from there.
+A custom Shopify Online Store 2.0 theme for a shop that runs **one subject at a
+time**. Every quarter the whole range is rebuilt around a single season; the
+theme is built so that changing the season is a settings change, not a code
+change.
+
+Season 01 is **Ducks**.
 
 ---
 
 ## The look
 
+Quiet editorial. Warm paper, deep ink, one seasonal accent, and type doing
+almost all of the work.
+
 | | |
 |---|---|
-| **Type** | Dosis, everywhere, in black. 400–800 weights. |
-| **Pink** | `#FFC9DE` pastel · `#FF8FBA` accent |
-| **Yellow** | `#FFEAA3` pastel · `#FFD84D` accent |
-| **Green** | `#BCE7CB` pastel · `#7FD8A4` accent |
-| **Ink / page** | `#101010` on `#FFFCF5` |
+| **Display** | Fraunces — variable, low WONK, used for headlines and pull quotes only |
+| **Text / UI** | Inter — body copy, labels, buttons, prices |
+| **Paper** | `#FAF8F3` · tinted band `#F4F1EA` · deep band `#EDE9DF` |
+| **Ink** | `#17171A`, used at five opacities and no other colours |
+| **Accent** | Set per season. Season 01 is pond ochre `#B8863C` |
 
-Colour blocks do the shouting; the type stays quiet and black. Sections
-alternate between pastel bands, cards get chunky black outlines and a hard drop
-shadow, and product, category and article tiles cycle through the three pastels
-so a grid stays colourful even with plain photography.
+There are no drop shadows, no rounded pill buttons and no bounce easing
+anywhere in the theme. Separation is done with hairline rules and whitespace;
+emphasis is done with scale and one accent. Radii are 2–4px — near-square by
+intent, because the softness is meant to come from spacing.
 
-Every colour is a theme setting, so all of this is editable in **Customise →
-Colours** without touching code.
+Small tracked capitals (`.label`) carry every eyebrow, meta line and column
+heading, and they are what hold the layout together across pages.
 
-## The logo
+## The season system
 
-Text only — no image file. `snippets/logo.liquid` splits the wordmark into
-characters and colours them pink → yellow → green → black on a loop, so it stays
-sharp at any size, recolours with the theme, and remains real selectable text
-for SEO and screen readers.
+Everything about the current quarter lives in **Customise → Season**:
 
-Change the words in **Customise → Brand → Logo text**. Three colour patterns are
-available: cycle by letter, colour by word, or all black.
+| Setting | Does what |
+|---|---|
+| Season number | The `01` beside the wordmark, and the opening line of the home page |
+| Season name | `Ducks` — used in the season line, product kickers and fallbacks |
+| Runs | `Autumn — Winter 2026` — the dates in the season line |
+| Motif | The line drawing used as the season's ornament and as the image fallback |
+| Season accent | The one chromatic colour on the site |
+| Season collection | Linked from the wordmark area, announcement bar, footer and menu drawer |
 
-`assets/logo.svg` is the same wordmark as a standalone file for socials,
-packaging and email signatures.
+**One colour is picked, not four.** `layout/theme.liquid` derives the rest from
+it: a darker version for accent text (contrast-checked against the paper), a
+pale tint for season bands, and black or white for text placed on top of it. A
+new season needs one colour picked and nothing else reasoned about.
 
-## The categories
+### The motifs
 
-Ten categories, each with its own hand-drawn illustration built as inline SVG in
-`snippets/category-art.liquid`:
+`snippets/season-motif.liquid` holds ten line drawings on a shared 64 × 64 grid
+with the same 1.4px stroke and no fill, so swapping the season swaps the drawing
+without changing the weight or scale of anything around it:
 
-> ducks · mushrooms · frogs · snails · bees · cats · bears · strawberries ·
-> moons & stars · tiny snacks
+> duck · leaf · mushroom · flower · cherry · bee · shell · star · moon · snowflake
 
-They are drawn on a shared 100 × 100 grid with the same 4px black outline and
-the same palette, so the ten of them read as one set. The **Category grid**
-section places them on the home page; each tile falls back to its drawing when
-the collection has no image of its own, so the grid never looks empty.
+They appear as the hero watermark, the ornament above the season note, the
+fallback on collection tiles and article cards with no photograph, and the mark
+on empty states and the 404 page.
 
-To add an eleventh category: draw it into `category-art.liquid` as a new
-`when` branch, add it to the `art` select in `sections/category-grid.liquid`,
-then add a block in the theme editor.
+To add one: add a `when` branch in `season-motif.liquid`, then add the same
+value to the `season_motif` select in `config/settings_schema.json`.
+
+### Changing the season
+
+1. **Customise → Season** — set the number, name, dates, motif and accent.
+2. Point **Season collection** at the new quarter's collection.
+3. Update the home page hero heading, season note and CTA banner text.
+4. Rewrite journal posts 1 and 6 (see `blog-source/README.md`).
+
+No code changes, no CSS edits, no new colour decisions.
 
 ## Structure
 
 ```
-assets/       base.css (tokens + primitives), components.css, pages.css, theme.js
-              logo.svg, bandana-*.svg (placeholder product artwork)
+assets/       base.css      tokens, type scale, buttons, forms, rich text
+              components.css header, drawers, hero, cards, grids, footer
+              pages.css     product, collection, cart, blog, account
+              theme.js      dependency-free behaviour
+              logo.svg      standalone wordmark for socials and packaging
 config/       settings_schema.json, settings_data.json
-layout/       theme.liquid
+layout/       theme.liquid  — derives the season colours
 locales/      en.default.json
 sections/     header/footer groups, home sections, main-* page sections
-snippets/     logo, icon, category-art, category-tile, product-card,
-              article-card, cart drawer, pagination
+snippets/     logo, season-line, season-motif, collection-tile, product-card,
+              article-card, icon, cart drawer, pagination, meta tags
 templates/    JSON templates for every page type + customer account templates
-blog-source/  the six launch articles as HTML, with posts.json metadata
+blog-source/  the journal articles as HTML, with posts.json metadata
 ```
 
-`assets/theme.js` is dependency-free and everything degrades to working HTML
+`assets/theme.js` has no dependencies and everything degrades to working HTML
 without it: forms still post, links still navigate, the cart still works.
 
-## Mobile behaviour worth knowing about
+## Behaviour worth knowing about
 
 - The header hides on scroll down and returns on scroll up.
-- Product rows are swipeable snap rails on phones and grids on desktop.
-- The category grid is 2 columns on phones, 3 at 560px, 4 at 750px, 5 at 990px.
-- The product gallery is a swipe rail with dots; on desktop it stacks.
+- Product rows are swipeable snap rails on phones and grids from 750px.
+- The collection index is 2 columns on phones, 3 at 750px, 4 at 1100px.
+- The product gallery is a swipe rail with dashes on mobile and a stacked
+  column on desktop.
 - A sticky add-to-cart bar appears once the real button scrolls out of view.
-- Drawers trap focus, lock background scroll, and respect the iPhone safe area.
+- **Variant options with more than 12 values render as a dropdown** rather than
+  a wall of swatches. Several products in this catalogue carry 40–80 variants
+  and buttons are unusable at that size.
+- Product card titles are clamped to two lines, because supplier titles are
+  keyword lists rather than names.
+- The journal runs its newest post wide above the grid on page one.
+- Drawers trap focus, lock background scroll and respect the iPhone safe area.
 - Inputs are 16px so iOS Safari never zooms the page on focus.
-- Everything animated is disabled under `prefers-reduced-motion`.
+- Everything animated is disabled under `prefers-reduced-motion`, including the
+  announcement strip.
 
 ## Working on it
 
@@ -95,15 +123,16 @@ npx @shopify/cli theme check
 To develop against the store:
 
 ```bash
-npx @shopify/cli theme dev --store cwvsqu-nk.myshopify.com
+npx @shopify/cli theme dev  --store cwvsqu-nk.myshopify.com
 npx @shopify/cli theme push --store cwvsqu-nk.myshopify.com
 ```
 
-`.theme-check.yml` disables only `RemoteAsset`, and says why: Dosis is loaded
-from Google Fonts because the full 400–800 weight range is needed.
+`.theme-check.yml` disables only `RemoteAsset`, and says why: Fraunces is loaded
+from Google Fonts with its optical-size, SOFT and WONK axes, which Shopify's
+hosted font library does not expose.
 
-## Blog
+## Journal
 
-The six launch articles live in `blog-source/` as HTML plus `posts.json`. They
-are the source of truth — if you edit one in the Shopify admin, paste the change
-back here so the two do not drift apart.
+The articles live in `blog-source/` as HTML plus `posts.json`. They are the
+source of truth — if one is edited in the Shopify admin, paste the change back
+here so the two do not drift apart. See `blog-source/README.md`.

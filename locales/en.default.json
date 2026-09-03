@@ -2,6 +2,9 @@
   "general": {
     "home": "Home",
     "breadcrumbs": "Breadcrumbs",
+    "season": {
+      "number": "Season {{ number }}"
+    },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
       "page": "Page {{ page }}"
@@ -21,28 +24,31 @@
       "next": "Next page"
     },
     "search": {
+      "label": "Look for something",
       "title": "Search",
-      "placeholder": "Search stickers, prints and posts",
+      "placeholder": "Hats, prints, socks, journal…",
       "submit": "Search",
       "results_count": {
         "one": "{{ count }} result for \"{{ terms }}\"",
         "other": "{{ count }} results for \"{{ terms }}\""
       },
-      "no_results": "Nothing found. Try a different word."
+      "no_results": "Nothing matched that."
     },
     "newsletter": {
       "email": "Email address",
       "placeholder": "your@email.com",
-      "submit": "Subscribe",
-      "success": "You're on the list. Talk soon."
+      "submit": "Join",
+      "success": "You're on the list."
     },
     "404": {
-      "text": "This page has run off with a sock. Let's get you back.",
+      "label": "Error 404",
+      "title": "This page isn't here",
+      "text": "It may have belonged to a season that has already closed.",
       "link": "Back to the shop"
     }
   },
   "onboarding": {
-    "product_title": "Sticker sheet"
+    "product_title": "Product name"
   },
   "products": {
     "product": {
@@ -53,49 +59,51 @@
       "new": "New",
       "quantity": "Quantity",
       "from_price": "From {{ price }}",
-      "card_meta": "Free UK shipping over £35",
-      "price_note": "Free UK shipping over £35. 30 days to change your mind.",
+      "price_note": "Delivery calculated at checkout",
       "go_to_image": "Go to image {{ index }}"
     }
   },
   "sections": {
     "cart": {
       "title": "Cart",
-      "empty": "Your cart is empty",
-      "empty_note": "Go and find a duck. Or a mushroom. Or both.",
-      "continue_shopping": "Shop everything",
+      "empty": "Nothing in here yet",
+      "empty_note": "The season is still open, for now.",
+      "continue_shopping": "Shop the season",
       "subtotal": "Subtotal",
       "total": "Total",
-      "tax_note": "Taxes and shipping calculated at checkout.",
+      "tax_note": "Taxes and delivery calculated at checkout.",
       "checkout": "Checkout",
       "update": "Update cart",
       "remove": "Remove",
       "decrease": "Decrease quantity",
       "increase": "Increase quantity",
       "note": "Order notes",
-      "note_placeholder": "Anything else I should know?"
+      "note_placeholder": "Anything I should know before this goes out?"
     },
     "collection": {
-      "eyebrow": "Collection",
+      "label": "Collection",
       "sort": "Sort by",
       "view_all": "View all",
-      "empty": "Nothing here yet",
+      "empty": "Nothing in this collection yet",
       "count": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "{{ count }} piece",
+        "other": "{{ count }} pieces"
       }
     },
     "collections": {
-      "title": "Collections"
+      "label": "The shop",
+      "title": "Everything, by kind",
+      "intro": "The same subject, worked through everything you might reasonably want it on."
     },
     "testimonials": {
-      "rating": "{{ rating }} out of 5 stars"
+      "rating": "{{ rating }} out of 5"
     }
   },
   "blogs": {
     "article": {
-      "eyebrow": "The journal",
-      "read_all": "Read all",
+      "label": "The journal",
+      "read": "Read",
+      "read_all": "All posts",
       "none": "No posts yet.",
       "all": "All",
       "back": "Back to the journal",
@@ -103,12 +111,13 @@
     }
   },
   "contact": {
-    "success": "Thanks — that's landed in my inbox. I'll reply soon.",
+    "success": "Thanks — that's landed. I'll reply shortly.",
     "name": "Your name",
     "email": "Email",
+    "order": "Order number",
+    "optional": "Optional",
     "message": "Message",
-    "send": "Send message",
-    "instagram": "Your Instagram"
+    "send": "Send message"
   },
   "customer": {
     "login": {

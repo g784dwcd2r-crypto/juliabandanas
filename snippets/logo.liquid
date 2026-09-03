@@ -1,55 +1,31 @@
 {%- comment -%}
-  Text-only wordmark. Every character is wrapped and coloured so the logo is
-  pink + yellow + green + black without ever being an image file — it stays
-  crisp at any size, recolours from theme settings, and is real selectable text
-  for SEO and screen readers.
+  The wordmark. Text set in the display serif rather than an image file, so it
+  stays sharp at any size, follows the theme's typography settings and remains
+  real, selectable text for search engines and screen readers.
 
-  Accepts:  size (px, optional), tag (optional: 'div' to avoid nested links)
+  Beside it sits the season number — a small tracked marker that quietly dates
+  the shop and changes on its own each quarter.
+
+  Accepts: size (px, optional), tag ('div' to avoid nesting links)
 {%- endcomment -%}
 
 {%- liquid
   assign logo_text = settings.logo_text | default: shop.name
-  assign style = settings.logo_style | default: 'cycle'
-  assign chars = logo_text | split: ''
+  assign season_no = settings.season_number
+  assign show_season = settings.logo_show_season
 -%}
 
 {%- capture logo_inner -%}
-  <span class="visually-hidden">{{ logo_text }}</span>
-  <span aria-hidden="true">
-    {%- if style == 'mono' -%}
-      {%- for ch in chars -%}
-        {%- if ch == ' ' -%}
-          <span class="logo__ch logo__ch--space"></span>
-        {%- else -%}
-          <span class="logo__ch logo--c4">{{ ch }}</span>
-        {%- endif -%}
-      {%- endfor -%}
-
-    {%- elsif style == 'words' -%}
-      {%- assign words = logo_text | split: ' ' -%}
-      {%- for word in words -%}
-        {%- assign wi = forloop.index0 | modulo: 4 | plus: 1 -%}
-        <span class="logo__ch logo--c{{ wi }}">{{ word }}</span>
-        {%- unless forloop.last -%}<span class="logo__ch logo__ch--space"></span>{%- endunless -%}
-      {%- endfor -%}
-
-    {%- else -%}
-      {%- assign ci = 0 -%}
-      {%- for ch in chars -%}
-        {%- if ch == ' ' -%}
-          <span class="logo__ch logo__ch--space"></span>
-        {%- else -%}
-          {%- assign ci = ci | plus: 1 -%}
-          {%- assign slot = ci | minus: 1 | modulo: 4 | plus: 1 -%}
-          <span class="logo__ch logo--c{{ slot }}">{{ ch }}</span>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
-  </span>
+  <span class="logo__word">{{ logo_text }}</span>
+  {%- if show_season and season_no != blank -%}
+    <span class="logo__season" aria-hidden="true">{{ season_no }}</span>
+  {%- endif -%}
 {%- endcapture -%}
 
 {%- assign logo_style_attr = '' -%}
-{%- if size -%}{%- assign logo_style_attr = 'style="--logo-size:' | append: size | append: 'px"' -%}{%- endif -%}
+{%- if size -%}
+  {%- assign logo_style_attr = 'style="--logo-size:' | append: size | append: 'px"' -%}
+{%- endif -%}
 
 {%- if tag == 'div' -%}
   <div class="logo" {{ logo_style_attr }}>{{ logo_inner }}</div>

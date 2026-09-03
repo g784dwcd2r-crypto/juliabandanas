@@ -1,69 +1,50 @@
 [
   {
-    "file": "01-how-to-choose-a-bandana.html",
-    "title": "How to choose the right bandana for your pet",
-    "handle": "how-to-choose-the-right-bandana-for-your-pet",
-    "tags": [
-      "Guides",
-      "Sizing",
-      "Buying"
-    ],
-    "excerpt": "Neck measurement, shape, fastening, fabric and colour — the seven decisions that make a bandana sit like it belongs there.",
-    "seo_description": "A practical guide to choosing a pet bandana: how to measure the neck, which shape suits which breed, tie-on vs slip-on, the right fabric, and how to pick a colour that flatters your pet's coat."
+    "file": "01-what-a-season-means.html",
+    "title": "Season 01 is ducks. Here is what that actually means.",
+    "handle": "what-a-season-means",
+    "tags": ["Seasons", "Behind the scenes"],
+    "excerpt": "One subject, three months, then the whole shop is replaced. How the quarterly model works, what happens when a season closes, and how the next subject gets chosen.",
+    "seo_description": "Julia Mind runs one subject at a time. An explanation of the quarterly season model: what a season contains, what happens to stock when it closes, and how each new subject is chosen."
   },
   {
-    "file": "02-where-to-put-a-sticker.html",
-    "title": "Where to actually put a sticker (and where not to)",
-    "handle": "where-to-actually-put-a-sticker",
-    "tags": [
-      "Stickers",
-      "Guides"
-    ],
-    "excerpt": "Vinyl sticks to things that are smooth, hard, clean and dry. Everything else is a negotiation.",
-    "seo_description": "A practical guide to applying vinyl stickers: which surfaces work, which never will, how to prep in ten seconds, how to apply without bubbles, and how to remove one cleanly."
+    "file": "02-bucket-hat-fit.html",
+    "title": "How to buy a bucket hat that actually fits",
+    "handle": "how-to-buy-a-bucket-hat-that-fits",
+    "tags": ["Guides"],
+    "excerpt": "Measure just above the ears, trust the centimetres rather than the size letter, and never size up to be safe. Two minutes of reading, one fewer return.",
+    "seo_description": "A practical bucket hat sizing guide: how to measure your head correctly, what 56–58cm one size really means, the three most common sizing mistakes, and how a hat should sit when it fits."
   },
   {
-    "file": "03-sizing-guide.html",
-    "title": "Getting the size right, first time",
-    "handle": "getting-the-size-right-first-time",
-    "tags": [
-      "Sizing",
-      "Guides"
-    ],
-    "excerpt": "A tape measure, five centimetres and thirty seconds. Plus the three sizing mistakes almost everyone makes.",
-    "seo_description": "How to measure your pet for a bandana: the exact method, a breed-by-breed size guide from XS to XL, the three most common sizing mistakes, and how it should look once it's on."
+    "file": "03-hanging-a-print.html",
+    "title": "Hanging a print without making the room look like a gift shop",
+    "handle": "hanging-a-print",
+    "tags": ["Guides"],
+    "excerpt": "Buy bigger than feels sensible, frame it properly, and hang it lower than you want to. The three decisions that separate art from a poster.",
+    "seo_description": "How to frame and hang an illustrated print: choosing the right size for the wall, why a mount matters, correct hanging height, and how to group prints without it looking accidental."
   },
   {
-    "file": "04-how-to-wash-a-bandana.html",
-    "title": "How to wash a bandana without wrecking the print",
-    "handle": "how-to-wash-a-bandana-without-wrecking-the-print",
-    "tags": [
-      "Care",
-      "Guides"
-    ],
-    "excerpt": "Cold water, inside out, and never the tumble dryer. Everything that keeps printed colour bright for years.",
-    "seo_description": "How to wash a printed pet bandana so the colours last: the right temperature, why fabric softener and tumble drying ruin prints, and how to handle mud, grass and drool stains."
+    "file": "04-what-gets-checked.html",
+    "title": "What actually gets checked before something goes in a season",
+    "handle": "what-gets-checked",
+    "tags": ["Behind the scenes"],
+    "excerpt": "Four passes: does it belong, do the photographs hold up, is the description honest, and do the variants exist. Plus the things this shop does not claim.",
+    "seo_description": "Behind the scenes of a small seasonal shop: how products are selected, how supplier photography and descriptions are checked, how variants are verified, and what the returns policy actually is."
   },
   {
-    "file": "05-drawing-to-sticker.html",
-    "title": "How a drawing becomes a sticker, a print and a keyring",
-    "handle": "how-a-drawing-becomes-a-sticker",
-    "tags": [
-      "Behind the scenes",
-      "Making"
-    ],
-    "excerpt": "The drawing takes twenty minutes. Everything after the drawing takes a fortnight. Here is the whole route.",
-    "seo_description": "Behind the scenes of a small illustration shop: how a doodle is redrawn, adapted for stickers, prints, pins and fabric, proofed, cut, checked and packed."
+    "file": "05-washing-printed-cotton.html",
+    "title": "Washing printed cotton so the print survives",
+    "handle": "washing-printed-cotton",
+    "tags": ["Care", "Guides"],
+    "excerpt": "Cold, inside out, no softener, never the tumble dryer. Why heat is the thing that ruins a print, and what to do about socks, slippers and mugs.",
+    "seo_description": "How to wash printed cotton shirts so the graphic lasts: the right temperature, why fabric softener and tumble drying damage prints, plus care notes for socks, slippers and printed mugs."
   },
   {
-    "file": "06-ten-categories.html",
-    "title": "Ten categories, and how each one started",
-    "handle": "ten-categories-and-how-each-one-started",
-    "tags": [
-      "Behind the scenes",
-      "Categories"
-    ],
-    "excerpt": "None of it was a plan. Every category began as one drawing that got out of hand.",
-    "seo_description": "The story behind the ten Julia Mind categories — ducks, mushrooms, frogs, snails, bees, cats, bears, strawberries, moons and tiny snacks — and how each one started."
+    "file": "06-ducks-ranked.html",
+    "title": "Nine ducks, ranked by how seriously they take themselves",
+    "handle": "ducks-ranked",
+    "tags": ["Seasons"],
+    "excerpt": "The rubber duck takes itself least seriously and outsells everything. The Christmas duck takes itself most seriously and is unwearable for eleven months. A field guide to Season 01.",
+    "seo_description": "A guide to the recurring duck archetypes in Season 01 at Julia Mind — the rubber duck, the bucket hat duck, the cowboy duck, the wine duck and the rest — ranked, with notes on which ones last."
   }
 ]

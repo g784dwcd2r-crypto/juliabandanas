@@ -1,31 +1,67 @@
 <div class="wrap">
-  <header class="coll-head center">
-    <p class="eyebrow" style="margin-bottom:12px">{{ 'blogs.article.eyebrow' | t }}</p>
-    <h1>{{ blog.title }}</h1>
+  <header class="page-head page-head--split">
+    <div>
+      <p class="label page-head__label">{{ 'blogs.article.label' | t }}</p>
+      <h1>{{ blog.title }}</h1>
+    </div>
     {%- if section.settings.intro != blank -%}
-      <p class="lead muted" style="margin:16px auto 0;max-width:52ch">{{ section.settings.intro }}</p>
+      <p class="lead page-head__intro">{{ section.settings.intro }}</p>
     {%- endif -%}
   </header>
 
   {%- if blog.all_tags.size > 0 -%}
-    <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:16px;margin-bottom:26px" class="no-scrollbar">
-      <a class="pill{% unless current_tags %} pill--pink{% endunless %}" href="{{ blog.url }}">{{ 'blogs.article.all' | t }}</a>
+    <div class="cat-strip no-scrollbar" style="margin-bottom: 44px">
+      <a class="tag" href="{{ blog.url }}" {% unless current_tags %}aria-current="page"{% endunless %}>{{ 'blogs.article.all' | t }}</a>
       {%- for tag in blog.all_tags -%}
-        <a class="pill{% if current_tags contains tag %} pill--pink{% endif %}" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+        <a class="tag" href="{{ blog.url }}/tagged/{{ tag | handle }}"
+           {% if current_tags contains tag %}aria-current="page"{% endif %}>{{ tag }}</a>
       {%- endfor -%}
     </div>
   {%- endif -%}
 
   {%- paginate blog.articles by 12 -%}
+    {%- comment -%}
+      On the first page the newest post runs wide above the grid, so the
+      journal opens like a front page rather than a wall of equal tiles.
+    {%- endcomment -%}
+    {%- assign lead = blog.articles.first -%}
+    {%- if paginate.current_page == 1 and blog.articles.size > 2 -%}
+      <article class="blog-lead reveal is-in">
+        <a class="media media--film zoom" href="{{ lead.url }}" style="display:block" tabindex="-1" aria-hidden="true">
+          {%- if lead.image -%}
+            <img src="{{ lead.image | image_url: width: 1400 }}"
+                 srcset="{{ lead.image | image_url: width: 700 }} 700w, {{ lead.image | image_url: width: 1400 }} 1400w"
+                 sizes="(min-width: 750px) 58vw, 92vw"
+                 alt="" width="{{ lead.image.width }}" height="{{ lead.image.height }}"
+                 fetchpriority="high">
+          {%- else -%}
+            <span class="motif" style="width:20%">{% render 'season-motif' %}</span>
+          {%- endif -%}
+        </a>
+        <div class="blog-lead__text">
+          <p class="label">
+            {{ lead.published_at | date: format: 'date' }}
+            {%- if lead.tags.size > 0 %} &middot; {{ lead.tags.first }}{% endif -%}
+          </p>
+          <h2><a href="{{ lead.url }}">{{ lead.title | escape }}</a></h2>
+          <p class="muted">{{ lead.excerpt_or_content | strip_html | truncatewords: 42 }}</p>
+          <p><a class="link" href="{{ lead.url }}">{{ 'blogs.article.read' | t }} {% render 'icon', name: 'arrow' %}</a></p>
+        </div>
+      </article>
+    {%- endif -%}
+
     <div class="blog-grid">
       {%- for article in blog.articles -%}
-        <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 3 | times: 80 }}">
-          {% render 'article-card', article: article %}
-        </div>
+        {%- unless paginate.current_page == 1 and blog.articles.size > 2 and forloop.first -%}
+          <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 3 | times: 80 }}">
+            {% render 'article-card', article: article %}
+          </div>
+        {%- endunless -%}
       {%- else -%}
         <p class="muted">{{ 'blogs.article.none' | t }}</p>
       {%- endfor -%}
     </div>
+
     {% render 'pagination', paginate: paginate %}
   {%- endpaginate -%}
 </div>
@@ -36,7 +72,7 @@
   "settings": [
     {
       "type": "textarea", "id": "intro", "label": "Intro",
-      "default": "Notes from the drawing board — how things get made, what they're printed on, and where the sillier ideas come from."
+      "default": "Notes on the season, what is worth buying and why, and the occasional argument about what the next quarter should be about."
     }
   ]
 }

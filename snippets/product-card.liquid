@@ -1,20 +1,26 @@
 {%- comment -%}
-  Accepts: card_product, show_vendor (bool), index (int)
+  Accepts: card_product, kicker (optional string)
+
+  Supplier product titles run long, so the title is clamped to two lines by CSS
+  and the type of thing it is sits above it as a small kicker.
 {%- endcomment -%}
+
 {%- liquid
   assign p = card_product
   assign on_sale = false
   if p.compare_at_price > p.price
     assign on_sale = true
   endif
+  assign card_kicker = kicker | default: p.type
 -%}
+
 <div class="pcard">
   <div class="pcard__media">
     {%- if p.featured_media -%}
-      <img
+      <img class="pcard__img--main"
         src="{{ p.featured_media | image_url: width: 700 }}"
         srcset="{{ p.featured_media | image_url: width: 350 }} 350w, {{ p.featured_media | image_url: width: 700 }} 700w, {{ p.featured_media | image_url: width: 1000 }} 1000w"
-        sizes="(min-width: 990px) 300px, (min-width: 750px) 33vw, 68vw"
+        sizes="(min-width: 1100px) 300px, (min-width: 750px) 30vw, 62vw"
         alt="{{ p.featured_media.alt | default: p.title | escape }}"
         width="{{ p.featured_media.width }}"
         height="{{ p.featured_media.height }}"
@@ -33,15 +39,18 @@
     {%- endif -%}
 
     {%- if on_sale -%}
-      <span class="pill pill--pink pcard__flag">{{ 'products.product.on_sale' | t }}</span>
+      <span class="tag tag--accent pcard__flag">{{ 'products.product.on_sale' | t }}</span>
     {%- elsif p.available == false -%}
-      <span class="pill pcard__flag">{{ 'products.product.sold_out' | t }}</span>
+      <span class="tag tag--ghost pcard__flag">{{ 'products.product.sold_out' | t }}</span>
     {%- elsif p.tags contains 'new' -%}
-      <span class="pill pill--green pcard__flag">{{ 'products.product.new' | t }}</span>
+      <span class="tag tag--ghost pcard__flag">{{ 'products.product.new' | t }}</span>
     {%- endif -%}
   </div>
 
   <div class="pcard__body">
+    {%- if card_kicker != blank -%}
+      <p class="pcard__kicker">{{ card_kicker }}</p>
+    {%- endif -%}
     <h3 class="pcard__title"><a href="{{ p.url }}">{{ p.title | escape }}</a></h3>
     <div class="pcard__price">
       {%- if on_sale -%}<s>{{ p.compare_at_price | money }}</s>{%- endif -%}
@@ -51,6 +60,5 @@
         {{ p.price | money }}
       {%- endif -%}
     </div>
-    <p class="pcard__meta">{{ 'products.product.card_meta' | t }}</p>
   </div>
 </div>

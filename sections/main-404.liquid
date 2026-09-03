@@ -1,9 +1,10 @@
-<div class="wrap">
-  <div class="empty-state" style="padding-block:90px">
-    <div class="empty-state__emoji">🦴</div>
-    <h1 style="font-size:clamp(2.4rem,12vw,4.5rem)">404</h1>
-    <p class="lead muted" style="margin:14px auto 0;max-width:34ch">{{ 'general.404.text' | t }}</p>
-    <a class="btn btn--pink" href="{{ routes.root_url }}" style="margin-top:28px">{{ 'general.404.link' | t }}</a>
+<div class="wrap wrap--narrow">
+  <div class="bare">
+    <span class="bare__mark motif">{% render 'season-motif' %}</span>
+    <p class="label">{{ 'general.404.label' | t }}</p>
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <p class="lead" style="margin-inline: auto">{{ 'general.404.text' | t }}</p>
+    <a class="btn" href="{{ routes.root_url }}">{{ 'general.404.link' | t }}</a>
   </div>
 </div>
 

@@ -1,36 +1,45 @@
 <div class="wrap">
   <header class="page-head">
+    <p class="label page-head__label">{{ 'general.search.label' | t }}</p>
     <h1>{{ 'general.search.title' | t }}</h1>
-    <form action="{{ routes.search_url }}" method="get" role="search" class="nl" style="margin-top:20px;max-width:520px">
-      <label class="visually-hidden" for="search-input">{{ 'general.search.title' | t }}</label>
-      <input class="input" id="search-input" type="search" name="q" value="{{ search.terms | escape }}"
-             placeholder="{{ 'general.search.placeholder' | t }}">
-      <button class="btn" type="submit">{{ 'general.search.submit' | t }}</button>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form" style="margin-top: 26px">
+      <div class="field" style="flex: 1 1 auto">
+        <label class="visually-hidden" for="search-input">{{ 'general.search.title' | t }}</label>
+        <input class="input" id="search-input" type="search" name="q" value="{{ search.terms | escape }}"
+               placeholder="{{ 'general.search.placeholder' | t }}">
+      </div>
+      <button class="btn btn--sm" type="submit">{{ 'general.search.submit' | t }}</button>
     </form>
   </header>
 
   {%- if search.performed -%}
-    <p class="coll-bar__count" style="margin-bottom:26px">
+    <p class="coll-bar__count" style="margin-bottom: 30px">
       {{ 'general.search.results_count' | t: count: search.results_count, terms: search.terms }}
     </p>
 
-    {%- paginate search.results by 16 -%}
-      <div class="pgrid pgrid--4">
-        {%- for item in search.results -%}
-          {%- if item.object_type == 'product' -%}
-            {% render 'product-card', card_product: item %}
-          {%- elsif item.object_type == 'article' -%}
-            {% render 'article-card', article: item %}
-          {%- else -%}
-            <a class="card" href="{{ item.url }}" style="padding:22px">
-              <h2 class="h4">{{ item.title }}</h2>
-            </a>
-          {%- endif -%}
-        {%- else -%}
-          <p class="muted">{{ 'general.search.no_results' | t }}</p>
-        {%- endfor -%}
-      </div>
-      {% render 'pagination', paginate: paginate %}
+    {%- paginate search.results by 24 -%}
+      {%- if search.results_count > 0 -%}
+        <div class="pgrid pgrid--4">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', card_product: item %}
+            {%- elsif item.object_type == 'article' -%}
+              {% render 'article-card', article: item %}
+            {%- else -%}
+              <a href="{{ item.url }}">
+                <span class="label">{{ item.object_type }}</span>
+                <h2 class="h3" style="margin-top: 10px">{{ item.title }}</h2>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <div class="empty-state">
+          <span class="empty-state__mark motif">{% render 'season-motif' %}</span>
+          <h2 class="h3">{{ 'general.search.no_results' | t }}</h2>
+        </div>
+      {%- endif -%}
     {%- endpaginate -%}
   {%- endif -%}
 </div>

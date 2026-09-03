@@ -1,30 +1,40 @@
+{%- comment -%}
+  A quiet strip of tracked capitals. When there is more than one message it
+  drifts slowly; with a single message, or under prefers-reduced-motion, it
+  simply sits still and centred.
+{%- endcomment -%}
+
 {%- liquid
   assign items = section.blocks
+  assign is_static = false
+  if items.size < 2
+    assign is_static = true
+  endif
 -%}
+
 {%- if items.size > 0 -%}
-  <div class="announce" style="--marquee-speed: {{ section.settings.speed }}s">
-    <div class="marquee" aria-hidden="true">
+  <div class="announce{% if is_static %} announce--static{% endif %}"
+       style="--announce-speed: {{ section.settings.speed }}s">
+    <div class="announce__track" aria-hidden="true">
       {%- for pass in (1..2) -%}
-        <div class="marquee__group">
+        <div class="announce__group">
           {%- for block in items -%}
-            {%- liquid
-              assign dot = 'var(--pink-deep)'
-              assign mod = forloop.index0 | modulo: 3
-              if mod == 1
-                assign dot = 'var(--yellow-deep)'
-              elsif mod == 2
-                assign dot = 'var(--green-deep)'
-              endif
-            -%}
-            <span class="marquee__item" {{ block.shopify_attributes }}>
-              <span class="marquee__dot" style="background: {{ dot }}"></span>
-              {{ block.settings.text }}
+            <span class="announce__item" {{ block.shopify_attributes }}>
+              {%- unless forloop.first and is_static -%}
+                <span class="announce__sep"></span>
+              {%- endunless -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+              {%- else -%}
+                {{ block.settings.text }}
+              {%- endif -%}
             </span>
           {%- endfor -%}
         </div>
       {%- endfor -%}
     </div>
-    {%- comment -%} The marquee is decorative; screen readers get it once, statically. {%- endcomment -%}
+
+    {%- comment -%} The strip is decorative; assistive tech gets it once, statically. {%- endcomment -%}
     <span class="visually-hidden">
       {%- for block in items -%}{{ block.settings.text }}. {% endfor -%}
     </span>
@@ -36,11 +46,8 @@
   "name": "Announcement bar",
   "settings": [
     {
-      "type": "range",
-      "id": "speed",
-      "label": "Scroll duration",
-      "min": 12, "max": 60, "step": 2, "unit": "s",
-      "default": 26
+      "type": "range", "id": "speed", "label": "Drift duration",
+      "min": 20, "max": 90, "step": 5, "unit": "s", "default": 45
     }
   ],
   "blocks": [
@@ -48,7 +55,8 @@
       "type": "message",
       "name": "Message",
       "settings": [
-        { "type": "text", "id": "text", "label": "Text", "default": "Ducks in stock now" }
+        { "type": "text", "id": "text", "label": "Text", "default": "Season 01 — Ducks" },
+        { "type": "url", "id": "link", "label": "Link" }
       ]
     }
   ],
@@ -56,10 +64,9 @@
     {
       "name": "Announcement bar",
       "blocks": [
-        { "type": "message", "settings": { "text": "Ducks in stock now" } },
-        { "type": "message", "settings": { "text": "Free UK shipping over £35" } },
-        { "type": "message", "settings": { "text": "30 days to change your mind" } },
-        { "type": "message", "settings": { "text": "New categories landing soon" } }
+        { "type": "message", "settings": { "text": "Season 01 — Ducks" } },
+        { "type": "message", "settings": { "text": "Free UK delivery over £35" } },
+        { "type": "message", "settings": { "text": "30 days to change your mind" } }
       ]
     }
   ]

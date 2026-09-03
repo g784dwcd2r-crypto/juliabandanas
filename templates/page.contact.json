@@ -4,10 +4,10 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "eyebrow": "Say hi",
-        "heading": "Got a question or a big idea?",
-        "text": "Custom orders, bulk orders, or a photo you're desperate to send me — this reaches my inbox.",
-        "band": "cream"
+        "label": "Get in touch",
+        "heading": "Questions, orders, and what the next season should be",
+        "text": "A parcel that has gone astray, a size you are unsure about, or a subject you think a future season should be built around. It all reaches the same inbox.",
+        "band": "tint"
       }
     }
   },

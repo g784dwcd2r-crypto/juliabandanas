@@ -2,14 +2,14 @@
 <section class="section band--{{ section.settings.band }}">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+      <div class="sec-head__text">
+        {%- if section.settings.label != blank -%}
+          <p class="label">{{ section.settings.label }}</p>
         {%- endif -%}
         <h2>{{ section.settings.heading }}</h2>
       </div>
       {%- if blog != blank -%}
-        <a class="btn btn--sm btn--ghost sec-head__link" href="{{ blog.url }}">
+        <a class="link sec-head__link" href="{{ blog.url }}">
           {{ 'blogs.article.read_all' | t }} {% render 'icon', name: 'arrow' %}
         </a>
       {%- endif -%}
@@ -29,24 +29,23 @@
 
 {% schema %}
 {
-  "name": "Blog posts",
+  "name": "Journal posts",
   "settings": [
     { "type": "blog", "id": "blog", "label": "Blog" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The journal" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Bits of reading" },
+    { "type": "text", "id": "label", "label": "Label", "default": "The journal" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Reading, while you decide" },
     { "type": "range", "id": "count", "label": "Posts shown", "min": 2, "max": 6, "step": 1, "default": 3 },
     {
       "type": "select", "id": "band", "label": "Background",
       "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
       ],
-      "default": "cream"
+      "default": "tint"
     }
   ],
-  "presets": [{ "name": "Blog posts" }]
+  "presets": [{ "name": "Journal posts" }]
 }
 {% endschema %}

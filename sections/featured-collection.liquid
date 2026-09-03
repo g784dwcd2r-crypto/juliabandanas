@@ -1,30 +1,35 @@
 {%- liquid
   assign coll = section.settings.collection
   assign limit = section.settings.count
+  assign wide = false
+  if limit > 3
+    assign wide = true
+  endif
 -%}
+
 <section class="section band--{{ section.settings.band }}">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+      <div class="sec-head__text">
+        {%- if section.settings.label != blank -%}
+          <p class="label">{{ section.settings.label }}</p>
         {%- endif -%}
         <h2>{{ section.settings.heading }}</h2>
         {%- if section.settings.text != blank -%}
-          <p class="muted" style="margin-top:10px;max-width:48ch">{{ section.settings.text }}</p>
+          <p class="muted" style="max-width: 46ch">{{ section.settings.text }}</p>
         {%- endif -%}
       </div>
       {%- if coll != blank -%}
-        <a class="btn btn--sm btn--ghost sec-head__link" href="{{ coll.url }}">
+        <a class="link sec-head__link" href="{{ coll.url }}">
           {{ 'sections.collection.view_all' | t }} {% render 'icon', name: 'arrow' %}
         </a>
       {%- endif -%}
     </div>
 
     {%- if coll.products.size > 0 -%}
-      <div class="prail{% if limit > 3 %} prail--4{% endif %} no-scrollbar">
+      <div class="prail{% if wide %} prail--4{% endif %} no-scrollbar">
         {%- for product in coll.products limit: limit -%}
-          <div class="reveal" data-reveal-delay="{{ forloop.index0 | times: 70 }}">
+          <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 4 | times: 70 }}">
             {% render 'product-card', card_product: product %}
           </div>
         {%- endfor -%}
@@ -39,7 +44,7 @@
             <div class="pcard__media">{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
             <div class="pcard__body">
               <h3 class="pcard__title">{{ 'onboarding.product_title' | t }}</h3>
-              <div class="pcard__price">{{ 2400 | money }}</div>
+              <div class="pcard__price">{{ 1499 | money }}</div>
             </div>
           </div>
         {%- endfor -%}
@@ -53,20 +58,19 @@
   "name": "Featured collection",
   "settings": [
     { "type": "collection", "id": "collection", "label": "Collection" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New in" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Fresh off the drawing board" },
+    { "type": "text", "id": "label", "label": "Label", "default": "In the season" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The pieces doing the most work" },
     { "type": "textarea", "id": "text", "label": "Text" },
-    { "type": "range", "id": "count", "label": "Products shown", "min": 2, "max": 12, "step": 1, "default": 6 },
+    { "type": "range", "id": "count", "label": "Products shown", "min": 2, "max": 12, "step": 1, "default": 8 },
     {
       "type": "select", "id": "band", "label": "Background",
       "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
       ],
-      "default": "none"
+      "default": "paper"
     }
   ],
   "presets": [{ "name": "Featured collection" }]

@@ -1,24 +1,28 @@
 <div class="wrap">
-  <header class="coll-head">
-    <p class="eyebrow" style="margin-bottom:12px">{{ 'sections.collection.eyebrow' | t }}</p>
-    <h1>{{ collection.title }}</h1>
+  <header class="page-head page-head--split">
+    <div>
+      <p class="label page-head__label">{{ 'sections.collection.label' | t }}</p>
+      <h1>{{ collection.title }}</h1>
+    </div>
     {%- if collection.description != blank -%}
-      <div class="rte muted" style="margin-top:14px;max-width:56ch">{{ collection.description }}</div>
+      <div class="rte page-head__intro">{{ collection.description }}</div>
     {%- endif -%}
   </header>
 
-  {%- paginate collection.products by 16 -%}
+  {%- paginate collection.products by 24 -%}
     <div class="coll-bar">
       <span class="coll-bar__count">
         {{ 'sections.collection.count' | t: count: collection.products_count }}
       </span>
-      <label class="visually-hidden" for="sort-by">{{ 'sections.collection.sort' | t }}</label>
-      <select class="select" id="sort-by" data-sort>
-        {%- assign current = collection.sort_by | default: collection.default_sort_by -%}
-        {%- for option in collection.sort_options -%}
-          <option value="{{ option.value }}" {% if option.value == current %}selected{% endif %}>{{ option.name }}</option>
-        {%- endfor -%}
-      </select>
+      <div>
+        <label class="visually-hidden" for="sort-by">{{ 'sections.collection.sort' | t }}</label>
+        <select class="select" id="sort-by" data-sort>
+          {%- assign current = collection.sort_by | default: collection.default_sort_by -%}
+          {%- for option in collection.sort_options -%}
+            <option value="{{ option.value }}" {% if option.value == current %}selected{% endif %}>{{ option.name }}</option>
+          {%- endfor -%}
+        </select>
+      </div>
     </div>
 
     {%- if collection.products.size > 0 -%}
@@ -32,11 +36,13 @@
       {% render 'pagination', paginate: paginate %}
     {%- else -%}
       <div class="empty-state">
-        <div class="empty-state__emoji">🐶</div>
+        <span class="empty-state__mark motif">{% render 'season-motif' %}</span>
         <h2 class="h3">{{ 'sections.collection.empty' | t }}</h2>
-        <a class="btn btn--pink" href="{{ routes.all_products_collection_url }}" style="margin-top:20px">
-          {{ 'sections.cart.continue_shopping' | t }}
-        </a>
+        <p style="margin-top: 22px">
+          <a class="btn btn--outline" href="{{ routes.all_products_collection_url }}">
+            {{ 'sections.cart.continue_shopping' | t }}
+          </a>
+        </p>
       </div>
     {%- endif -%}
   {%- endpaginate -%}

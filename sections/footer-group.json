@@ -5,32 +5,22 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "links1": {
-          "type": "links",
-          "settings": {
-            "heading": "Explore",
-            "menu": "footer"
-          }
-        },
+        "links1": { "type": "links", "settings": { "heading": "Shop", "menu": "main-menu" } },
+        "links2": { "type": "links", "settings": { "heading": "Elsewhere", "menu": "footer" } },
         "news": {
           "type": "newsletter",
           "settings": {
-            "heading": "Get the good post",
-            "text": "New categories, restocks and the occasional extremely smug duck."
+            "heading": "The season letter",
+            "text": "One email when a season opens, one when it closes, and nothing in between."
           }
         }
       },
-      "block_order": [
-        "links1",
-        "news"
-      ],
+      "block_order": ["links1", "links2", "news"],
       "settings": {
-        "blurb": "A small shop of very silly creatures on things you can actually wear and use. Ducks first, everything else to follow.",
-        "credit": "Run from a kitchen table in the UK"
+        "blurb": "One subject at a time, for three months at a time. Hats, shirts, socks, prints and small odd things, all answering to the season.",
+        "credit": "Shipped from the UK."
       }
     }
   },
-  "order": [
-    "footer"
-  ]
+  "order": ["footer"]
 }

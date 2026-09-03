@@ -1,14 +1,12 @@
-<section class="hero band--{{ section.settings.band }}">
-  <span class="blob blob--1" aria-hidden="true"></span>
-  <span class="blob blob--2" aria-hidden="true"></span>
-  <span class="blob blob--3" aria-hidden="true"></span>
-
-  <div class="wrap hero__inner">
+<section class="hero">
+  <div class="wrap">
     <div class="hero__grid">
-      <div class="reveal is-in">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="eyebrow" style="margin-bottom:16px">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
+      <div class="hero__head">
+        <span class="hero__watermark hide-sm" aria-hidden="true">{% render 'season-motif' %}</span>
+
+        <div class="hero__season">
+          {% render 'season-line' %}
+        </div>
 
         <h1 class="hero__title">{{ section.settings.heading }}</h1>
 
@@ -18,38 +16,23 @@
 
         <div class="hero__cta">
           {%- if section.settings.cta_label != blank -%}
-            <a class="btn btn--pink" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+            <a class="btn" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
           {%- endif -%}
           {%- if section.settings.cta2_label != blank -%}
-            <a class="btn btn--ghost" href="{{ section.settings.cta2_link }}">{{ section.settings.cta2_label }}</a>
+            <a class="link" href="{{ section.settings.cta2_link }}">
+              {{ section.settings.cta2_label }} {% render 'icon', name: 'arrow' %}
+            </a>
           {%- endif -%}
         </div>
-
-        {%- if section.blocks.size > 0 -%}
-          <div class="hero__badges">
-            {%- for block in section.blocks -%}
-              {%- liquid
-                assign tone = 'pill--pink'
-                assign mod = forloop.index0 | modulo: 3
-                if mod == 1
-                  assign tone = 'pill--yellow'
-                elsif mod == 2
-                  assign tone = 'pill--green'
-                endif
-              -%}
-              <span class="pill {{ tone }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
       </div>
 
-      <div class="hero__media reveal" data-reveal-delay="120">
-        <div class="hero__stack">
-          <div class="media media--tall">
+      <div class="hero__media reveal is-in">
+        <figure class="hero__figure">
+          <div class="media media--tall zoom">
             {%- if section.settings.image -%}
-              <img src="{{ section.settings.image | image_url: width: 1000 }}"
-                   srcset="{{ section.settings.image | image_url: width: 500 }} 500w, {{ section.settings.image | image_url: width: 1000 }} 1000w"
-                   sizes="(min-width: 750px) 46vw, 90vw"
+              <img src="{{ section.settings.image | image_url: width: 1100 }}"
+                   srcset="{{ section.settings.image | image_url: width: 550 }} 550w, {{ section.settings.image | image_url: width: 1100 }} 1100w, {{ section.settings.image | image_url: width: 1600 }} 1600w"
+                   sizes="(min-width: 750px) 48vw, 92vw"
                    alt="{{ section.settings.image.alt | escape }}"
                    width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
                    fetchpriority="high">
@@ -57,12 +40,26 @@
               {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
           </div>
-          {%- if section.settings.sticker != blank -%}
-            <span class="hero__sticker">{{ section.settings.sticker }}</span>
+          {%- if section.settings.caption_left != blank or section.settings.caption_right != blank -%}
+            <figcaption class="hero__caption">
+              <span>{{ section.settings.caption_left }}</span>
+              <span>{{ section.settings.caption_right }}</span>
+            </figcaption>
           {%- endif -%}
-        </div>
+        </figure>
       </div>
     </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <dl class="hero__facts">
+        {%- for block in section.blocks -%}
+          <div class="hero__fact" {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.label }}</dt>
+            <dd>{{ block.settings.text }}</dd>
+          </div>
+        {%- endfor -%}
+      </dl>
+    {%- endif -%}
   </div>
 </section>
 
@@ -71,47 +68,40 @@
   "name": "Hero",
   "settings": [
     {
-      "type": "select", "id": "band", "label": "Background",
-      "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
-      ],
-      "default": "pink"
-    },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Ducks, and friends to come" },
-    {
       "type": "html", "id": "heading", "label": "Heading",
-      "info": "Wrap a word in <em> to give it a scribbled yellow highlight.",
-      "default": "Ducks, mushrooms and other <em>small</em> joys."
+      "info": "Wrap a word in <em> to set it in the italic accent.",
+      "default": "Everything is about <em>ducks</em> right now."
     },
     {
       "type": "textarea", "id": "subheading", "label": "Subheading",
-      "default": "Hats, tees, prints, socks and little bits — all covered in creatures worth having on your head. Pick a category and go from there."
+      "default": "A quarterly obsession. For the next three months the whole shop — hats, shirts, socks, prints, small odd things — answers to one subject. This one has feathers."
     },
-    { "type": "text", "id": "cta_label", "label": "Button 1 label", "default": "Shop everything" },
-    { "type": "url", "id": "cta_link", "label": "Button 1 link" },
-    { "type": "text", "id": "cta2_label", "label": "Button 2 label", "default": "Browse categories" },
-    { "type": "url", "id": "cta2_link", "label": "Button 2 link" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop the season" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary link label", "default": "Read the season note" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary link" },
     { "type": "image_picker", "id": "image", "label": "Image" },
-    { "type": "text", "id": "sticker", "label": "Round sticker text", "default": "Very silly. Very good." }
+    { "type": "text", "id": "caption_left", "label": "Caption, left", "default": "Season 01" },
+    { "type": "text", "id": "caption_right", "label": "Caption, right", "default": "Ducks" }
   ],
   "blocks": [
     {
-      "type": "badge",
-      "name": "Badge",
-      "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Free UK shipping" }]
+      "type": "fact",
+      "name": "Fact",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Delivery" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Free over £35" }
+      ]
     }
   ],
   "presets": [
     {
       "name": "Hero",
       "blocks": [
-        { "type": "badge", "settings": { "text": "Free UK shipping over £35" } },
-        { "type": "badge", "settings": { "text": "Fast dispatch" } },
-        { "type": "badge", "settings": { "text": "30-day returns" } }
+        { "type": "fact", "settings": { "label": "Season", "text": "One subject, three months" } },
+        { "type": "fact", "settings": { "label": "Delivery", "text": "Free UK over £35" } },
+        { "type": "fact", "settings": { "label": "Returns", "text": "30 days, unworn" } },
+        { "type": "fact", "settings": { "label": "Next season", "text": "Announced in the letter" } }
       ]
     }
   ]

@@ -3,329 +3,152 @@
     "hero": {
       "type": "hero",
       "blocks": {
-        "b1": {
-          "type": "badge",
-          "settings": {
-            "text": "Free UK shipping over £35"
-          }
-        },
-        "b2": {
-          "type": "badge",
-          "settings": {
-            "text": "Fast dispatch"
-          }
-        },
-        "b3": {
-          "type": "badge",
-          "settings": {
-            "text": "30-day returns"
-          }
-        }
+        "f1": { "type": "fact", "settings": { "label": "The season", "text": "One subject, three months" } },
+        "f2": { "type": "fact", "settings": { "label": "Delivery", "text": "Free UK over £35" } },
+        "f3": { "type": "fact", "settings": { "label": "Returns", "text": "30 days, unworn" } },
+        "f4": { "type": "fact", "settings": { "label": "Next season", "text": "Announced in the letter" } }
       },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
+      "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "band": "pink",
-        "eyebrow": "Ducks, and friends to come",
-        "heading": "Ducks, mushrooms and other <em>small</em> joys.",
-        "subheading": "Hats, tees, prints, socks and little bits — all covered in creatures worth having on your head. Pick a category and go from there.",
-        "cta_label": "Shop everything",
-        "cta_link": "/collections/everything",
-        "cta2_label": "Browse categories",
-        "cta2_link": "#categories",
-        "sticker": "Very silly. Very good."
+        "heading": "Everything is about <em>ducks</em> right now.",
+        "subheading": "A quarterly obsession. For the next three months the whole shop — hats, shirts, socks, prints, small odd things — answers to one subject. This one has feathers.",
+        "cta_label": "Shop the season",
+        "cta_link": "/collections/duck-mood",
+        "cta2_label": "Read the season note",
+        "cta2_link": "#season-note",
+        "caption_left": "Season 01",
+        "caption_right": "Ducks"
       }
     },
-    "categories": {
-      "type": "category-grid",
+    "collections": {
+      "type": "collection-index",
       "blocks": {
-        "c1": {
-          "type": "category",
-          "settings": {
-            "collection": "ducks",
-            "label": "Ducks",
-            "art": "duck"
-          }
-        },
-        "c2": {
-          "type": "category",
-          "settings": {
-            "collection": "mushrooms",
-            "label": "Mushrooms",
-            "art": "mushroom"
-          }
-        },
-        "c3": {
-          "type": "category",
-          "settings": {
-            "collection": "frogs",
-            "label": "Frogs",
-            "art": "frog"
-          }
-        },
-        "c4": {
-          "type": "category",
-          "settings": {
-            "collection": "snails",
-            "label": "Snails",
-            "art": "snail"
-          }
-        },
-        "c5": {
-          "type": "category",
-          "settings": {
-            "collection": "bees",
-            "label": "Bees",
-            "art": "bee"
-          }
-        },
-        "c6": {
-          "type": "category",
-          "settings": {
-            "collection": "cats",
-            "label": "Cats",
-            "art": "cat"
-          }
-        },
-        "c7": {
-          "type": "category",
-          "settings": {
-            "collection": "bears",
-            "label": "Bears",
-            "art": "bear"
-          }
-        },
-        "c8": {
-          "type": "category",
-          "settings": {
-            "collection": "strawberries",
-            "label": "Strawberries",
-            "art": "strawberry"
-          }
-        },
-        "c9": {
-          "type": "category",
-          "settings": {
-            "collection": "moons-and-stars",
-            "label": "Moons & stars",
-            "art": "moon"
-          }
-        },
-        "c10": {
-          "type": "category",
-          "settings": {
-            "collection": "tiny-snacks",
-            "label": "Tiny snacks",
-            "art": "snack"
-          }
-        }
+        "c1": { "type": "collection", "settings": { "collection": "hats", "label": "Hats" } },
+        "c2": { "type": "collection", "settings": { "collection": "shirts", "label": "Shirts" } },
+        "c3": { "type": "collection", "settings": { "collection": "mugs-cups", "label": "Mugs & cups" } },
+        "c4": { "type": "collection", "settings": { "collection": "printed-posters", "label": "Prints" } },
+        "c5": { "type": "collection", "settings": { "collection": "socks", "label": "Socks" } },
+        "c6": { "type": "collection", "settings": { "collection": "slippers", "label": "Slippers" } },
+        "c7": { "type": "collection", "settings": { "collection": "caps", "label": "Caps" } },
+        "c8": { "type": "collection", "settings": { "collection": "stuff-we-need", "label": "Stuff we need" } }
       },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4",
-        "c5",
-        "c6",
-        "c7",
-        "c8",
-        "c9",
-        "c10"
-      ],
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
       "settings": {
-        "eyebrow": "Shop by category",
-        "heading": "Pick your little obsession",
-        "text": "Ten small worlds. Ducks are stocked first, and the rest are arriving as fast as I can find them.",
-        "show_counts": false,
-        "link_label": "Shop everything",
-        "link_url": "/collections/everything",
-        "band": "none"
+        "label": "The shop",
+        "heading": "Where to start",
+        "text": "The same subject, worked through everything you might reasonably want it on.",
+        "show_counts": true,
+        "link_label": "Everything",
+        "link_url": "/collections/duck-mood",
+        "band": "paper"
       }
     },
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "collection": "new-in",
-        "eyebrow": "New in",
-        "heading": "Fresh off the drawing board",
-        "text": "The newest little things, usually before they sell out.",
-        "count": 6,
-        "band": "cream"
+        "collection": "duck-mood",
+        "label": "In the season",
+        "heading": "The pieces doing the most work",
+        "text": "Not the whole range — the ones that keep going out the door.",
+        "count": 8,
+        "band": "tint"
       }
     },
-    "how": {
-      "type": "how-it-works",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "heading": "Picked one by one",
-            "text": "Everything here is chosen by hand. If it isn't something I'd actually wear or put on my own wall, it doesn't go in the shop."
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "heading": "Checked before it ships",
-            "text": "Sizes, materials and photos are checked against the real thing, so what turns up is what you thought you were buying."
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "heading": "Posted quickly",
-            "text": "Packed and sent as fast as I can manage. Free UK shipping over £35, and 30 days to change your mind."
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
+    "season-note": {
+      "type": "season-note",
       "settings": {
-        "eyebrow": "The good bits",
-        "heading": "Small shop, high standards",
-        "cta_label": "Shop everything",
-        "cta_link": "/collections/everything",
-        "band": "yellow"
+        "label": "A note on this season",
+        "heading": "Why ducks, and why for three months",
+        "text": "<p>Julia Mind runs one subject at a time. For a quarter, everything in the shop answers to it — the hats, the shirts, the socks, the prints on the wall, the thing stuck to the dashboard. Then the season closes and something else takes over.</p><p>Ducks came first because ducks are unreasonably good at this. They work on a bucket hat and they work framed above a kitchen table, and they manage to be funny without asking for attention.</p>",
+        "signature": "Julia",
+        "cta_label": "Read the journal",
+        "cta_link": "/blogs/journal",
+        "band": "season"
       }
     },
-    "story": {
-      "type": "image-with-text",
+    "editorial": {
+      "type": "editorial",
       "settings": {
         "ratio": "tall",
         "flip": true,
-        "eyebrow": "How it started",
-        "heading": "It started with one very silly duck",
-        "text": "<p>A duck in a bucket hat. A duck holding a glass of wine. A duck making a gesture that is frankly uncalled for. Once you notice how many ridiculous ducks exist in the world, it is difficult to stop collecting them.</p><p>So the shop starts with ducks, and grows one category at a time — mushrooms, frogs, snails and whatever else turns out to be worth it.</p>",
-        "cta_label": "See everything",
-        "cta_link": "/collections/everything",
-        "band": "green"
+        "caption": "Season 01 — Ducks",
+        "label": "How the shop works",
+        "heading": "One subject, three months, then it's gone",
+        "text": "<p>Most shops add. This one replaces. Every quarter the whole range is rebuilt around a single subject, so what you find here is a considered set rather than an endless catalogue.</p><p>It means the good things sell out and do not come back. It also means nothing sits around for two years looking tired.</p>",
+        "cta_label": "See the whole season",
+        "cta_link": "/collections/duck-mood",
+        "band": "paper"
+      }
+    },
+    "fresh": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "fresh-picks",
+        "label": "Just landed",
+        "heading": "Newest in the season",
+        "count": 4,
+        "band": "paper"
       }
     },
     "quotes": {
       "type": "testimonials",
       "blocks": {
-        "q1": {
-          "type": "quote",
-          "settings": {
-            "stars": 5,
-            "text": "The sticker quality is genuinely absurd. Mine has been through the dishwasher on a water bottle and has not budged.",
-            "author": "Rosie"
-          }
-        },
-        "q2": {
-          "type": "quote",
-          "settings": {
-            "stars": 5,
-            "text": "Bought the duck print as a gift and immediately had to order a second one for myself. Entirely predictable.",
-            "author": "Alex"
-          }
-        },
-        "q3": {
-          "type": "quote",
-          "settings": {
-            "stars": 5,
-            "text": "Arrived in three days wrapped like a little present. The frog keyring lives on my keys now and I check on it.",
-            "author": "Mina"
-          }
-        }
+        "q1": { "type": "quote", "settings": { "stars": 5, "text": "I bought the bucket hat as a joke and have now worn it every day for a month. The joke is on me.", "author": "Rosie, Leeds" } },
+        "q2": { "type": "quote", "settings": { "stars": 5, "text": "The print is genuinely lovely — properly framed it does not read as novelty at all, which I did not expect.", "author": "Alex, Bristol" } },
+        "q3": { "type": "quote", "settings": { "stars": 5, "text": "Ordered on the Sunday, wearing the socks by the Thursday. No notes.", "author": "Mina, Glasgow" } }
       },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3"
-      ],
+      "block_order": ["q1", "q2", "q3"],
       "settings": {
-        "eyebrow": "Kind words",
-        "heading": "What people say",
-        "band": "none"
+        "label": "From the post",
+        "heading": "What people said about it",
+        "band": "tint"
       }
     },
     "journal": {
       "type": "blog-posts",
       "settings": {
         "blog": "journal",
-        "eyebrow": "The journal",
-        "heading": "Bits of reading",
+        "label": "The journal",
+        "heading": "Reading, while you decide",
         "count": 3,
-        "band": "cream"
+        "band": "paper"
       }
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "f1": {
-          "type": "qa",
-          "settings": {
-            "question": "How quickly do you post?",
-            "answer": "<p>Orders are packed and sent as quickly as I can manage. Free UK shipping over £35, and international shipping is calculated at checkout.</p>"
-          }
-        },
-        "f2": {
-          "type": "qa",
-          "settings": {
-            "question": "What sizes do the hats come in?",
-            "answer": "<p>Most bucket hats are a 56–58cm one-size fit. Where a product has several sizes, they're listed on its own page — measure around your head just above the ears and go by that.</p>"
-          }
-        },
-        "f3": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I return something?",
-            "answer": "<p>Yes — within 30 days, unworn and in its original packaging. Message me first and I'll sort it out.</p>"
-          }
-        },
-        "f4": {
-          "type": "qa",
-          "settings": {
-            "question": "When are the other categories coming?",
-            "answer": "<p>Ducks are stocked now. Mushrooms, frogs and the rest are being added as I find things worth stocking — the newsletter is the fastest way to hear when one lands.</p>"
-          }
-        },
-        "f5": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I request a creature?",
-            "answer": "<p>Please do. If there's something you want to see in the shop, tell me and I'll go looking.</p>"
-          }
-        }
+        "f1": { "type": "qa", "settings": { "question": "What actually is a season?", "answer": "<p>A single subject that the whole shop is built around for three months. Season 01 is ducks. When it closes, the range is replaced rather than added to.</p>" } },
+        "f2": { "type": "qa", "settings": { "question": "What happens to things that sell out?", "answer": "<p>They stay sold out. Stock is bought once per season, so if something goes early it does not come back.</p>" } },
+        "f3": { "type": "qa", "settings": { "question": "How do the hats fit?", "answer": "<p>Most bucket hats are a 56–58cm one size. Where a product has several sizes they are listed on its own page — measure around your head just above the ears and go by that.</p>" } },
+        "f4": { "type": "qa", "settings": { "question": "Delivery and returns?", "answer": "<p>Free UK delivery over £35, worldwide shipping calculated at checkout, and thirty days to send something back unworn and in its packaging.</p>" } },
+        "f5": { "type": "qa", "settings": { "question": "Can I suggest the next season?", "answer": "<p>Yes, and it works — subjects get chosen partly from what people ask for. Reply to the season letter or send an email.</p>" } }
       },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4",
-        "f5"
-      ],
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
       "settings": {
-        "eyebrow": "Questions",
-        "heading": "Everything you might ask",
-        "band": "none"
+        "label": "Questions",
+        "heading": "The practical part",
+        "band": "paper"
       }
     },
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "eyebrow": "Go on then",
-        "heading": "Your head needs a duck on it",
-        "text": "Ten categories, ducks stocked first, free UK shipping over £35.",
-        "cta_label": "Shop everything",
-        "cta_link": "/collections/everything",
-        "band": "pink"
+        "label": "Before it closes",
+        "heading": "Season 01 runs until the end of the quarter",
+        "text": "When it ends, what has gone has gone. The next subject has already been chosen and it is not this one.",
+        "cta_label": "Shop the season",
+        "cta_link": "/collections/duck-mood",
+        "band": "ink"
       }
     }
   },
   "order": [
     "hero",
-    "categories",
+    "collections",
     "featured",
-    "how",
-    "story",
+    "season-note",
+    "editorial",
+    "fresh",
     "quotes",
     "journal",
     "faq",

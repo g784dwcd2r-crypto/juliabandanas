@@ -1,0 +1,31 @@
+{%- comment -%}
+  One collection tile. Uses the collection's own image when it has one and
+  falls back to the season motif when it does not, so a grid never looks
+  half-finished while photography is still being sorted out.
+
+  Accepts: tile_collection, label (optional), show_count (bool)
+{%- endcomment -%}
+
+{%- liquid
+  assign coll = tile_collection
+  assign name = label | default: coll.title
+-%}
+
+<a class="cat" href="{{ coll.url | default: routes.all_products_collection_url }}">
+  <span class="cat__art">
+    {%- if coll.featured_image -%}
+      <img src="{{ coll.featured_image | image_url: width: 700 }}"
+           srcset="{{ coll.featured_image | image_url: width: 350 }} 350w, {{ coll.featured_image | image_url: width: 700 }} 700w"
+           sizes="(min-width: 1100px) 300px, (min-width: 750px) 30vw, 45vw"
+           alt="" width="350" height="280" loading="lazy">
+    {%- else -%}
+      <span class="motif">{% render 'season-motif' %}</span>
+    {%- endif -%}
+  </span>
+  <span class="cat__foot">
+    <span class="cat__name">{{ name }}</span>
+    {%- if show_count and coll != blank -%}
+      <span class="cat__count">{{ coll.products_count }}</span>
+    {%- endif -%}
+  </span>
+</a>

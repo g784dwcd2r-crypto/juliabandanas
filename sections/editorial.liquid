@@ -1,0 +1,79 @@
+<section class="section band--{{ section.settings.band }}">
+  <div class="wrap">
+    <div class="editorial{% if section.settings.flip %} editorial--flip{% endif %}">
+      <div class="editorial__media reveal">
+        <figure>
+          <div class="media media--{{ section.settings.ratio }} zoom">
+            {%- if section.settings.image -%}
+              <img src="{{ section.settings.image | image_url: width: 1100 }}"
+                   srcset="{{ section.settings.image | image_url: width: 550 }} 550w, {{ section.settings.image | image_url: width: 1100 }} 1100w"
+                   sizes="(min-width: 750px) 46vw, 92vw"
+                   alt="{{ section.settings.image.alt | escape }}"
+                   width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+                   loading="lazy">
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          {%- if section.settings.caption != blank -%}
+            <figcaption class="hero__caption"><span>{{ section.settings.caption }}</span></figcaption>
+          {%- endif -%}
+        </figure>
+      </div>
+
+      <div class="editorial__text reveal" data-reveal-delay="90">
+        {%- if section.settings.label != blank -%}
+          <p class="label">{{ section.settings.label }}</p>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.cta_label != blank -%}
+          <p><a class="link" href="{{ section.settings.cta_link }}">
+            {{ section.settings.cta_label }} {% render 'icon', name: 'arrow' %}
+          </a></p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "select", "id": "ratio", "label": "Image shape",
+      "options": [
+        { "value": "tall", "label": "Portrait" },
+        { "value": "wide", "label": "Landscape" },
+        { "value": "film", "label": "Wide" }
+      ],
+      "default": "tall"
+    },
+    { "type": "text", "id": "caption", "label": "Caption" },
+    { "type": "checkbox", "id": "flip", "label": "Image on the right", "default": false },
+    { "type": "text", "id": "label", "label": "Label", "default": "How the shop works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One subject, three months, then it's gone" },
+    {
+      "type": "richtext", "id": "text", "label": "Text",
+      "default": "<p>Most shops add. This one replaces. Every quarter the whole range is rebuilt around a single subject, so what you find here is a considered set rather than an endless catalogue.</p><p>It means the good things sell out and do not come back. It also means nothing sits around for two years looking tired.</p>"
+    },
+    { "type": "text", "id": "cta_label", "label": "Link label" },
+    { "type": "url", "id": "cta_link", "label": "Link" },
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
+      ],
+      "default": "tint"
+    }
+  ],
+  "presets": [{ "name": "Editorial" }]
+}
+{% endschema %}

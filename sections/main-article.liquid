@@ -3,27 +3,28 @@
 <article class="wrap wrap--narrow" data-article-body>
   <nav class="crumbs" aria-label="{{ 'general.breadcrumbs' | t }}">
     <a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a>
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">&mdash;</span>
     <a href="{{ blog.url }}">{{ blog.title }}</a>
   </nav>
 
   <header class="article__head">
-    <h1>{{ article.title }}</h1>
     <div class="article__meta">
-      <span>{{ article.published_at | date: format: 'date' }}</span>
-      {%- if article.tags.size > 0 -%}
-        {%- for tag in article.tags limit: 2 -%}
-          <span aria-hidden="true">&middot;</span><span>{{ tag }}</span>
-        {%- endfor -%}
-      {%- endif -%}
+      <span class="label">{{ article.published_at | date: format: 'date' }}</span>
+      {%- for tag in article.tags limit: 2 -%}
+        <span class="tag">{{ tag }}</span>
+      {%- endfor -%}
     </div>
+    <h1>{{ article.title }}</h1>
+    {%- if article.excerpt != blank -%}
+      <p class="lead article__standfirst">{{ article.excerpt | strip_html }}</p>
+    {%- endif -%}
   </header>
 
   {%- if article.image -%}
     <div class="article__hero">
       <img src="{{ article.image | image_url: width: 1400 }}"
            srcset="{{ article.image | image_url: width: 700 }} 700w, {{ article.image | image_url: width: 1400 }} 1400w"
-           sizes="(min-width: 750px) 760px, 92vw"
+           sizes="(min-width: 750px) 720px, 92vw"
            alt="{{ article.image.alt | default: article.title | escape }}"
            width="{{ article.image.width }}" height="{{ article.image.height }}"
            fetchpriority="high">
@@ -33,14 +34,23 @@
   <div class="rte article__body">{{ article.content }}</div>
 
   <footer class="article__foot">
-    <a class="btn btn--ghost btn--sm" href="{{ blog.url }}">&larr; {{ 'blogs.article.back' | t }}</a>
+    <a class="link" href="{{ blog.url }}">{{ 'blogs.article.back' | t }}</a>
+    {% render 'season-line' %}
   </footer>
 </article>
 
 {%- if blog.articles.size > 1 -%}
-  <section class="section band--cream" style="margin-top:56px">
+  <section class="section band--tint" style="margin-top: 72px">
     <div class="wrap">
-      <div class="sec-head"><h2 class="h3">{{ 'blogs.article.more' | t }}</h2></div>
+      <div class="sec-head">
+        <div class="sec-head__text">
+          <p class="label">{{ 'blogs.article.label' | t }}</p>
+          <h2 class="h3">{{ 'blogs.article.more' | t }}</h2>
+        </div>
+        <a class="link sec-head__link" href="{{ blog.url }}">
+          {{ 'blogs.article.read_all' | t }} {% render 'icon', name: 'arrow' %}
+        </a>
+      </div>
       <div class="blog-grid">
         {%- assign shown = 0 -%}
         {%- for other in blog.articles -%}

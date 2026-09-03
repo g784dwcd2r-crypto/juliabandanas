@@ -1,20 +1,20 @@
 <section class="section band--{{ section.settings.band }}">
   <div class="wrap wrap--narrow">
-    <div class="center" style="margin-bottom:32px">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+    <div style="margin-bottom: 40px">
+      {%- if section.settings.label != blank -%}
+        <p class="label" style="margin-bottom: 18px">{{ section.settings.label }}</p>
       {%- endif -%}
       <h2>{{ section.settings.heading }}</h2>
       {%- if section.settings.text != blank -%}
-        <p class="muted" style="margin:14px auto 0;max-width:44ch">{{ section.settings.text }}</p>
+        <p class="lead" style="margin-top: 18px">{{ section.settings.text }}</p>
       {%- endif -%}
     </div>
 
     {%- form 'contact' -%}
       {%- if form.posted_successfully? -%}
-        <p class="form-status form-status--ok" style="margin-bottom:20px">{{ 'contact.success' | t }}</p>
+        <p class="form-status form-status--ok" style="margin-bottom: 24px">{{ 'contact.success' | t }}</p>
       {%- elsif form.errors -%}
-        <p class="form-status form-status--err" style="margin-bottom:20px">{{ form.errors | default_errors }}</p>
+        <p class="form-status form-status--err" style="margin-bottom: 24px">{{ form.errors | default_errors }}</p>
       {%- endif -%}
 
       <div class="form-grid form-grid--2">
@@ -27,16 +27,19 @@
           <input class="input" id="contact-email" type="email" name="contact[email]" autocomplete="email" required>
         </div>
         <div class="field form-grid__full">
-          <label class="field__label" for="contact-ig">{{ 'contact.instagram' | t }}</label>
-          <input class="input" id="contact-ig" type="text" name="contact[Instagram]"
-                 placeholder="@yourhandle" autocapitalize="none" spellcheck="false" data-ig-field>
+          <label class="field__label" for="contact-order">
+            {{ 'contact.order' | t }}
+            <span class="field__hint">{{ 'contact.optional' | t }}</span>
+          </label>
+          <input class="input" id="contact-order" type="text" name="contact[Order number]"
+                 autocapitalize="characters" spellcheck="false">
         </div>
         <div class="field form-grid__full">
           <label class="field__label" for="contact-body">{{ 'contact.message' | t }}</label>
           <textarea class="textarea" id="contact-body" name="contact[body]" required></textarea>
         </div>
       </div>
-      <button class="btn btn--ink btn--full" type="submit" style="margin-top:22px">{{ 'contact.send' | t }}</button>
+      <button class="btn btn--full" type="submit" style="margin-top: 30px">{{ 'contact.send' | t }}</button>
     {%- endform -%}
   </div>
 </section>
@@ -45,19 +48,18 @@
 {
   "name": "Contact form",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Say hi" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Got a question or a big idea?" },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "Wholesale, a creature you want to see drawn, or a parcel that has gone astray — this reaches my inbox." },
+    { "type": "text", "id": "label", "label": "Label", "default": "Get in touch" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, orders, and what the next season should be" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "A parcel that has gone astray, a size you are unsure about, or a subject you think a future season should be built around. It all reaches the same inbox." },
     {
       "type": "select", "id": "band", "label": "Background",
       "options": [
-        { "value": "none", "label": "Page background" },
-        { "value": "pink", "label": "Pink" },
-        { "value": "yellow", "label": "Yellow" },
-        { "value": "green", "label": "Green" },
-        { "value": "cream", "label": "Cream" }
+        { "value": "paper", "label": "Paper" },
+        { "value": "tint", "label": "Tinted paper" },
+        { "value": "deep", "label": "Deep paper" },
+        { "value": "season", "label": "Season tint" }
       ],
-      "default": "none"
+      "default": "paper"
     }
   ],
   "presets": [{ "name": "Contact form" }]
