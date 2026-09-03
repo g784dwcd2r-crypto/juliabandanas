@@ -35,9 +35,22 @@ cowboy ducks, pond blue, and the deep green of the wall prints.
 | Accent text | `#D6006E` | on the ground | 5.0:1 |
 
 **Colour is used as fields, never as outlines or drop shadows.** Full-bleed
-bands, and flat mats behind product photography — supplier shots are mostly on
-white, so the colour does the work the photography does not. The four cycle
-across grids so no two neighbours ever match.
+bands, and a thin border of colour around product photography — supplier shots
+are mostly on white, so the colour does the work the photography does not. The
+four cycle across grids so no two neighbours ever match.
+
+How much colour shows is adjustable, and can be turned off entirely:
+
+- **Customise → Cards → Colour border** sets it for product cards, journal
+  images and the product gallery.
+- **The Collection index section** has its own, alongside an image-shape
+  control: landscape, square, portrait, or *match the image* — which crops
+  nothing and lets each collection photo keep its own proportions. Tiles in a
+  row then differ in height, but the names still line up.
+
+At `0%` the border disappears and the photograph fills the card. Collections
+with no photograph still show the season motif on a full colour field, so a
+grid never looks half-finished.
 
 There are no chunky borders, no hard drop shadows and no bouncy easing
 anywhere. Radii are 2–4px. Separation is hairline rules and whitespace;
@@ -121,7 +134,10 @@ without it: forms still post, links still navigate, the cart still works.
 - Product rows are swipeable snap rails on phones and grids from 750px.
 - The collection index is 2 columns on phones, 3 at 750px, 4 at 1100px.
 - Collection tiles, product cards, blog cards and the product gallery all put
-  the photo on a colour mat, cycling through the four season colours.
+  the photo on a colour border, cycling through the four season colours. The
+  thickness is a setting in both places, and `0%` removes it.
+- Collection tiles stretch to the row height, so the names sit on one line
+  across a row even when the images are their own natural shapes.
 - The product gallery is a swipe rail with dashes on mobile and a stacked
   column on desktop.
 - A sticky add-to-cart bar appears once the real button scrolls out of view.

@@ -57,7 +57,7 @@
   overflow: hidden;
   background: var(--field, var(--paper-2));
   aspect-ratio: 1 / 1;
-  padding: 5%;
+  padding: var(--card-mat, 3%);
 }
 .gallery__slide img { width: 100%; height: 100%; object-fit: cover; }
 .gallery__rail > *:nth-child(4n+1) { --field: var(--c1); }
@@ -299,7 +299,7 @@
   background: var(--field, var(--paper-2));
   display: grid;
   place-items: center;
-  padding: 5%;
+  padding: var(--card-mat, 3%);
 }
 .acard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
 .acard:hover .acard__media img { transform: scale(1.035); }

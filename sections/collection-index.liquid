@@ -23,7 +23,9 @@
           {% render 'collection-tile',
               tile_collection: block.settings.collection,
               label: block.settings.label,
-              show_count: section.settings.show_counts %}
+              show_count: section.settings.show_counts,
+              mat: section.settings.tile_mat,
+              ratio: section.settings.tile_ratio %}
         </div>
       {%- endfor -%}
     </div>
@@ -41,6 +43,23 @@
       "default": "The same subject, worked through everything you might reasonably want it on."
     },
     { "type": "checkbox", "id": "show_counts", "label": "Show how many products are in each", "default": true },
+    { "type": "header", "content": "The images" },
+    {
+      "type": "select", "id": "tile_ratio", "label": "Image shape",
+      "info": "Match the image keeps each collection photo in its own proportions and crops nothing, so tiles in a row can be different heights. The names still line up.",
+      "options": [
+        { "value": "wide", "label": "Landscape" },
+        { "value": "square", "label": "Square" },
+        { "value": "tall", "label": "Portrait" },
+        { "value": "natural", "label": "Match the image" }
+      ],
+      "default": "wide"
+    },
+    {
+      "type": "range", "id": "tile_mat", "label": "Colour border",
+      "info": "The band of season colour around each photo. Set it to 0 to remove it and let the photo fill the tile.",
+      "min": 0, "max": 12, "step": 1, "unit": "%", "default": 3
+    },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Everything" },
     { "type": "url", "id": "link_url", "label": "Link" },
     {

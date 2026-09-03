@@ -100,6 +100,7 @@
         --display-weight: {{ settings.type_display_weight | default: 600 }};
         --display-settings: "opsz" 120, "SOFT" 0, "WONK" {% if settings.type_display_wonk %}1{% else %}0{% endif %};
         --logo-size:   {{ settings.logo_size | default: 23 }}px;
+        --card-mat:    {{ settings.card_mat | default: 3 }}%;
       }
     </style>
 

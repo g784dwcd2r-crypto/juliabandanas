@@ -39,16 +39,46 @@
         "label": "Motif",
         "info": "The line drawing used as the season's ornament, and as the fallback image on tiles with no photograph.",
         "options": [
-          { "value": "duck", "label": "Duck" },
-          { "value": "leaf", "label": "Leaf" },
-          { "value": "mushroom", "label": "Mushroom" },
-          { "value": "flower", "label": "Flower" },
-          { "value": "cherry", "label": "Cherry" },
-          { "value": "bee", "label": "Bee" },
-          { "value": "shell", "label": "Shell" },
-          { "value": "star", "label": "Star" },
-          { "value": "moon", "label": "Moon" },
-          { "value": "snowflake", "label": "Snowflake" }
+          {
+            "value": "duck",
+            "label": "Duck"
+          },
+          {
+            "value": "leaf",
+            "label": "Leaf"
+          },
+          {
+            "value": "mushroom",
+            "label": "Mushroom"
+          },
+          {
+            "value": "flower",
+            "label": "Flower"
+          },
+          {
+            "value": "cherry",
+            "label": "Cherry"
+          },
+          {
+            "value": "bee",
+            "label": "Bee"
+          },
+          {
+            "value": "shell",
+            "label": "Shell"
+          },
+          {
+            "value": "star",
+            "label": "Star"
+          },
+          {
+            "value": "moon",
+            "label": "Moon"
+          },
+          {
+            "value": "snowflake",
+            "label": "Snowflake"
+          }
         ],
         "default": "duck"
       },
@@ -171,6 +201,25 @@
     ]
   },
   {
+    "name": "Cards",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Product photos, journal images and the product gallery sit on a mat of season colour. Set this to 0 to remove it and let the photographs fill their cards. The collection tiles on the home page have their own setting, in the section itself."
+      },
+      {
+        "type": "range",
+        "id": "card_mat",
+        "label": "Colour border",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "%",
+        "default": 3
+      }
+    ]
+  },
+  {
     "name": "Typography",
     "settings": [
       {
@@ -208,9 +257,21 @@
   {
     "name": "Social",
     "settings": [
-      { "type": "text", "id": "social_instagram", "label": "Instagram URL" },
-      { "type": "text", "id": "social_tiktok", "label": "TikTok URL" },
-      { "type": "text", "id": "social_email", "label": "Contact email" }
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "social_email",
+        "label": "Contact email"
+      }
     ]
   },
   {

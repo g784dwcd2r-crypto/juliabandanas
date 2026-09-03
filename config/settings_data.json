@@ -17,6 +17,7 @@
     "color_paper": "#FFFCF2",
     "color_paper_2": "#FFF6DF",
     "color_ink": "#111111",
+    "card_mat": 3,
     "type_base_size": 17,
     "type_display_weight": 600,
     "type_display_wonk": false,

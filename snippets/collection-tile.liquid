@@ -3,22 +3,43 @@
   falls back to the season motif when it does not, so a grid never looks
   half-finished while photography is still being sorted out.
 
-  Accepts: tile_collection, label (optional), show_count (bool)
+  The photo sits on a mat of season colour. How much of that mat shows, and
+  what shape the photo is cropped to, are both set in the theme editor.
+
+  Accepts:
+    tile_collection  the collection
+    label            optional override for the name
+    show_count       bool
+    mat              mat thickness as a percentage number (0 turns it off)
+    ratio            wide | square | tall | natural
 {%- endcomment -%}
 
 {%- liquid
   assign coll = tile_collection
   assign name = label | default: coll.title
+  assign tile_mat = mat | default: 3
+  assign tile_ratio = ratio | default: 'wide'
+
+  # 'natural' lets the image set its own height. With no image there is nothing
+  # to set it, so a tile without a photograph always falls back to a fixed shape.
+  unless coll.featured_image
+    if tile_ratio == 'natural'
+      assign tile_ratio = 'wide'
+    endif
+  endunless
 -%}
 
 <a class="cat" href="{{ coll.url | default: routes.all_products_collection_url }}">
-  <span class="cat__art">
+  <span class="cat__art cat__art--{{ tile_ratio }}" style="--mat: {{ tile_mat }}%">
     {%- if coll.featured_image -%}
       <span class="cat__frame">
         <img src="{{ coll.featured_image | image_url: width: 700 }}"
              srcset="{{ coll.featured_image | image_url: width: 350 }} 350w, {{ coll.featured_image | image_url: width: 700 }} 700w"
              sizes="(min-width: 1100px) 300px, (min-width: 750px) 30vw, 45vw"
-             alt="" width="350" height="280" loading="lazy">
+             alt=""
+             width="{{ coll.featured_image.width }}"
+             height="{{ coll.featured_image.height }}"
+             loading="lazy">
       </span>
     {%- else -%}
       <span class="motif">{% render 'season-motif' %}</span>

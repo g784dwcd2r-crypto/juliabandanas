@@ -419,7 +419,7 @@
 .pcard__media {
   position: relative;
   aspect-ratio: 4 / 5;
-  padding: 7%;
+  padding: var(--card-mat, 3%);
   background: var(--field, var(--paper-2));
   transition: background .3s var(--ease);
 }
@@ -482,19 +482,34 @@
 @media (min-width: 750px) { .cats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 24px; } }
 @media (min-width: 1100px) { .cats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-.cat { display: flex; flex-direction: column; }
+/* The tiles stretch to the row height so the names stay on one line across a
+   row even when the photographs are their own natural shapes. */
+.cat { display: flex; flex-direction: column; height: 100%; }
 .cat__art {
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 5 / 4;
-  padding: 6%;
+  margin-bottom: 12px;
+  /* Both set from the theme editor: 0% turns the colour mat off entirely */
+  padding: var(--mat, 3%);
+  aspect-ratio: var(--tile-ar, 5 / 4);
   background: var(--field, var(--paper-2));
   transition: background .3s var(--ease);
 }
+.cat__art--wide   { --tile-ar: 5 / 4; }
+.cat__art--square { --tile-ar: 1 / 1; }
+.cat__art--tall   { --tile-ar: 4 / 5; }
+
 .cat__frame { display: block; position: relative; width: 100%; height: 100%; overflow: hidden; }
 .cat__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
 .cat:hover .cat__frame img { transform: scale(1.05); }
+
+/* 'Natural' drops the crop: the image keeps its own proportions and sets the
+   height of the tile. Nothing is cropped, so tiles in a row can differ. */
+.cat__art--natural { aspect-ratio: auto; }
+.cat__art--natural .cat__frame { height: auto; }
+.cat__art--natural .cat__frame img { position: static; width: 100%; height: auto; }
+
 /* Fallback when a collection has no image: the season motif, on the colour */
 .cat__art .motif { width: 40%; opacity: .82; }
 
@@ -504,7 +519,8 @@
   justify-content: space-between;
   gap: 12px;
   padding-top: 12px;
-  margin-top: 12px;
+  /* pushed to the bottom so names line up across a row of uneven images */
+  margin-top: auto;
   border-top: 2px solid var(--ink);
   transition: border-color .25s var(--ease);
 }
