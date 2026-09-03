@@ -51,7 +51,7 @@
           {{ 'blogs.article.read_all' | t }} {% render 'icon', name: 'arrow' %}
         </a>
       </div>
-      <div class="blog-grid">
+      <div class="blog-grid" {% render 'grid-columns', cols: settings.blog_cols, cols_sm: settings.blog_cols_sm %}>
         {%- assign shown = 0 -%}
         {%- for other in blog.articles -%}
           {%- if other.id != article.id and shown < 3 -%}

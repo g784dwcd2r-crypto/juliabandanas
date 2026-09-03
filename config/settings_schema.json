@@ -220,6 +220,156 @@
     ]
   },
   {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The main button. Outline buttons and buttons inside a coloured band are worked out from these."
+      },
+      {
+        "type": "color",
+        "id": "btn_bg",
+        "label": "Background",
+        "default": "#FFC72C"
+      },
+      {
+        "type": "color",
+        "id": "btn_text",
+        "label": "Text",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "btn_border",
+        "label": "Border",
+        "default": "#111111"
+      },
+      {
+        "type": "header",
+        "content": "On hover"
+      },
+      {
+        "type": "color",
+        "id": "btn_hover_bg",
+        "label": "Background",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "btn_hover_text",
+        "label": "Text",
+        "default": "#FFFCF2"
+      },
+      {
+        "type": "header",
+        "content": "Behaviour"
+      },
+      {
+        "type": "checkbox",
+        "id": "btn_adaptive",
+        "label": "Keep buttons readable on coloured bands",
+        "default": true,
+        "info": "On, a button sitting on one of the season colours falls back to black or white so it never disappears into the band. Off, your colours above are used everywhere exactly as set."
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Defaults for the collection, search and journal pages. Sections on the home page carry their own settings."
+      },
+      {
+        "type": "header",
+        "content": "Product grids"
+      },
+      {
+        "type": "range",
+        "id": "grid_cols",
+        "label": "Products per row, desktop",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "grid_cols_sm",
+        "label": "Products per row, phone",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "header",
+        "content": "Journal"
+      },
+      {
+        "type": "range",
+        "id": "blog_cols",
+        "label": "Posts per row, desktop",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "blog_cols_sm",
+        "label": "Posts per row, phone",
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "header",
+        "content": "Spacing and shape"
+      },
+      {
+        "type": "range",
+        "id": "space_scale",
+        "label": "Space between sections",
+        "min": 60,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "corner_radius",
+        "label": "Corner rounding",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 2,
+        "info": "Applies to buttons, inputs, tags and cards. 0 is square."
+      }
+    ]
+  },
+  {
+    "name": "Effects",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "image_zoom",
+        "label": "Zoom images slightly on hover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "reveal_on_scroll",
+        "label": "Fade sections in as they scroll into view",
+        "default": true,
+        "info": "Both are switched off automatically for visitors who ask their device to reduce motion."
+      }
+    ]
+  },
+  {
     "name": "Typography",
     "settings": [
       {

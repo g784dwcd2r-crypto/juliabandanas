@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero band--{{ section.settings.band }}">
   <div class="wrap">
     <div class="hero__grid">
       <div class="hero__head">
@@ -67,6 +67,19 @@
 {
   "name": "Hero",
   "settings": [
+    {
+      "type": "select", "id": "band", "label": "Background",
+      "options": [
+        { "value": "paper", "label": "Page background" },
+        { "value": "tint", "label": "Quiet band" },
+        { "value": "yellow", "label": "Colour 1" },
+        { "value": "pink", "label": "Colour 2" },
+        { "value": "blue", "label": "Colour 3" },
+        { "value": "green", "label": "Colour 4" },
+        { "value": "ink", "label": "Ink" }
+      ],
+      "default": "yellow"
+    },
     {
       "type": "html", "id": "heading", "label": "Heading",
       "info": "Wrap a word in <em> to set it in the italic accent.",

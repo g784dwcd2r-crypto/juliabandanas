@@ -46,7 +46,8 @@
         "cta2_label": "Read the season note",
         "cta2_link": "#season-note",
         "caption_left": "Season 01",
-        "caption_right": "Ducks"
+        "caption_right": "Ducks",
+        "band": "yellow"
       }
     },
     "collections": {
@@ -126,7 +127,9 @@
         "show_counts": true,
         "link_label": "Everything",
         "link_url": "/collections/duck-mood",
-        "band": "paper"
+        "band": "paper",
+        "cols": 4,
+        "cols_sm": 2
       }
     },
     "featured": {
@@ -137,7 +140,10 @@
         "heading": "The pieces doing the most work",
         "text": "Not the whole range — the ones that keep going out the door.",
         "count": 8,
-        "band": "paper"
+        "band": "paper",
+        "cols": 4,
+        "cols_sm": 2,
+        "mobile_layout": "rail"
       }
     },
     "season-note": {
@@ -173,7 +179,10 @@
         "label": "Just landed",
         "heading": "Newest in the season",
         "count": 4,
-        "band": "paper"
+        "band": "paper",
+        "cols": 4,
+        "cols_sm": 2,
+        "mobile_layout": "rail"
       }
     },
     "quotes": {
@@ -222,7 +231,9 @@
         "label": "The journal",
         "heading": "Reading, while you decide",
         "count": 3,
-        "band": "tint"
+        "band": "tint",
+        "cols": 3,
+        "cols_sm": 1
       }
     },
     "faq": {

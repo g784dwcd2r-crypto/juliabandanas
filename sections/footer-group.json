@@ -5,8 +5,20 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "links1": { "type": "links", "settings": { "heading": "Shop", "menu": "main-menu" } },
-        "links2": { "type": "links", "settings": { "heading": "Elsewhere", "menu": "footer" } },
+        "links1": {
+          "type": "links",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "links2": {
+          "type": "links",
+          "settings": {
+            "heading": "Elsewhere",
+            "menu": "footer"
+          }
+        },
         "news": {
           "type": "newsletter",
           "settings": {
@@ -15,12 +27,19 @@
           }
         }
       },
-      "block_order": ["links1", "links2", "news"],
+      "block_order": [
+        "links1",
+        "links2",
+        "news"
+      ],
       "settings": {
         "blurb": "One subject at a time, for three months at a time. Hats, shirts, socks, prints and small odd things, all answering to the season.",
-        "credit": "Shipped from the UK."
+        "credit": "Shipped from the UK.",
+        "band": "ink"
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

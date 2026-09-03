@@ -50,7 +50,7 @@
       </article>
     {%- endif -%}
 
-    <div class="blog-grid">
+    <div class="blog-grid" {% render 'grid-columns', cols: settings.blog_cols, cols_sm: settings.blog_cols_sm %}>
       {%- for article in blog.articles -%}
         {%- unless paginate.current_page == 1 and blog.articles.size > 2 and forloop.first -%}
           <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 3 | times: 80 }}">

@@ -46,14 +46,30 @@
   /* Fraunces variable axes. */
   --display-settings: "opsz" 120, "SOFT" 0, "WONK" 0;
 
-  /* Geometry. Near-square: the energy comes from colour, not from bubbles. */
+  /* Buttons. Set from Customise -> Buttons; these are the defaults. */
+  --btn-bg:       var(--c1);
+  --btn-fg:       var(--c1-on);
+  --btn-border:   var(--ink);
+  --btn-hover-bg: var(--ink);
+  --btn-hover-fg: var(--paper);
+
+  /* Geometry. Near-square by default: the energy comes from colour, not from
+     bubbles. All three follow the corner-rounding setting. */
   --r-sm: 2px;
   --r-md: 3px;
   --r-lg: 4px;
 
+  /* Grid columns. Sections override these inline. */
+  --cols: 4;
+  --cols-mid: 3;
+  --cols-sm: 2;
+
+  /* Vertical rhythm multiplier, from Customise -> Layout */
+  --space-scale: 1;
+
   --pad: 22px;
   --gap: 18px;
-  --section-y: 64px;
+  --section-y: calc(64px * var(--space-scale, 1));
   --measure: 62ch;
 
   --rule: 1px solid var(--ink-14);
@@ -66,10 +82,10 @@
 }
 
 @media (min-width: 750px) {
-  :root { --pad: 40px; --gap: 24px; --section-y: 100px; --header-h: 76px; --fs-base: 17px; }
+  :root { --pad: 40px; --gap: 24px; --section-y: calc(100px * var(--space-scale, 1)); --header-h: 76px; --fs-base: 17px; }
 }
 @media (min-width: 1100px) {
-  :root { --pad: 56px; --section-y: 128px; }
+  :root { --pad: 56px; --section-y: calc(128px * var(--space-scale, 1)); }
 }
 
 /* ---------- Reset ---------- */
@@ -212,40 +228,57 @@ h4, .h4 {
 .stack-lg > * + * { margin-top: 32px; }
 
 /* ---------- Bands ----------
-   A band is a full-bleed field of one colour. Each sets --band-fg (the only
-   legible text colour on it), --band-mute and --band-rule, and the shared
-   rules below re-point every ink-derived colour at those. Without this the
-   muted greys vanish on a dark field.                                       */
-.band--paper  { background: var(--paper); }
-.band--tint   { background: var(--paper-2); }
+   A band is a full-bleed field of one colour. Every surface that can be
+   recoloured from the theme editor — the announcement bar, the header, the
+   hero, any section, the footer — is one of these.
 
-.band--yellow { background: var(--c1); --band-fg: var(--c1-on); }
-.band--pink   { background: var(--c2); --band-fg: var(--c2-on); }
-.band--blue   { background: var(--c3); --band-fg: var(--c3-on); }
-.band--green  { background: var(--c4); --band-fg: var(--c4-on); }
-.band--ink    { background: var(--ink); --band-fg: var(--paper); }
+   Each band declares four things, and the shared rules below re-point every
+   ink-derived colour at them. Without that, muted greys vanish on a dark
+   field and pink accents disappear on ink.
 
-/* Fields whose text is dark: mute and rule are ink at low alpha */
+     --band-bg    the field colour, so children can mask against it
+     --band-fg    the only text colour that clears ~4.5:1 on it
+     --band-mute  secondary text
+     --band-rule  hairlines and borders
+     --mark-on-band  what the pink accent becomes on this field           */
+
+.band--paper  { background: var(--paper);   --band-bg: var(--paper); }
+.band--tint   { background: var(--paper-2); --band-bg: var(--paper-2); }
+.band--yellow { background: var(--c1);  --band-bg: var(--c1);  --band-fg: var(--c1-on); }
+.band--pink   { background: var(--c2);  --band-bg: var(--c2);  --band-fg: var(--c2-on); }
+.band--blue   { background: var(--c3);  --band-bg: var(--c3);  --band-fg: var(--c3-on); }
+.band--green  { background: var(--c4);  --band-bg: var(--c4);  --band-fg: var(--c4-on); }
+.band--ink    { background: var(--ink); --band-bg: var(--ink); --band-fg: var(--paper); }
+
+/* Fields whose text is dark */
 :is(.band--yellow, .band--pink) {
   --band-mute: rgba(17, 17, 17, .74);
   --band-rule: rgba(17, 17, 17, .26);
+  --mark-on-band: var(--ink);
 }
-/* Fields whose text is light */
+/* Fields whose text is light. The pink accent goes yellow here — it is the
+   one palette colour that stays bright against a dark ground. */
 :is(.band--blue, .band--green, .band--ink) {
   --band-mute: rgba(255, 255, 255, .72);
   --band-rule: rgba(255, 255, 255, .28);
+  --mark-on-band: var(--c1);
 }
 
+/* One list, reused. Anything added to a band needs adding here too. */
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) {
   color: var(--band-fg);
 }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.muted, .label, .lead, .rte, .field__hint, .acard__excerpt) {
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.muted, .label, .lead, .rte, .field__hint, .acard__excerpt, .nav-link) {
   color: var(--band-mute);
 }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(h1, h2, h3, .h1, .h2, .h3, .label--ink, .label--accent, .rte strong, .rte h2, .rte h3) {
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(h1, h2, h3, .h1, .h2, .h3, .label--ink, .rte strong, .rte h2, .rte h3, .nav-link:hover, .nav-link[aria-current]) {
   color: var(--band-fg);
 }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.rule, .sec-head, .acc, .acc__item, .quote, .note, .notes > * .note) {
+/* Everything that is normally the pink accent */
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.label--accent, .logo__season, .footer__col-title, .cat__count, .pcard__kicker, .acard__meta, .season-line__num, .note__num, .quote__stars, .reassure svg) {
+  color: var(--mark-on-band);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.rule, .sec-head, .acc, .acc__item, .quote, .note, .notes > * .note, .cat__foot, .coll-bar, .page-head, .article__foot, .pagination) {
   border-color: var(--band-rule);
 }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .link {
@@ -260,21 +293,8 @@ h4, .h4 {
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .tag { color: var(--band-fg); border-color: var(--band-rule); }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.motif, .motif__art) { color: var(--band-fg); }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .motif--rule { color: var(--band-rule); }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .note__num,
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .season-line__num { color: var(--band-fg); }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .season-line__dot { background: var(--band-rule); }
-/* The wordmark's season marker is pink on paper; on a field it needs to change */
-:is(.band--blue, .band--green, .band--ink) .logo__season { color: var(--c1); }
-:is(.band--yellow, .band--pink) .logo__season { color: var(--ink); }
-
-/* Buttons on a coloured field: the safest pairing is always ink or paper */
-:is(.band--yellow, .band--pink) .btn:not(.btn--outline) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-:is(.band--yellow, .band--pink) .btn:not(.btn--outline):hover { background: transparent; color: var(--ink); }
-:is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline) { background: var(--paper); border-color: var(--paper); color: var(--ink); }
-:is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline):hover { background: transparent; color: var(--paper); }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline { color: var(--band-fg); border-color: var(--band-rule); }
-:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline:hover { background: var(--band-fg); color: var(--paper); border-color: var(--band-fg); }
-:is(.band--yellow, .band--pink) .btn--outline:hover { color: var(--c1); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .icon-btn__count { background: var(--band-fg); color: var(--band-bg); }
 
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea, .select) {
   color: var(--band-fg);
@@ -282,6 +302,18 @@ h4, .h4 {
 }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea)::placeholder { color: var(--band-mute); }
 :is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea, .select):focus { border-bottom-color: var(--band-fg); }
+
+/* ---------- Buttons on a coloured field ----------
+   A yellow button on a yellow band is invisible, so by default a button on a
+   field falls back to ink or paper — whichever the field can carry. Turn
+   "Keep buttons readable on coloured bands" off in the editor to drop these
+   and have the button colours apply everywhere exactly as chosen.           */
+.btn-adaptive :is(.band--yellow, .band--pink) .btn:not(.btn--outline) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn-adaptive :is(.band--yellow, .band--pink) .btn:not(.btn--outline):hover { background: transparent; color: var(--ink); }
+.btn-adaptive :is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline) { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.btn-adaptive :is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline):hover { background: transparent; color: var(--paper); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline { color: var(--band-fg); border-color: var(--band-rule); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline:hover { background: var(--band-fg); color: var(--band-bg); border-color: var(--band-fg); }
 
 /* A single hairline, used as a divider anywhere */
 .rule { border: 0; border-top: var(--rule); margin: 0; }
@@ -316,9 +348,9 @@ h4, .h4 {
   gap: 10px;
   min-height: 50px;
   padding: 13px 28px;
-  background: var(--c1);
-  color: var(--c1-on);
-  border: 1px solid var(--ink);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid var(--btn-border);
   border-radius: var(--r-sm);
   font-size: .78rem;
   font-weight: 600;
@@ -330,7 +362,7 @@ h4, .h4 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-.btn:hover { background: var(--ink); color: var(--paper); }
+.btn:hover { background: var(--btn-hover-bg); color: var(--btn-hover-fg); border-color: var(--btn-hover-bg); }
 .btn[disabled], .btn[aria-disabled="true"] {
   opacity: .38;
   pointer-events: none;
@@ -461,9 +493,9 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .media--film { aspect-ratio: 16 / 10; }
 .placeholder-svg { width: 100%; height: 100%; fill: var(--ink-14); }
 
-/* Images settle in rather than pop */
+/* Images settle in rather than pop. Switched off from Customise -> Effects. */
 .zoom img { transition: transform .8s var(--ease-out); }
-.zoom:hover img { transform: scale(1.035); }
+.zoom-on .zoom:hover img { transform: scale(1.035); }
 
 /* ---------- Card ----------
    A plain bordered panel. Used where content genuinely needs containing —
@@ -527,15 +559,17 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .rte th, .rte td { border-bottom: var(--rule); padding: 12px 16px 12px 0; text-align: left; }
 .rte th { color: var(--ink); font-weight: 600; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
 
-/* ---------- Scroll-in reveal ---------- */
-.reveal { opacity: 0; transform: translateY(14px); }
-.reveal.is-in {
+/* ---------- Scroll-in reveal ----------
+   Only armed when the setting is on; otherwise content is simply visible. */
+.reveal { opacity: 1; transform: none; }
+.reveal-on .reveal { opacity: 0; transform: translateY(14px); }
+.reveal-on .reveal.is-in {
   opacity: 1;
   transform: none;
   transition: opacity .7s var(--ease), transform .7s var(--ease-out);
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .reveal-on .reveal { opacity: 1; transform: none; }
 }
 
 /* ---------- Utility ---------- */

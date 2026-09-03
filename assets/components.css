@@ -33,9 +33,7 @@
    A quiet strip of tracked capitals. It only moves when there is more than
    one message and the visitor has not asked for reduced motion.             */
 .announce {
-  background: var(--c1);
-  color: var(--c1-on);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--band-rule, var(--ink-14));
   overflow: hidden;
 }
 .announce__track {
@@ -56,9 +54,9 @@
   letter-spacing: .2em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--c1-on);
+  color: inherit;
 }
-.announce__sep { width: 4px; height: 4px; border-radius: 50%; background: var(--ink); flex: 0 0 auto; }
+.announce__sep { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .55; flex: 0 0 auto; }
 @keyframes announce-slide { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .announce__track { animation: none; width: 100%; justify-content: center; }
@@ -73,8 +71,7 @@
   position: sticky;
   top: 0;
   z-index: 60;
-  background: var(--paper);
-  border-bottom: var(--rule);
+  border-bottom: 1px solid var(--band-rule, var(--ink-14));
   transition: transform .35s var(--ease);
 }
 .header.is-hidden { transform: translateY(-101%); }
@@ -117,12 +114,13 @@
   color: var(--ink-70);
   transition: color .2s var(--ease);
 }
+/* currentColor throughout, so the header works on any band */
 .nav-link::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 1px;
-  background: var(--ink);
+  background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .3s var(--ease-out);
@@ -130,14 +128,14 @@
 .nav-link:hover { color: var(--ink); }
 .nav-link:hover::after { transform: scaleX(1); }
 .nav-link[aria-current] { color: var(--ink); }
-.nav-link[aria-current]::after { transform: scaleX(1); height: 2px; background: var(--mark); }
+.nav-link[aria-current]::after { transform: scaleX(1); height: 2px; background: var(--mark-on-band, var(--mark)); }
 
 .icon-btn {
   position: relative;
   display: grid;
   place-items: center;
   width: 44px; height: 44px;
-  color: var(--ink);
+  color: inherit;
   transition: opacity .2s var(--ease);
   -webkit-tap-highlight-color: transparent;
 }
@@ -151,7 +149,7 @@
   display: grid; place-items: center;
   background: var(--mark);
   color: #FFFFFF;
-  border-radius: 999px;
+  border-radius: var(--r-pill, 999px);
   font-size: .6rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -168,7 +166,7 @@
 .burger__bars span {
   display: block;
   height: 1.5px;
-  background: var(--ink);
+  background: currentColor;
   transition: transform .3s var(--ease-out), opacity .2s var(--ease);
 }
 .burger__bars span + span { margin-top: 5px; }
@@ -288,22 +286,7 @@
 .season-line__dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-38); }
 
 /* ---------- Hero ---------- */
-.hero {
-  position: relative;
-  padding-block: 46px 0;
-  overflow: hidden;
-  background: var(--c1);
-  color: var(--c1-on);
-}
-/* The hero is a field, so it needs the same inversions a band gets */
-.hero .lead { color: rgba(17, 17, 17, .74); }
-.hero .label { color: rgba(17, 17, 17, .62); }
-.hero .season-line__num { color: var(--ink); }
-.hero .season-line__dot { background: rgba(17, 17, 17, .32); }
-.hero .btn { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-.hero .btn:hover { background: transparent; color: var(--ink); }
-.hero .link { color: var(--ink); border-color: rgba(17, 17, 17, .38); }
-.hero .link:hover { border-color: var(--ink); }
+.hero { position: relative; padding-block: 46px 0; overflow: hidden; }
 .hero__head { position: relative; z-index: 2; }
 .hero__season { margin-bottom: 26px; }
 .hero__title { margin-top: 0; }
@@ -334,7 +317,7 @@
   position: absolute;
   top: -30px; right: -60px;
   width: 260px;
-  color: var(--ink);
+  color: currentColor;
   opacity: .17;
   pointer-events: none;
   z-index: 0;
@@ -360,15 +343,17 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin-top: 56px;
-  background: rgba(17, 17, 17, .22);
-  border-block: 1px solid rgba(17, 17, 17, .22);
+  /* 1px gaps over a coloured container make the hairlines; the cells mask
+     back to the band colour, so this follows whatever band the hero is on. */
+  background: var(--band-rule, var(--ink-14));
+  border-block: 1px solid var(--band-rule, var(--ink-14));
 }
 .hero__fact {
-  background: var(--c1);
+  background: var(--band-bg, var(--paper));
   padding: 20px 4px 20px 0;
 }
-.hero__fact dt { font-size: .66rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: rgba(17, 17, 17, .62); }
-.hero__fact dd { margin: 8px 0 0; font-size: .92rem; color: var(--ink); }
+.hero__fact dt { font-size: .66rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--band-mute, var(--ink-55)); }
+.hero__fact dd { margin: 8px 0 0; font-size: .92rem; color: inherit; }
 @media (min-width: 750px) {
   .hero__facts { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 76px; }
   .hero__fact { padding-inline: 0 24px; }
@@ -377,11 +362,11 @@
 /* ---------- Product grid & card ---------- */
 .pgrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols-sm, 2), minmax(0, 1fr));
   gap: var(--gap) 14px;
 }
-@media (min-width: 750px) { .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 24px; } }
-@media (min-width: 1100px) { .pgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 750px) { .pgrid { grid-template-columns: repeat(var(--cols-mid, 3), minmax(0, 1fr)); gap: 44px 24px; } }
+@media (min-width: 1100px) { .pgrid { grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); } }
 
 /* Snap rail on phones, grid from 750px */
 .prail {
@@ -402,14 +387,16 @@
 @media (min-width: 750px) {
   .prail {
     grid-auto-flow: row;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--cols-mid, 3), minmax(0, 1fr));
     grid-auto-columns: auto;
     overflow: visible;
     padding-inline: 0;
     margin-inline: 0;
     gap: 24px;
   }
-  .prail--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .prail { grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); }
 }
 
 .pcard { position: relative; display: flex; flex-direction: column; height: 100%; }
@@ -428,7 +415,7 @@
 .pcard__img--main { transition: opacity .5s var(--ease), transform .8s var(--ease-out); }
 .pcard__img--alt { opacity: 0; transition: opacity .5s var(--ease); }
 .pcard:hover .pcard__img--alt { opacity: 1; }
-.pcard:hover .pcard__img--main { transform: scale(1.04); }
+.zoom-on .pcard:hover .pcard__img--main { transform: scale(1.04); }
 
 .pcard__flag {
   position: absolute;
@@ -476,11 +463,11 @@
    Editorial tiles: a photograph, a rule, a name and a count.                */
 .cats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols-sm, 2), minmax(0, 1fr));
   gap: 26px 14px;
 }
-@media (min-width: 750px) { .cats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 24px; } }
-@media (min-width: 1100px) { .cats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 750px) { .cats { grid-template-columns: repeat(var(--cols-mid, 3), minmax(0, 1fr)); gap: 44px 24px; } }
+@media (min-width: 1100px) { .cats { grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); } }
 
 /* The tiles stretch to the row height so the names stay on one line across a
    row even when the photographs are their own natural shapes. */
@@ -502,7 +489,7 @@
 
 .cat__frame { display: block; position: relative; width: 100%; height: 100%; overflow: hidden; }
 .cat__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
-.cat:hover .cat__frame img { transform: scale(1.05); }
+.zoom-on .cat:hover .cat__frame img { transform: scale(1.05); }
 
 /* 'Natural' drops the crop: the image keeps its own proportions and sets the
    height of the tile. Nothing is cropped, so tiles in a row can differ. */
@@ -624,19 +611,19 @@
 .quote__stars { color: var(--rule-c, var(--mark)); letter-spacing: .3em; font-size: .7rem; }
 
 /* ---------- Footer ---------- */
-.footer { background: var(--ink); color: var(--paper); }
+.footer { border-top: 1px solid var(--band-rule, var(--ink-14)); }
 .footer__top { display: grid; gap: 42px; padding-block: 56px 44px; }
 @media (min-width: 750px) {
   .footer__top { grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; }
 }
-.footer__blurb { max-width: 34ch; color: rgba(255, 252, 242, .66); font-size: .92rem; margin-top: 18px; }
-.footer__col-title { font-size: .66rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--c1); margin-bottom: 18px; }
+.footer__blurb { max-width: 34ch; color: var(--band-mute, var(--ink-55)); font-size: .92rem; margin-top: 18px; }
+.footer__col-title { font-size: .66rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mark); margin-bottom: 18px; }
 .footer__links { display: flex; flex-direction: column; gap: 11px; }
-.footer__links a { font-size: .92rem; color: rgba(255, 252, 242, .8); border-bottom: 1px solid transparent; align-self: flex-start; }
-.footer__links a:hover { color: var(--c1); border-bottom-color: var(--c1); }
+.footer__links a { font-size: .92rem; color: var(--band-mute, var(--ink-70)); border-bottom: 1px solid transparent; align-self: flex-start; }
+.footer__links a:hover { color: inherit; border-bottom-color: currentColor; }
 .footer__social { display: flex; gap: 18px; margin-top: 26px; }
-.footer__social a { color: rgba(255, 252, 242, .66); transition: color .2s var(--ease); }
-.footer__social a:hover { color: var(--c1); }
+.footer__social a { color: var(--band-mute, var(--ink-55)); transition: color .2s var(--ease); }
+.footer__social a:hover { color: inherit; }
 .footer__social svg { width: 18px; height: 18px; }
 .footer__bottom {
   display: flex;
@@ -645,9 +632,9 @@
   justify-content: space-between;
   gap: 10px 24px;
   padding-block: 22px calc(26px + env(safe-area-inset-bottom, 0px));
-  border-top: 1px solid rgba(255, 252, 242, .2);
+  border-top: 1px solid var(--band-rule, var(--ink-14));
   font-size: .74rem;
-  color: rgba(255, 252, 242, .6);
+  color: var(--band-mute, var(--ink-55));
 }
 
 /* Newsletter */

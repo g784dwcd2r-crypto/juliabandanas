@@ -59,6 +59,10 @@
       assign c4 = settings.season_c4 | default: '#0F7A4F'
       assign mark = settings.season_mark | default: '#D6006E'
 
+      # Percentages and pixel values the stylesheet expects as raw numbers
+      assign space_scale = settings.space_scale | default: 100 | divided_by: 100.0
+      assign radius = settings.corner_radius | default: 2
+
       assign c1_b = c1 | color_brightness
       assign c2_b = c2 | color_brightness
       assign c3_b = c3 | color_brightness
@@ -101,6 +105,18 @@
         --display-settings: "opsz" 120, "SOFT" 0, "WONK" {% if settings.type_display_wonk %}1{% else %}0{% endif %};
         --logo-size:   {{ settings.logo_size | default: 23 }}px;
         --card-mat:    {{ settings.card_mat | default: 3 }}%;
+
+        --btn-bg:       {{ settings.btn_bg | default: c1 }};
+        --btn-fg:       {{ settings.btn_text | default: c1_on }};
+        --btn-border:   {{ settings.btn_border | default: ink }};
+        --btn-hover-bg: {{ settings.btn_hover_bg | default: ink }};
+        --btn-hover-fg: {{ settings.btn_hover_text | default: paper }};
+
+        --grid-cols:    {{ settings.grid_cols | default: 4 }};
+        --space-scale:  {{ space_scale }};
+        --r-sm:         {{ radius }}px;
+        --r-md:         {{ radius }}px;
+        --r-lg:         {{ radius }}px;
       }
     </style>
 
@@ -129,7 +145,19 @@
     {{ content_for_header }}
   </head>
 
-  <body class="template--{{ template.name | handle }}">
+  {%- liquid
+    assign body_class = 'template--' | append: template.name | handle
+    unless settings.btn_adaptive == false
+      assign body_class = body_class | append: ' btn-adaptive'
+    endunless
+    unless settings.image_zoom == false
+      assign body_class = body_class | append: ' zoom-on'
+    endunless
+    unless settings.reveal_on_scroll == false
+      assign body_class = body_class | append: ' reveal-on'
+    endunless
+  -%}
+  <body class="{{ body_class }}">
     <a class="skip-link" href="#main">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
     {% sections 'header-group' %}

@@ -17,7 +17,7 @@
       {%- endif -%}
     </div>
 
-    <div class="cats">
+    <div class="cats" {% render 'grid-columns', cols: section.settings.cols, cols_sm: section.settings.cols_sm %}>
       {%- for block in section.blocks -%}
         <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 4 | times: 70 }}" {{ block.shopify_attributes }}>
           {% render 'collection-tile',
@@ -43,6 +43,15 @@
       "default": "The same subject, worked through everything you might reasonably want it on."
     },
     { "type": "checkbox", "id": "show_counts", "label": "Show how many products are in each", "default": true },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "range", "id": "cols", "label": "Collections per row, desktop",
+      "min": 2, "max": 6, "step": 1, "default": 4
+    },
+    {
+      "type": "range", "id": "cols_sm", "label": "Collections per row, phone",
+      "min": 1, "max": 3, "step": 1, "default": 2
+    },
     { "type": "header", "content": "The images" },
     {
       "type": "select", "id": "tile_ratio", "label": "Image shape",

@@ -19,7 +19,7 @@
 
     {%- paginate search.results by 24 -%}
       {%- if search.results_count > 0 -%}
-        <div class="pgrid pgrid--4">
+        <div class="pgrid" {% render 'grid-columns', cols: settings.grid_cols, cols_sm: settings.grid_cols_sm %}>
           {%- for item in search.results -%}
             {%- if item.object_type == 'product' -%}
               {% render 'product-card', card_product: item %}

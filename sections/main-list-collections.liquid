@@ -7,7 +7,7 @@
     <p class="lead page-head__intro">{{ 'sections.collections.intro' | t }}</p>
   </header>
 
-  <div class="cats">
+  <div class="cats" {% render 'grid-columns', cols: settings.grid_cols, cols_sm: settings.grid_cols_sm %}>
     {%- for coll in collections -%}
       <div class="reveal" data-reveal-delay="{{ forloop.index0 | modulo: 4 | times: 60 }}">
         {% render 'collection-tile', tile_collection: coll, show_count: true %}

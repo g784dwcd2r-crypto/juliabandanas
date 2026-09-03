@@ -65,7 +65,10 @@
         "label": "Also this season",
         "heading": "While you're here",
         "count": 4,
-        "band": "tint"
+        "band": "tint",
+        "cols": 4,
+        "cols_sm": 2,
+        "mobile_layout": "rail"
       }
     }
   },

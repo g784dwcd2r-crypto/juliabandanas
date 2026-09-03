@@ -1,0 +1,16 @@
+{%- comment -%}
+  Emits the three column variables a grid needs, from one desktop number.
+
+  The mid breakpoint is capped so a 6-column desktop grid does not try to fit
+  six tiles into a 750px tablet; the phone count is passed separately because
+  what works on a desktop rarely works on a phone.
+
+  Accepts: cols (int, desktop), cols_sm (int, phone), gap (optional css length)
+  Usage:   <div class="cats" {% render 'grid-columns', cols: 4, cols_sm: 2 %}>
+{%- endcomment -%}
+{%- liquid
+  assign c = cols | default: 4
+  assign c_sm = cols_sm | default: 2
+  assign c_mid = c | at_most: 3
+-%}
+style="--cols: {{ c }}; --cols-mid: {{ c_mid }}; --cols-sm: {{ c_sm }}{% if gap %}; gap: {{ gap }}{% endif %}"

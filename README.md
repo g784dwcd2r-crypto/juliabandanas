@@ -107,6 +107,53 @@ value to the `season_motif` select in `config/settings_schema.json`.
 
 No code changes and no CSS edits — the contrast maths is handled for you.
 
+## What you can change without touching code
+
+Everything visual is a setting. The panels in **Customise**:
+
+| Panel | Controls |
+|---|---|
+| **Season** | Number, name, dates, motif, the four palette colours, the accent text colour, the season collection |
+| **Brand** | Wordmark, whether the season number shows beside it, its size, favicon |
+| **Colours** | Page background, quiet band, ink |
+| **Cards** | Colour border thickness on product cards, journal images and the gallery |
+| **Buttons** | Background, text, border, both hover colours, and whether buttons auto-adapt on coloured bands |
+| **Layout** | Products per row and posts per row (desktop and phone), space between sections, corner rounding |
+| **Effects** | Image hover zoom, scroll-in fades |
+| **Typography** | Base size, headline weight, headline character |
+| **Social**, **Cart** | Links, cart drawer, cart note |
+
+### Every surface is a band
+
+The announcement bar, the header, the hero, the footer and every content
+section take the same **Background** setting: page background, quiet band, any
+of the four season colours, or ink.
+
+Picking one re-points *everything* inside it — body text, muted text,
+hairlines, links, form fields, the season motif, buttons, and the pink accent
+(which becomes ink on a light field and yellow on a dark one). So a header on
+ink or a footer on yellow stays readable without a single extra colour being
+chosen.
+
+Buttons on a coloured band fall back to black or white by default, because a
+yellow button on a yellow band is invisible. **Buttons → Keep buttons readable
+on coloured bands** turns that off if you want your exact colours everywhere.
+
+### Per-row counts
+
+- **Collection index** — collections per row, desktop (2–6) and phone (1–3)
+- **Featured collection** — products per row, plus whether phones get a swipe
+  rail or a grid
+- **Journal posts** — posts per row
+- **Layout panel** — the defaults for collection, search and journal pages
+
+The tablet count is capped at 3 automatically, so a 6-across desktop grid does
+not try to fit six tiles onto a 750px screen.
+
+One thing worth knowing: the colour border is a percentage of the tile, so
+fewer columns means a proportionally thicker border. If you drop to 2 or 3 per
+row and it looks heavy, take the border down a point or two.
+
 ## Structure
 
 ```
