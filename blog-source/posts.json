@@ -65,5 +65,376 @@
     ],
     "excerpt": "None of it was a plan. Every category began as one drawing that got out of hand.",
     "seo_description": "The story behind the ten Julia Mind categories — ducks, mushrooms, frogs, snails, bees, cats, bears, strawberries, moons and tiny snacks — and how each one started."
+  },
+  {
+    "file": "07-gifts-for-duck-lovers.html",
+    "title": "The duck lover gift guide: what to buy, sorted by budget",
+    "handle": "gifts-for-duck-lovers",
+    "tags": [
+      "Guides",
+      "Gifts",
+      "Buying"
+    ],
+    "target_keyword": "gifts for duck lovers",
+    "seo_title": "Gifts for Duck Lovers, by Budget | JuliaMind",
+    "excerpt": "One good duck thing beats five average ones. What to buy under £10, under £20 and under £40 — and the four gifts that reliably fail.",
+    "seo_description": "A gift guide for duck lovers: what to buy under £10, £20 and £40, how to pick for the recipient rather than yourself, and the gifts that end up in a drawer.",
+    "links": [
+      "/collections/mugs-cups",
+      "/collections/hats",
+      "/collections/socks",
+      "/collections/stuff-we-need",
+      "/collections/printed-posters",
+      "/blogs/journal/choosing-a-duck-mug",
+      "/blogs/journal/how-to-buy-a-bucket-hat-that-fits",
+      "/blogs/journal/duck-car-ornaments-guide",
+      "/blogs/journal/duck-slippers-guide",
+      "/blogs/journal/duck-spotters-guide",
+      "/blogs/journal/what-a-season-means"
+    ]
+  },
+  {
+    "file": "08-duck-stocking-fillers.html",
+    "title": "Duck stocking fillers and Secret Santa gifts under £15",
+    "handle": "duck-stocking-fillers-under-15",
+    "tags": [
+      "Guides",
+      "Gifts",
+      "Christmas"
+    ],
+    "target_keyword": "duck stocking fillers",
+    "seo_title": "Duck Stocking Fillers Under £15 | JuliaMind",
+    "excerpt": "The test a cheap gift has to pass: will it be used in the first week? Everything that clears it, at £5, £10 and £15.",
+    "seo_description": "Duck stocking fillers and Secret Santa gifts under £15 — stickers, pins, socks, mugs and car ornaments — and the one test every cheap gift has to pass.",
+    "links": [
+      "/collections/stuff-we-need",
+      "/collections/socks",
+      "/collections/mugs-cups",
+      "/blogs/journal/where-to-put-a-duck-sticker",
+      "/blogs/journal/enamel-pin-guide",
+      "/blogs/journal/duck-duck-jeep-explained",
+      "/blogs/journal/what-a-season-means"
+    ]
+  },
+  {
+    "file": "09-duck-car-ornaments.html",
+    "title": "Rubber ducks on the dashboard: a guide to duck car ornaments",
+    "handle": "duck-car-ornaments-guide",
+    "tags": [
+      "Guides",
+      "Car",
+      "Ducks"
+    ],
+    "target_keyword": "duck car ornaments",
+    "seo_title": "Duck Car Ornaments: A Practical Guide | JuliaMind",
+    "excerpt": "Where a dashboard duck should go, how to stop it sliding, why yellow vinyl fades in a summer, and how to clean one without losing the tiny hat.",
+    "seo_description": "A practical guide to rubber duck car ornaments: safe dashboard placement, non-slip mats vs adhesive, UK legality, sun fading and how to clean one.",
+    "links": [
+      "/collections/duck-mood",
+      "/blogs/journal/duck-duck-jeep-explained"
+    ]
+  },
+  {
+    "file": "10-duck-duck-jeep.html",
+    "title": "Duck Duck Jeep, explained — and how to do it properly",
+    "handle": "duck-duck-jeep-explained",
+    "tags": [
+      "Guides",
+      "Car",
+      "Ducks"
+    ],
+    "target_keyword": "duck duck jeep",
+    "seo_title": "Duck Duck Jeep Explained: Rules and Etiquette | JuliaMind",
+    "excerpt": "Door handle or wing mirror, never under a wiper. Where ducking came from, the unwritten rules, and what to keep in the car.",
+    "seo_description": "What Duck Duck Jeep is, where it started, the unwritten rules for leaving a duck on someone's car, what to do when you get ducked, and what ducks to carry.",
+    "links": [
+      "/collections/duck-mood",
+      "/blogs/journal/duck-car-ornaments-guide"
+    ]
+  },
+  {
+    "file": "11-reversible-bucket-hats.html",
+    "title": "Reversible bucket hats: how to get two hats out of one",
+    "handle": "reversible-bucket-hats",
+    "tags": [
+      "Guides",
+      "Hats",
+      "Care"
+    ],
+    "target_keyword": "reversible bucket hat",
+    "seo_title": "Reversible Bucket Hats: Fit, Flip and Wash | JuliaMind",
+    "excerpt": "Two layers in the band means a fractionally tighter fit. How to flip one, which side to wear, and how to wash it without wavy brim.",
+    "seo_description": "How reversible bucket hats are built, why they fit tighter, which side to wear, how to flip and reshape one, and how to wash it without warping the brim.",
+    "links": [
+      "/blogs/journal/how-to-buy-a-bucket-hat-that-fits",
+      "/blogs/journal/washing-printed-cotton"
+    ]
+  },
+  {
+    "file": "12-sun-hats-compared.html",
+    "title": "Bucket hat, cap or straw hat: which one to actually pack",
+    "handle": "bucket-hat-vs-cap-vs-straw-hat",
+    "tags": [
+      "Guides",
+      "Hats",
+      "Buying"
+    ],
+    "target_keyword": "bucket hat vs cap",
+    "seo_title": "Bucket Hat vs Cap vs Straw Hat | JuliaMind",
+    "excerpt": "Three hats, three jobs. A side-by-side on shade, packing, wind and rain — plus what actually matters for sun protection.",
+    "seo_description": "Bucket hat, baseball cap or straw hat? A comparison on sun coverage, packing, wind, rain and fit, plus the three things that really determine protection.",
+    "links": [
+      "/collections/hats",
+      "/collections/caps",
+      "/blogs/journal/how-to-buy-a-bucket-hat-that-fits"
+    ]
+  },
+  {
+    "file": "13-choosing-a-duck-mug.html",
+    "title": "Choosing a duck mug: size, handle, ceramic and print",
+    "handle": "choosing-a-duck-mug",
+    "tags": [
+      "Guides",
+      "Mugs",
+      "Buying"
+    ],
+    "target_keyword": "duck mug",
+    "seo_title": "Choosing a Duck Mug: Size, Handle, Print | JuliaMind",
+    "excerpt": "330ml is not 330ml of tea. What mug capacity really means, why the handle matters more than the print, and which mug to buy as a gift.",
+    "seo_description": "How to choose a printed duck mug: what stated capacity really gives you, why handle shape matters most, thick vs thin ceramic, and how the printing works.",
+    "links": [
+      "/collections/mugs-cups",
+      "/blogs/journal/printed-mug-care"
+    ]
+  },
+  {
+    "file": "14-printed-mug-care.html",
+    "title": "How to keep a printed mug looking new",
+    "handle": "printed-mug-care",
+    "tags": [
+      "Care",
+      "Guides",
+      "Mugs"
+    ],
+    "target_keyword": "are printed mugs dishwasher safe",
+    "seo_title": "Printed Mug Care: Dishwasher and Stains | JuliaMind",
+    "excerpt": "Heat, alkalinity and abrasion. The three things that fade a mug print, and the five rules that stop them.",
+    "seo_description": "How to wash a printed mug so the design lasts: dishwasher settings, microwave safety, removing tea stains, and when a chipped mug should be retired.",
+    "links": [
+      "/blogs/journal/choosing-a-duck-mug",
+      "/collections/mugs-cups"
+    ]
+  },
+  {
+    "file": "15-enamel-pin-guide.html",
+    "title": "Enamel pins: how to wear them, keep them on, and display the rest",
+    "handle": "enamel-pin-guide",
+    "tags": [
+      "Guides",
+      "Pins",
+      "Care"
+    ],
+    "target_keyword": "how to wear enamel pins",
+    "seo_title": "Enamel Pin Guide: Backs and Display | JuliaMind",
+    "excerpt": "Hard versus soft enamel, why the back it came with is the reason you lost it, and the odd-numbers rule for arranging a collection.",
+    "seo_description": "A guide to enamel pins: hard vs soft enamel, which pin backs hold, which fabrics take a pin safely, how to arrange a collection, and how to store them.",
+    "links": [
+      "/collections/duck-mood"
+    ]
+  },
+  {
+    "file": "16-duck-sticker-guide.html",
+    "title": "Where to put a duck sticker (and where it will fall off)",
+    "handle": "where-to-put-a-duck-sticker",
+    "tags": [
+      "Guides",
+      "Stickers"
+    ],
+    "target_keyword": "where to put vinyl stickers",
+    "seo_title": "Vinyl Sticker Guide: Surfaces and Removal | JuliaMind",
+    "excerpt": "Vinyl sticks to things that are smooth, hard, clean and dry. Everything else is a negotiation.",
+    "seo_description": "Which surfaces vinyl stickers stick to, which they never will, how to prep and apply without bubbles, how curves affect size, and how to remove one.",
+    "links": [
+      "/collections/stuff-we-need"
+    ]
+  },
+  {
+    "file": "17-duck-gallery-wall.html",
+    "title": "Building a gallery wall out of small prints",
+    "handle": "duck-gallery-wall",
+    "tags": [
+      "Guides",
+      "Prints",
+      "Home"
+    ],
+    "target_keyword": "gallery wall spacing",
+    "seo_title": "Gallery Wall Guide: Heights and Spacing | JuliaMind",
+    "excerpt": "145cm to the centre of the group, 5–8cm between frames, and lay it out on the floor first. Mostly arithmetic, not taste.",
+    "seo_description": "How to build a gallery wall from small prints: grid, salon and line layouts, exact hanging heights and gaps, mounting, and hanging without wrecking plaster.",
+    "links": [
+      "/collections/printed-posters",
+      "/blogs/journal/hanging-a-print"
+    ]
+  },
+  {
+    "file": "18-hanging-a-tin-sign.html",
+    "title": "Hanging a tin sign without wrecking the wall",
+    "handle": "hanging-a-tin-sign",
+    "tags": [
+      "Guides",
+      "Prints",
+      "Home"
+    ],
+    "target_keyword": "how to hang a tin sign",
+    "seo_title": "How to Hang a Tin Sign Safely | JuliaMind",
+    "excerpt": "Four ways to hang one, why adhesive strips fail, and the fact nobody mentions: the edges are genuinely sharp.",
+    "seo_description": "How to hang a metal tin sign: adhesive strips vs screws vs magnets, preparing the wall, where tin signs look right, grouping several, and cleaning them.",
+    "links": [
+      "/collections/printed-posters",
+      "/blogs/journal/where-to-put-a-duck-sticker"
+    ]
+  },
+  {
+    "file": "19-duck-socks-guide.html",
+    "title": "Duck socks: lengths, cotton, sizing and why they go bobbly",
+    "handle": "duck-socks-guide",
+    "tags": [
+      "Guides",
+      "Socks",
+      "Care"
+    ],
+    "target_keyword": "printed socks guide",
+    "seo_title": "Duck Socks: Lengths, Fabric and Care | JuliaMind",
+    "excerpt": "Crew or mid-calf if the design matters. What the elastane percentage really tells you, and how to stop socks pilling.",
+    "seo_description": "A guide to printed socks: which length shows the design, what the cotton and elastane percentages mean, how sizing works, and how to stop them pilling.",
+    "links": [
+      "/collections/socks",
+      "/blogs/journal/washing-printed-cotton"
+    ]
+  },
+  {
+    "file": "20-duck-slippers-guide.html",
+    "title": "Duck slippers: sizing, washing and when to give up on a pair",
+    "handle": "duck-slippers-guide",
+    "tags": [
+      "Guides",
+      "Slippers",
+      "Care"
+    ],
+    "target_keyword": "slipper sizing",
+    "seo_title": "Duck Slippers: Sizing and Washing | JuliaMind",
+    "excerpt": "Size up, not down. Which soles you can actually walk on, how to machine wash a pair without killing them, and the bicarbonate trick.",
+    "seo_description": "How to size plush slippers, which soles are safe on hard floors, how to machine wash them without ruining them, dealing with smell, and when to replace.",
+    "links": [
+      "/collections/slippers"
+    ]
+  },
+  {
+    "file": "21-t-shirt-fit-guide.html",
+    "title": "Duck t-shirts: fit, cotton weight, and how to read a size chart",
+    "handle": "duck-t-shirt-fit-guide",
+    "tags": [
+      "Guides",
+      "Sizing",
+      "Clothing"
+    ],
+    "target_keyword": "graphic t-shirt sizing",
+    "seo_title": "Graphic T-Shirt Sizing and GSM Guide | JuliaMind",
+    "excerpt": "Stop reading the letter. Measure a shirt you already like, flat, armpit to armpit — that number is your size everywhere.",
+    "seo_description": "How to size a graphic t-shirt: measuring a shirt you own, a chest-width chart, why imported sizing runs small, what gsm means, and boxy vs classic fit.",
+    "links": [
+      "/collections/shirts",
+      "/blogs/journal/washing-printed-cotton"
+    ]
+  },
+  {
+    "file": "22-kids-duck-clothing.html",
+    "title": "Buying duck clothing for kids: sizing that actually works",
+    "handle": "kids-duck-clothing-sizing",
+    "tags": [
+      "Guides",
+      "Sizing",
+      "Kids"
+    ],
+    "target_keyword": "kids t-shirt size by height",
+    "seo_title": "Kids' Clothing Sizes by Height | JuliaMind",
+    "excerpt": "Age labels are a guess at height. Measure the child instead — here is the chart, plus the safety points that genuinely matter.",
+    "seo_description": "A height-based size chart for children's clothing from age 2 to 12, why imported kids' sizing runs small, what fabric to look for, and safety checks.",
+    "links": [
+      "/collections/shirts",
+      "/blogs/journal/washing-printed-cotton"
+    ]
+  },
+  {
+    "file": "23-why-ducks-are-everywhere.html",
+    "title": "Why ducks are suddenly everywhere",
+    "handle": "why-ducks-are-everywhere",
+    "tags": [
+      "Behind the scenes",
+      "Ducks"
+    ],
+    "target_keyword": "why are ducks so popular",
+    "seo_title": "Why Ducks Are Everywhere | JuliaMind",
+    "excerpt": "A shape fixed in the popular imagination by a puppet in 1970, a programming book from 1999, and one Jeep owner in Ontario.",
+    "seo_description": "Where the rubber duck came from, why the shape works at any size, rubber duck debugging, Duck Duck Jeep, and why ducks became the internet's favourite bird.",
+    "links": [
+      "/blogs/journal/duck-duck-jeep-explained",
+      "/blogs/journal/what-a-season-means",
+      "/blogs/journal/duck-car-ornaments-guide"
+    ]
+  },
+  {
+    "file": "24-duck-spotters-guide.html",
+    "title": "Mallard, Pekin, Runner: a duck spotter's guide",
+    "handle": "duck-spotters-guide",
+    "tags": [
+      "Ducks",
+      "Guides"
+    ],
+    "target_keyword": "types of ducks uk",
+    "seo_title": "UK Duck Spotter's Guide | JuliaMind",
+    "excerpt": "The five you will actually see, how to tell a duck from a goose, and two things everybody believes about ducks that are wrong.",
+    "seo_description": "A short field guide to UK ducks — mallard, tufted, mandarin, Pekin and Runner — telling ducks from geese, the quack echo myth, and what to feed them.",
+    "links": [
+      "/collections/printed-posters",
+      "/blogs/journal/why-ducks-are-everywhere"
+    ]
+  },
+  {
+    "file": "25-duck-party-ideas.html",
+    "title": "Duck party ideas that aren't just yellow balloons",
+    "handle": "duck-party-ideas",
+    "tags": [
+      "Guides",
+      "Gifts",
+      "Parties"
+    ],
+    "target_keyword": "duck themed party ideas",
+    "seo_title": "Duck Themed Party Ideas | JuliaMind",
+    "excerpt": "Three colours, one duck pond, and the party bag problem solved by making the children do it themselves.",
+    "seo_description": "Duck themed party ideas: the right palette, games for young children, the deadpan adult version, party bag alternatives, an easy cake, and baby showers.",
+    "links": [
+      "/collections/stuff-we-need",
+      "/collections/mugs-cups",
+      "/blogs/journal/gifts-for-duck-lovers"
+    ]
+  },
+  {
+    "file": "26-duck-bag-charms.html",
+    "title": "Bag charms and keyrings: how to hang one without losing it",
+    "handle": "duck-bag-charms-and-keyrings",
+    "tags": [
+      "Guides",
+      "Charms",
+      "Care"
+    ],
+    "target_keyword": "bag charm attachment",
+    "seo_title": "Bag Charms and Keyrings: A Guide | JuliaMind",
+    "excerpt": "If you keep losing charms, it is the spring gate. Which clasp to use, where to hang it, and how much weight a canvas bag will take.",
+    "seo_description": "Which bag charm clasps hold, where to attach one on a rucksack or tote, how heavy is too heavy, how many to wear, and how to clean resin, metal and plush.",
+    "links": [
+      "/collections/duck-mood",
+      "/blogs/journal/enamel-pin-guide"
+    ]
   }
 ]
