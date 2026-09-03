@@ -31,33 +31,106 @@
 {
   "name": "Journal posts",
   "settings": [
-    { "type": "blog", "id": "blog", "label": "Blog" },
-    { "type": "text", "id": "label", "label": "Label", "default": "The journal" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Reading, while you decide" },
-    { "type": "range", "id": "count", "label": "Posts shown", "min": 2, "max": 12, "step": 1, "default": 3 },
-    { "type": "header", "content": "Layout" },
     {
-      "type": "range", "id": "cols", "label": "Posts per row, desktop",
-      "min": 2, "max": 6, "step": 1, "default": 3
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
     },
     {
-      "type": "range", "id": "cols_sm", "label": "Posts per row, phone",
-      "min": 1, "max": 3, "step": 1, "default": 1
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "The journal"
     },
     {
-      "type": "select", "id": "band", "label": "Background",
-            "options": [
-        { "value": "paper", "label": "Page background" },
-        { "value": "tint", "label": "Quiet band" },
-        { "value": "yellow", "label": "Colour 1" },
-        { "value": "pink", "label": "Colour 2" },
-        { "value": "blue", "label": "Colour 3" },
-        { "value": "green", "label": "Colour 4" },
-        { "value": "ink", "label": "Ink" }
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Reading, while you decide"
+    },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "Posts shown",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "cols",
+      "label": "Posts per row, desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "cols_sm",
+      "label": "Posts per row, phone",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "band",
+      "label": "Background",
+      "options": [
+        {
+          "value": "paper",
+          "label": "Page background"
+        },
+        {
+          "value": "tint",
+          "label": "Quiet band"
+        },
+        {
+          "value": "yellow",
+          "label": "Colour 1"
+        },
+        {
+          "value": "pink",
+          "label": "Colour 2"
+        },
+        {
+          "value": "blue",
+          "label": "Colour 3"
+        },
+        {
+          "value": "green",
+          "label": "Colour 4"
+        },
+        {
+          "value": "ink",
+          "label": "Ink"
+        }
       ],
       "default": "tint"
     }
   ],
-  "presets": [{ "name": "Journal posts" }]
+  "presets": [
+    {
+      "name": "Journal posts"
+    }
+  ]
 }
 {% endschema %}

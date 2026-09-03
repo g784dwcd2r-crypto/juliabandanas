@@ -294,35 +294,64 @@
         "default": 4
       },
       {
-        "type": "range",
+        "type": "select",
         "id": "grid_cols_sm",
         "label": "Products per row, phone",
-        "min": 1,
-        "max": 3,
-        "step": 1,
-        "default": 2
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ],
+        "default": "2"
       },
       {
         "type": "header",
         "content": "Journal"
       },
       {
-        "type": "range",
+        "type": "select",
         "id": "blog_cols",
         "label": "Posts per row, desktop",
-        "min": 2,
-        "max": 4,
-        "step": 1,
-        "default": 3
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ],
+        "default": "3"
       },
       {
-        "type": "range",
+        "type": "select",
         "id": "blog_cols_sm",
         "label": "Posts per row, phone",
-        "min": 1,
-        "max": 2,
-        "step": 1,
-        "default": 1
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          }
+        ],
+        "default": "1"
       },
       {
         "type": "header",

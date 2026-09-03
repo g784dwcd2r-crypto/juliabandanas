@@ -129,7 +129,7 @@
         "link_url": "/collections/duck-mood",
         "band": "paper",
         "cols": 4,
-        "cols_sm": 2
+        "cols_sm": "2"
       }
     },
     "featured": {
@@ -142,7 +142,7 @@
         "count": 8,
         "band": "paper",
         "cols": 4,
-        "cols_sm": 2,
+        "cols_sm": "2",
         "mobile_layout": "rail"
       }
     },
@@ -181,7 +181,7 @@
         "count": 4,
         "band": "paper",
         "cols": 4,
-        "cols_sm": 2,
+        "cols_sm": "2",
         "mobile_layout": "rail"
       }
     },
@@ -233,7 +233,7 @@
         "count": 3,
         "band": "tint",
         "cols": 3,
-        "cols_sm": 1
+        "cols_sm": "1"
       }
     },
     "faq": {
