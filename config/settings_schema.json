@@ -170,14 +170,11 @@
         "default": 500
       },
       {
-        "type": "range",
+        "type": "checkbox",
         "id": "type_display_wonk",
-        "label": "Headline character",
-        "min": 0,
-        "max": 1,
-        "step": 1,
-        "default": 0,
-        "info": "0 keeps the serif conventional. 1 lets its more unusual letterforms through."
+        "label": "Let the serif's unusual letterforms through",
+        "default": false,
+        "info": "Off keeps the display serif conventional. On raises its WONK axis, which gives the headlines more character."
       }
     ]
   },

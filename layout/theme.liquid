@@ -81,7 +81,7 @@
         --accent-on:   {{ accent_on }};
         --fs-base:     {{ settings.type_base_size | default: 17 }}px;
         --display-weight: {{ settings.type_display_weight | default: 500 }};
-        --display-settings: "opsz" 120, "SOFT" 0, "WONK" {{ settings.type_display_wonk | default: 0 }};
+        --display-settings: "opsz" 120, "SOFT" 0, "WONK" {% if settings.type_display_wonk %}1{% else %}0{% endif %};
         --logo-size:   {{ settings.logo_size | default: 23 }}px;
       }
     </style>

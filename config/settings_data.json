@@ -16,7 +16,7 @@
     "color_ink": "#17171A",
     "type_base_size": 17,
     "type_display_weight": 500,
-    "type_display_wonk": 0,
+    "type_display_wonk": false,
     "social_instagram": "",
     "social_tiktok": "",
     "social_email": "",
