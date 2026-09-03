@@ -3,9 +3,27 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "r1": { "type": "reassurance", "settings": { "icon": "season", "text": "Part of Season 01 — Ducks. Not restocked once it closes." } },
-        "r2": { "type": "reassurance", "settings": { "icon": "truck", "text": "Free UK delivery over £35, worldwide at checkout" } },
-        "r3": { "type": "reassurance", "settings": { "icon": "return", "text": "30 days to send it back, unworn" } },
+        "r1": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "season",
+            "text": "Part of Season 01 — Ducks. Not restocked once it closes."
+          }
+        },
+        "r2": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "truck",
+            "text": "Free UK delivery over £35, worldwide at checkout"
+          }
+        },
+        "r3": {
+          "type": "reassurance",
+          "settings": {
+            "icon": "return",
+            "text": "30 days to send it back, unworn"
+          }
+        },
         "a1": {
           "type": "accordion",
           "settings": {
@@ -28,8 +46,17 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3", "a1", "a2", "a3"],
-      "settings": { "show_vendor": false }
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "settings": {
+        "show_vendor": false
+      }
     },
     "related": {
       "type": "featured-collection",
@@ -42,5 +69,8 @@
       }
     }
   },
-  "order": ["main", "related"]
+  "order": [
+    "main",
+    "related"
+  ]
 }

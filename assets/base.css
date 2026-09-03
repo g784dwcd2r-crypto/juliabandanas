@@ -1,42 +1,52 @@
 /* ==========================================================================
    Julia Mind — foundations
-   A quiet editorial system: warm paper, deep ink, one seasonal accent.
-   Type does the work; colour is used once and meant.
+   Bold flat colour, editorial type. The season palette does the shouting;
+   the typography and the spacing keep it grown-up rather than cartoonish.
+   Colour is used as fields, never as outlines or drop shadows.
    Mobile first — everything above 750px is an enhancement.
    ========================================================================== */
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Surfaces. Three warm greys and white — nothing else carries background. */
-  --paper:      #FAF8F3;
-  --paper-2:    #F4F1EA;
-  --paper-3:    #EDE9DF;
+  /* Ground. Warm and sunny rather than neutral, so the colour sits on it well. */
+  --paper:      #FFFCF2;
+  --paper-2:    #FFF6DF;   /* pale yellow wash, for quiet bands */
   --card:       #FFFFFF;
 
-  /* Ink. One colour at five strengths, so contrast is always predictable. */
-  --ink:        #17171A;
-  --ink-70:     rgba(23, 23, 26, .70);
-  --ink-55:     rgba(23, 23, 26, .55);
-  --ink-38:     rgba(23, 23, 26, .38);
-  --ink-14:     rgba(23, 23, 26, .14);
-  --ink-07:     rgba(23, 23, 26, .07);
+  /* Ink. One near-black at five strengths. */
+  --ink:        #111111;
+  --ink-70:     rgba(17, 17, 17, .70);
+  --ink-55:     rgba(17, 17, 17, .55);
+  --ink-38:     rgba(17, 17, 17, .38);
+  --ink-14:     rgba(17, 17, 17, .14);
+  --ink-07:     rgba(17, 17, 17, .07);
 
-  /* Season. Set from theme settings — the only chromatic colour on the site. */
-  --accent:      #B8863C;
-  --accent-ink:  #6E4E1C;   /* accent darkened enough to sit on paper as text */
-  --accent-soft: #F0E7D6;   /* accent lifted into paper, for quiet bands       */
-  --accent-on:   #FFFFFF;   /* text placed on top of the accent                */
+  /* ---- Season palette ----
+     Four colours, taken from what the shop actually sells: rubber-duck
+     yellow, the glitter-pink cowboy ducks, pond blue and the deep green of
+     the wall prints. Each carries an -on value: the only text colour that
+     clears 4.5:1 against it, worked out in layout/theme.liquid.
+
+     They are used as flat fields, never as small text. The one colour that
+     IS legible as small text on paper is --mark.                            */
+  --c1:    #FFC72C;  --c1-on: #111111;   /* duck yellow  12.1:1 */
+  --c2:    #FF4D8D;  --c2-on: #111111;   /* hot pink      6.0:1 */
+  --c3:    #1D5CE8;  --c3-on: #FFFFFF;   /* pond blue     5.6:1 */
+  --c4:    #0F7A4F;  --c4-on: #FFFFFF;   /* deep green    5.4:1 */
+
+  /* Small accent text, rules and marks on paper. 5.0:1 on the cream. */
+  --mark:  #D6006E;
 
   /* Type. A serif for voice, a sans for everything functional. */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --font-body:    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --fs-base: 16.5px;
-  --display-weight: 500;
+  --display-weight: 600;
 
-  /* Fraunces variable axes. Low wonk and soft keep it grown-up. */
+  /* Fraunces variable axes. */
   --display-settings: "opsz" 120, "SOFT" 0, "WONK" 0;
 
-  /* Geometry. Almost square — the softness comes from spacing, not radii. */
+  /* Geometry. Near-square: the energy comes from colour, not from bubbles. */
   --r-sm: 2px;
   --r-md: 3px;
   --r-lg: 4px;
@@ -46,7 +56,6 @@
   --section-y: 64px;
   --measure: 62ch;
 
-  /* One hairline, used everywhere. There are no heavy borders in this theme. */
   --rule: 1px solid var(--ink-14);
   --rule-strong: 1px solid var(--ink-38);
 
@@ -167,7 +176,7 @@ h4, .h4 {
   color: var(--ink-55);
 }
 .label--ink { color: var(--ink); }
-.label--accent { color: var(--accent-ink); }
+.label--accent { color: var(--mark); }
 
 .lead {
   font-size: clamp(1.06rem, 2.6vw, 1.28rem);
@@ -202,24 +211,77 @@ h4, .h4 {
 .stack-sm > * + * { margin-top: 10px; }
 .stack-lg > * + * { margin-top: 32px; }
 
-/* Surfaces. A band is a change of paper, never a change of hue. */
+/* ---------- Bands ----------
+   A band is a full-bleed field of one colour. Each sets --band-fg (the only
+   legible text colour on it), --band-mute and --band-rule, and the shared
+   rules below re-point every ink-derived colour at those. Without this the
+   muted greys vanish on a dark field.                                       */
 .band--paper  { background: var(--paper); }
 .band--tint   { background: var(--paper-2); }
-.band--deep   { background: var(--paper-3); }
-.band--season { background: var(--accent-soft); }
-.band--ink    { background: var(--ink); color: var(--paper); }
-/* Ink inverts every colour that is defined as a shade of ink, or it disappears */
-.band--ink .lead,
-.band--ink .rte { color: rgba(250, 248, 243, .78); }
-.band--ink .muted,
-.band--ink .label { color: rgba(250, 248, 243, .62); }
-.band--ink .rte strong,
-.band--ink .rte h2,
-.band--ink .rte h3 { color: var(--paper); }
-.band--ink .rule,
-.band--ink .sec-head { border-color: rgba(250, 248, 243, .22); }
-.band--ink .link { border-color: rgba(250, 248, 243, .45); }
-.band--ink .link:hover { border-color: var(--paper); }
+
+.band--yellow { background: var(--c1); --band-fg: var(--c1-on); }
+.band--pink   { background: var(--c2); --band-fg: var(--c2-on); }
+.band--blue   { background: var(--c3); --band-fg: var(--c3-on); }
+.band--green  { background: var(--c4); --band-fg: var(--c4-on); }
+.band--ink    { background: var(--ink); --band-fg: var(--paper); }
+
+/* Fields whose text is dark: mute and rule are ink at low alpha */
+:is(.band--yellow, .band--pink) {
+  --band-mute: rgba(17, 17, 17, .74);
+  --band-rule: rgba(17, 17, 17, .26);
+}
+/* Fields whose text is light */
+:is(.band--blue, .band--green, .band--ink) {
+  --band-mute: rgba(255, 255, 255, .72);
+  --band-rule: rgba(255, 255, 255, .28);
+}
+
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) {
+  color: var(--band-fg);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.muted, .label, .lead, .rte, .field__hint, .acard__excerpt) {
+  color: var(--band-mute);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(h1, h2, h3, .h1, .h2, .h3, .label--ink, .label--accent, .rte strong, .rte h2, .rte h3) {
+  color: var(--band-fg);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.rule, .sec-head, .acc, .acc__item, .quote, .note, .notes > * .note) {
+  border-color: var(--band-rule);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .link {
+  color: var(--band-fg);
+  border-color: var(--band-rule);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .link:hover { border-color: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .rte a { color: var(--band-fg); border-bottom-color: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .rte a:hover { background: var(--band-rule); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .rte ul > li::before { background: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .rte blockquote { border-left-color: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .tag { color: var(--band-fg); border-color: var(--band-rule); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.motif, .motif__art) { color: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .motif--rule { color: var(--band-rule); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .note__num,
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .season-line__num { color: var(--band-fg); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .season-line__dot { background: var(--band-rule); }
+/* The wordmark's season marker is pink on paper; on a field it needs to change */
+:is(.band--blue, .band--green, .band--ink) .logo__season { color: var(--c1); }
+:is(.band--yellow, .band--pink) .logo__season { color: var(--ink); }
+
+/* Buttons on a coloured field: the safest pairing is always ink or paper */
+:is(.band--yellow, .band--pink) .btn:not(.btn--outline) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+:is(.band--yellow, .band--pink) .btn:not(.btn--outline):hover { background: transparent; color: var(--ink); }
+:is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline) { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+:is(.band--blue, .band--green, .band--ink) .btn:not(.btn--outline):hover { background: transparent; color: var(--paper); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline { color: var(--band-fg); border-color: var(--band-rule); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) .btn--outline:hover { background: var(--band-fg); color: var(--paper); border-color: var(--band-fg); }
+:is(.band--yellow, .band--pink) .btn--outline:hover { color: var(--c1); }
+
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea, .select) {
+  color: var(--band-fg);
+  border-bottom-color: var(--band-rule);
+}
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea)::placeholder { color: var(--band-mute); }
+:is(.band--yellow, .band--pink, .band--blue, .band--green, .band--ink) :is(.input, .textarea, .select):focus { border-bottom-color: var(--band-fg); }
 
 /* A single hairline, used as a divider anywhere */
 .rule { border: 0; border-top: var(--rule); margin: 0; }
@@ -254,8 +316,8 @@ h4, .h4 {
   gap: 10px;
   min-height: 50px;
   padding: 13px 28px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--c1);
+  color: var(--c1-on);
   border: 1px solid var(--ink);
   border-radius: var(--r-sm);
   font-size: .78rem;
@@ -268,14 +330,14 @@ h4, .h4 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-.btn:hover { background: transparent; color: var(--ink); }
+.btn:hover { background: var(--ink); color: var(--paper); }
 .btn[disabled], .btn[aria-disabled="true"] {
   opacity: .38;
   pointer-events: none;
 }
 
-.btn--accent { background: var(--accent); border-color: var(--accent); color: var(--accent-on); }
-.btn--accent:hover { background: transparent; color: var(--accent-ink); border-color: var(--accent-ink); }
+.btn--ink { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn--ink:hover { background: var(--c1); color: var(--c1-on); }
 
 .btn--outline { background: transparent; color: var(--ink); border-color: var(--ink-38); }
 .btn--outline:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
@@ -303,7 +365,7 @@ h4, .h4 {
 .link:hover { border-color: var(--ink); }
 .link svg { width: 15px; height: 15px; transition: transform .25s var(--ease-out); }
 .link:hover svg { transform: translateX(4px); }
-.link--accent { color: var(--accent-ink); border-color: var(--accent); }
+.link--accent { color: var(--mark); border-color: var(--mark); }
 
 /* ---------- Tags ---------- */
 .tag {
@@ -325,7 +387,7 @@ h4, .h4 {
 }
 a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .tag--solid { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-.tag--accent { background: var(--accent); border-color: var(--accent); color: var(--accent-on); }
+.tag--accent { background: var(--c1); border-color: var(--ink); color: var(--c1-on); }
 .tag--ghost { background: var(--card); }
 .tag[aria-current] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 
@@ -363,7 +425,7 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .input::placeholder, .textarea::placeholder { color: var(--ink-38); }
 .input:focus, .textarea:focus, .select:focus {
   outline: none;
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--mark);
 }
 .textarea { min-height: 130px; resize: vertical; padding-top: 8px; }
 .select {
@@ -428,11 +490,11 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .rte strong { color: var(--ink); font-weight: 600; }
 .rte a {
   color: var(--ink);
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 2px solid var(--c1);
   padding-bottom: 1px;
   transition: background .2s var(--ease);
 }
-.rte a:hover { background: var(--accent-soft); }
+.rte a:hover { background: var(--c1); }
 .rte ul, .rte ol { padding-left: 1.35em; }
 .rte ul { list-style: none; }
 .rte ul > li { position: relative; }
@@ -441,7 +503,7 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
   position: absolute;
   left: -1.1em; top: .78em;
   width: 14px; height: 1px;
-  background: var(--accent);
+  background: var(--mark);
 }
 .rte ol { list-style: decimal; }
 .rte ol > li::marker { color: var(--ink-38); font-variant-numeric: tabular-nums; }
@@ -449,7 +511,7 @@ a.tag:hover { border-color: var(--ink); color: var(--ink); }
 .rte blockquote {
   margin: 2em 0;
   padding-left: 26px;
-  border-left: 2px solid var(--accent);
+  border-left: 3px solid var(--c1);
   color: var(--ink);
   font-family: var(--font-display);
   font-variation-settings: var(--display-settings);

@@ -3,12 +3,41 @@
     "hero": {
       "type": "hero",
       "blocks": {
-        "f1": { "type": "fact", "settings": { "label": "The season", "text": "One subject, three months" } },
-        "f2": { "type": "fact", "settings": { "label": "Delivery", "text": "Free UK over £35" } },
-        "f3": { "type": "fact", "settings": { "label": "Returns", "text": "30 days, unworn" } },
-        "f4": { "type": "fact", "settings": { "label": "Next season", "text": "Announced in the letter" } }
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "The season",
+            "text": "One subject, three months"
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Delivery",
+            "text": "Free UK over £35"
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "label": "Returns",
+            "text": "30 days, unworn"
+          }
+        },
+        "f4": {
+          "type": "fact",
+          "settings": {
+            "label": "Next season",
+            "text": "Announced in the letter"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
       "settings": {
         "heading": "Everything is about <em>ducks</em> right now.",
         "subheading": "A quarterly obsession. For the next three months the whole shop — hats, shirts, socks, prints, small odd things — answers to one subject. This one has feathers.",
@@ -23,16 +52,73 @@
     "collections": {
       "type": "collection-index",
       "blocks": {
-        "c1": { "type": "collection", "settings": { "collection": "hats", "label": "Hats" } },
-        "c2": { "type": "collection", "settings": { "collection": "shirts", "label": "Shirts" } },
-        "c3": { "type": "collection", "settings": { "collection": "mugs-cups", "label": "Mugs & cups" } },
-        "c4": { "type": "collection", "settings": { "collection": "printed-posters", "label": "Prints" } },
-        "c5": { "type": "collection", "settings": { "collection": "socks", "label": "Socks" } },
-        "c6": { "type": "collection", "settings": { "collection": "slippers", "label": "Slippers" } },
-        "c7": { "type": "collection", "settings": { "collection": "caps", "label": "Caps" } },
-        "c8": { "type": "collection", "settings": { "collection": "stuff-we-need", "label": "Stuff we need" } }
+        "c1": {
+          "type": "collection",
+          "settings": {
+            "collection": "hats",
+            "label": "Hats"
+          }
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {
+            "collection": "shirts",
+            "label": "Shirts"
+          }
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "mugs-cups",
+            "label": "Mugs & cups"
+          }
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {
+            "collection": "printed-posters",
+            "label": "Prints"
+          }
+        },
+        "c5": {
+          "type": "collection",
+          "settings": {
+            "collection": "socks",
+            "label": "Socks"
+          }
+        },
+        "c6": {
+          "type": "collection",
+          "settings": {
+            "collection": "slippers",
+            "label": "Slippers"
+          }
+        },
+        "c7": {
+          "type": "collection",
+          "settings": {
+            "collection": "caps",
+            "label": "Caps"
+          }
+        },
+        "c8": {
+          "type": "collection",
+          "settings": {
+            "collection": "stuff-we-need",
+            "label": "Stuff we need"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8"
+      ],
       "settings": {
         "label": "The shop",
         "heading": "Where to start",
@@ -51,7 +137,7 @@
         "heading": "The pieces doing the most work",
         "text": "Not the whole range — the ones that keep going out the door.",
         "count": 8,
-        "band": "tint"
+        "band": "paper"
       }
     },
     "season-note": {
@@ -63,7 +149,7 @@
         "signature": "Julia",
         "cta_label": "Read the journal",
         "cta_link": "/blogs/journal",
-        "band": "season"
+        "band": "blue"
       }
     },
     "editorial": {
@@ -77,7 +163,7 @@
         "text": "<p>Most shops add. This one replaces. Every quarter the whole range is rebuilt around a single subject, so what you find here is a considered set rather than an endless catalogue.</p><p>It means the good things sell out and do not come back. It also means nothing sits around for two years looking tired.</p>",
         "cta_label": "See the whole season",
         "cta_link": "/collections/duck-mood",
-        "band": "paper"
+        "band": "tint"
       }
     },
     "fresh": {
@@ -93,15 +179,40 @@
     "quotes": {
       "type": "testimonials",
       "blocks": {
-        "q1": { "type": "quote", "settings": { "stars": 5, "text": "I bought the bucket hat as a joke and have now worn it every day for a month. The joke is on me.", "author": "Rosie, Leeds" } },
-        "q2": { "type": "quote", "settings": { "stars": 5, "text": "The print is genuinely lovely — properly framed it does not read as novelty at all, which I did not expect.", "author": "Alex, Bristol" } },
-        "q3": { "type": "quote", "settings": { "stars": 5, "text": "Ordered on the Sunday, wearing the socks by the Thursday. No notes.", "author": "Mina, Glasgow" } }
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "I bought the bucket hat as a joke and have now worn it every day for a month. The joke is on me.",
+            "author": "Rosie, Leeds"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "The print is genuinely lovely — properly framed it does not read as novelty at all, which I did not expect.",
+            "author": "Alex, Bristol"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "text": "Ordered on the Sunday, wearing the socks by the Thursday. No notes.",
+            "author": "Mina, Glasgow"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
       "settings": {
         "label": "From the post",
         "heading": "What people said about it",
-        "band": "tint"
+        "band": "paper"
       }
     },
     "journal": {
@@ -111,19 +222,55 @@
         "label": "The journal",
         "heading": "Reading, while you decide",
         "count": 3,
-        "band": "paper"
+        "band": "tint"
       }
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "f1": { "type": "qa", "settings": { "question": "What actually is a season?", "answer": "<p>A single subject that the whole shop is built around for three months. Season 01 is ducks. When it closes, the range is replaced rather than added to.</p>" } },
-        "f2": { "type": "qa", "settings": { "question": "What happens to things that sell out?", "answer": "<p>They stay sold out. Stock is bought once per season, so if something goes early it does not come back.</p>" } },
-        "f3": { "type": "qa", "settings": { "question": "How do the hats fit?", "answer": "<p>Most bucket hats are a 56–58cm one size. Where a product has several sizes they are listed on its own page — measure around your head just above the ears and go by that.</p>" } },
-        "f4": { "type": "qa", "settings": { "question": "Delivery and returns?", "answer": "<p>Free UK delivery over £35, worldwide shipping calculated at checkout, and thirty days to send something back unworn and in its packaging.</p>" } },
-        "f5": { "type": "qa", "settings": { "question": "Can I suggest the next season?", "answer": "<p>Yes, and it works — subjects get chosen partly from what people ask for. Reply to the season letter or send an email.</p>" } }
+        "f1": {
+          "type": "qa",
+          "settings": {
+            "question": "What actually is a season?",
+            "answer": "<p>A single subject that the whole shop is built around for three months. Season 01 is ducks. When it closes, the range is replaced rather than added to.</p>"
+          }
+        },
+        "f2": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens to things that sell out?",
+            "answer": "<p>They stay sold out. Stock is bought once per season, so if something goes early it does not come back.</p>"
+          }
+        },
+        "f3": {
+          "type": "qa",
+          "settings": {
+            "question": "How do the hats fit?",
+            "answer": "<p>Most bucket hats are a 56–58cm one size. Where a product has several sizes they are listed on its own page — measure around your head just above the ears and go by that.</p>"
+          }
+        },
+        "f4": {
+          "type": "qa",
+          "settings": {
+            "question": "Delivery and returns?",
+            "answer": "<p>Free UK delivery over £35, worldwide shipping calculated at checkout, and thirty days to send something back unworn and in its packaging.</p>"
+          }
+        },
+        "f5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I suggest the next season?",
+            "answer": "<p>Yes, and it works — subjects get chosen partly from what people ask for. Reply to the season letter or send an email.</p>"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {
         "label": "Questions",
         "heading": "The practical part",
@@ -138,7 +285,7 @@
         "text": "When it ends, what has gone has gone. The next subject has already been chosen and it is not this one.",
         "cta_label": "Shop the season",
         "cta_link": "/collections/duck-mood",
-        "band": "ink"
+        "band": "pink"
       }
     }
   },

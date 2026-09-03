@@ -11,24 +11,40 @@ Season 01 is **Ducks**.
 
 ## The look
 
-Quiet editorial. Warm paper, deep ink, one seasonal accent, and type doing
-almost all of the work.
+Bold flat colour, editorial type. The palette shouts; the typography and the
+spacing keep it grown-up rather than cartoonish.
 
 | | |
 |---|---|
-| **Display** | Fraunces — variable, low WONK, used for headlines and pull quotes only |
+| **Display** | Fraunces — headlines and pull quotes only, weight 600 |
 | **Text / UI** | Inter — body copy, labels, buttons, prices |
-| **Paper** | `#FAF8F3` · tinted band `#F4F1EA` · deep band `#EDE9DF` |
-| **Ink** | `#17171A`, used at five opacities and no other colours |
-| **Accent** | Set per season. Season 01 is pond ochre `#B8863C` |
+| **Ground** | `#FFFCF2` warm white · quiet band `#FFF6DF` |
+| **Ink** | `#111111`, used at five opacities |
 
-There are no drop shadows, no rounded pill buttons and no bounce easing
-anywhere in the theme. Separation is done with hairline rules and whitespace;
-emphasis is done with scale and one accent. Radii are 2–4px — near-square by
-intent, because the softness is meant to come from spacing.
+### Season 01 palette
 
-Small tracked capitals (`.label`) carry every eyebrow, meta line and column
-heading, and they are what hold the layout together across pages.
+Taken from what the shop actually sells — rubber-duck yellow, the glitter-pink
+cowboy ducks, pond blue, and the deep green of the wall prints.
+
+| | Hex | Text on it | Contrast |
+|---|---|---|---|
+| Colour 1 — duck yellow | `#FFC72C` | ink | 12.1:1 |
+| Colour 2 — hot pink | `#FF4D8D` | ink | 6.0:1 |
+| Colour 3 — pond blue | `#1D5CE8` | white | 5.6:1 |
+| Colour 4 — deep green | `#0F7A4F` | white | 5.4:1 |
+| Accent text | `#D6006E` | on the ground | 5.0:1 |
+
+**Colour is used as fields, never as outlines or drop shadows.** Full-bleed
+bands, and flat mats behind product photography — supplier shots are mostly on
+white, so the colour does the work the photography does not. The four cycle
+across grids so no two neighbours ever match.
+
+There are no chunky borders, no hard drop shadows and no bouncy easing
+anywhere. Radii are 2–4px. Separation is hairline rules and whitespace;
+energy comes from the colour and the scale of the type.
+
+**Yellow and orange are never small text** — they fail contrast on the cream.
+That is what `--mark` exists for: the one accent that stays readable at 12px.
 
 ## The season system
 
@@ -40,13 +56,18 @@ Everything about the current quarter lives in **Customise → Season**:
 | Season name | `Ducks` — used in the season line, product kickers and fallbacks |
 | Runs | `Autumn — Winter 2026` — the dates in the season line |
 | Motif | The line drawing used as the season's ornament and as the image fallback |
-| Season accent | The one chromatic colour on the site |
-| Season collection | Linked from the wordmark area, announcement bar, footer and menu drawer |
+| Colours 1–4 | The four field colours, cycled across bands, tiles and cards |
+| Accent text colour | Small accent text on the page background |
+| Season collection | Linked from the announcement bar, footer and menu drawer |
 
-**One colour is picked, not four.** `layout/theme.liquid` derives the rest from
-it: a darker version for accent text (contrast-checked against the paper), a
-pale tint for season bands, and black or white for text placed on top of it. A
-new season needs one colour picked and nothing else reasoned about.
+**A field can never end up unreadable.** For each of the four colours,
+`layout/theme.liquid` measures its brightness and picks the only text colour
+that clears roughly 4.5:1 against it — ink on light fields, white on dark ones.
+Whatever gets chosen in the editor, the text on top of it stays legible.
+
+The one thing that is *not* derived is the accent text colour, because it sits
+on the page background rather than on a field. Keep it dark enough to read at
+12px; bright yellows and oranges will not work there.
 
 ### The motifs
 
@@ -67,10 +88,11 @@ value to the `season_motif` select in `config/settings_schema.json`.
 
 1. **Customise → Season** — set the number, name, dates, motif and accent.
 2. Point **Season collection** at the new quarter's collection.
-3. Update the home page hero heading, season note and CTA banner text.
-4. Rewrite journal posts 1 and 6 (see `blog-source/README.md`).
+3. Set the four colours and the accent text colour for the new subject.
+4. Update the home page hero heading, season note and CTA banner text.
+5. Rewrite journal posts 1 and 6 (see `blog-source/README.md`).
 
-No code changes, no CSS edits, no new colour decisions.
+No code changes and no CSS edits — the contrast maths is handled for you.
 
 ## Structure
 
@@ -98,6 +120,8 @@ without it: forms still post, links still navigate, the cart still works.
 - The header hides on scroll down and returns on scroll up.
 - Product rows are swipeable snap rails on phones and grids from 750px.
 - The collection index is 2 columns on phones, 3 at 750px, 4 at 1100px.
+- Collection tiles, product cards, blog cards and the product gallery all put
+  the photo on a colour mat, cycling through the four season colours.
 - The product gallery is a swipe rail with dashes on mobile and a stacked
   column on desktop.
 - A sticky add-to-cart bar appears once the real button scrolls out of view.

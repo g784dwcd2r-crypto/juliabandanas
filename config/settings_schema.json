@@ -53,11 +53,44 @@
         "default": "duck"
       },
       {
+        "type": "header",
+        "content": "Season palette"
+      },
+      {
+        "type": "paragraph",
+        "content": "Four colours used as flat fields — on bands, and behind product photography. They cycle, so no two neighbours in a grid ever match. The colour of text placed on each one is worked out automatically, so a field is never unreadable."
+      },
+      {
         "type": "color",
-        "id": "season_accent",
-        "label": "Season accent",
-        "default": "#B8863C",
-        "info": "The only chromatic colour on the site. Everything else — the darker text version, the pale band and the colour of text placed on top of it — is worked out from this one value."
+        "id": "season_c1",
+        "label": "Colour 1 — the main one",
+        "default": "#FFC72C",
+        "info": "Carries the announcement bar and the hero."
+      },
+      {
+        "type": "color",
+        "id": "season_c2",
+        "label": "Colour 2",
+        "default": "#FF4D8D"
+      },
+      {
+        "type": "color",
+        "id": "season_c3",
+        "label": "Colour 3",
+        "default": "#1D5CE8"
+      },
+      {
+        "type": "color",
+        "id": "season_c4",
+        "label": "Colour 4",
+        "default": "#0F7A4F"
+      },
+      {
+        "type": "color",
+        "id": "season_mark",
+        "label": "Accent text colour",
+        "default": "#D6006E",
+        "info": "Used for small accent text on the page background — labels, the season number, prices in a kicker. It has to stay readable at 12px, so keep it dark enough. Bright yellows and oranges will not work here."
       },
       {
         "type": "header",
@@ -115,31 +148,25 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Three warm papers and one ink. The season accent lives in the Season panel."
+        "content": "The ground the colour sits on. The season palette lives in the Season panel."
       },
       {
         "type": "color",
         "id": "color_paper",
-        "label": "Paper",
-        "default": "#FAF8F3"
+        "label": "Page background",
+        "default": "#FFFCF2"
       },
       {
         "type": "color",
         "id": "color_paper_2",
-        "label": "Paper — tinted band",
-        "default": "#F4F1EA"
-      },
-      {
-        "type": "color",
-        "id": "color_paper_3",
-        "label": "Paper — deep band",
-        "default": "#EDE9DF"
+        "label": "Quiet band",
+        "default": "#FFF6DF"
       },
       {
         "type": "color",
         "id": "color_ink",
         "label": "Ink",
-        "default": "#17171A"
+        "default": "#111111"
       }
     ]
   },
@@ -167,7 +194,7 @@
         "min": 300,
         "max": 700,
         "step": 100,
-        "default": 500
+        "default": 600
       },
       {
         "type": "checkbox",
